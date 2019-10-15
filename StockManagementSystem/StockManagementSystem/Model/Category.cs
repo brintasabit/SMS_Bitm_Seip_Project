@@ -8,5 +8,8 @@ namespace StockManagementSystem.Model
 {
     class Category
     {
+        public string code { set; get; }
+        private string name { get; set; }
+
     }
 }

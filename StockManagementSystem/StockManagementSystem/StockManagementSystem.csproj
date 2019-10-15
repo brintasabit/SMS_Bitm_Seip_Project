@@ -48,6 +48,7 @@
   <ItemGroup>
     <Compile Include="Bill\CategoryManager.cs" />
     <Compile Include="Model\Category.cs" />
+    <Compile Include="Model\Product.cs" />
     <Compile Include="PartyModuleCustomer.cs">
       <SubType>Form</SubType>
     </Compile>

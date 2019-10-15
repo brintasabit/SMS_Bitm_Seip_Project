@@ -31,33 +31,35 @@ namespace StockManagementSystem
             Cursor.Current = Cursors.WaitCursor;
             try
             {
-                categoryBindingSource.EndEdit();
-                categoryTableAdapter.Update(this.appdata.Category);
+                        categoryBindingSource.EndEdit();
+                        categoryTableAdapter.Update(appdata.Category);
+                        
+
                 _category.Code = textBoxCode.Text;
                 _category.Name = textBoxName.Text;
                 List<Category> categoriesCode = _categoryManager.SearchCategoriesCode(_category);
                 List<Category> categoriesName = _categoryManager.SearchCategoriesName(_category);
-                if (_category.Code.Length==0)
+                if (_category.Code.Length == 0)
                 {
                     MessageBox.Show("Code Can't Be Empty!");
                 }
-                else if(_category.Name.Length==0)
+                else if (_category.Name.Length == 0)
                 {
                     MessageBox.Show("Name Can't Be Empty!");
                 }
-                else if (_category.Code.Length<4)
+                else if (_category.Code.Length < 4)
                 {
                     MessageBox.Show("Code Must Be 4 Character");
                 }
-                else if (_category.Code.Length>4)
+                else if (_category.Code.Length > 4)
                 {
                     MessageBox.Show("Code Must Not Exceed 4 Character!");
                 }
-                else if (categoriesCode.Count>0)
+                else if (categoriesCode.Count > 0)
                 {
                     MessageBox.Show("Code Exists!");
                 }
-                else if (categoriesName.Count>0)
+                else if (categoriesName.Count > 0)
                 {
                     MessageBox.Show("Name Exists!");
                 }
@@ -68,10 +70,12 @@ namespace StockManagementSystem
                     {
                         MessageBox.Show("Saved");
                         dataGridViewCategory.DataSource = _categoryManager.ShowCategories(_category);
+
                     }
                 }
                 textBoxCode.Clear();
                 textBoxName.Clear();
+
 
             }
             catch (Exception exception)
@@ -87,7 +91,7 @@ namespace StockManagementSystem
             try
             {
                 textBoxCode.Text = dataGridViewCategory.SelectedRows[0].Cells[1].Value.ToString();
-                textBoxName.Text= dataGridViewCategory.SelectedRows[0].Cells[2].Value.ToString();
+                textBoxName.Text = dataGridViewCategory.SelectedRows[0].Cells[2].Value.ToString();
             }
             catch (Exception exception)
             {
@@ -102,7 +106,7 @@ namespace StockManagementSystem
             this.categoryTableAdapter.Fill(this.appdata.Category);
             // TODO: This line of code loads data into the 'stockManagementSystemDataSet.Category' table. You can move, or remove it, as needed.
             this.categoryTableAdapter.Fill(this.appdata.Category);
-            dataGridViewCategory.DataSource = _categoryManager.ShowCategories(_category);
+            //dataGridViewCategory.DataSource = _categoryManager.ShowCategories(_category);
         }
 
         private void dataGridViewCategory_KeyDown(object sender, KeyEventArgs e)

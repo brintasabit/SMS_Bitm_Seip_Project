@@ -35,16 +35,16 @@
             this.textBoxName = new System.Windows.Forms.TextBox();
             this.ButtonSave = new System.Windows.Forms.Button();
             this.dataGridViewCategory = new System.Windows.Forms.DataGridView();
-            this.appdata = new StockManagementSystem.Appdata();
-            this.categoryBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.categoryTableAdapter = new StockManagementSystem.AppdataTableAdapters.CategoryTableAdapter();
             this.SL = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.codeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.nameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Edit = new System.Windows.Forms.DataGridViewLinkColumn();
+            this.categoryBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.appdata = new StockManagementSystem.Appdata();
+            this.categoryTableAdapter = new StockManagementSystem.AppdataTableAdapters.CategoryTableAdapter();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewCategory)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.appdata)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.categoryBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.appdata)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -104,26 +104,11 @@
             this.dataGridViewCategory.Location = new System.Drawing.Point(130, 254);
             this.dataGridViewCategory.Name = "dataGridViewCategory";
             this.dataGridViewCategory.RowTemplate.Height = 28;
-            this.dataGridViewCategory.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dataGridViewCategory.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect;
             this.dataGridViewCategory.Size = new System.Drawing.Size(630, 150);
             this.dataGridViewCategory.TabIndex = 5;
             this.dataGridViewCategory.RowPostPaint += new System.Windows.Forms.DataGridViewRowPostPaintEventHandler(this.dataGridViewCategory_RowPostPaint);
             this.dataGridViewCategory.KeyDown += new System.Windows.Forms.KeyEventHandler(this.dataGridViewCategory_KeyDown);
-            this.dataGridViewCategory.MouseClick += new System.Windows.Forms.MouseEventHandler(this.dataGridViewCategory_MouseClick);
-            // 
-            // appdata
-            // 
-            this.appdata.DataSetName = "Appdata";
-            this.appdata.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // categoryBindingSource
-            // 
-            this.categoryBindingSource.DataMember = "Category";
-            this.categoryBindingSource.DataSource = this.appdata;
-            // 
-            // categoryTableAdapter
-            // 
-            this.categoryTableAdapter.ClearBeforeFill = true;
             // 
             // SL
             // 
@@ -152,6 +137,20 @@
             this.Edit.Name = "Edit";
             this.Edit.Text = "Edit";
             // 
+            // categoryBindingSource
+            // 
+            this.categoryBindingSource.DataMember = "Category";
+            this.categoryBindingSource.DataSource = this.appdata;
+            // 
+            // appdata
+            // 
+            this.appdata.DataSetName = "Appdata";
+            this.appdata.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // categoryTableAdapter
+            // 
+            this.categoryTableAdapter.ClearBeforeFill = true;
+            // 
             // ProductCatalogModuleCategory
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
@@ -168,8 +167,8 @@
             this.Text = "Category";
             this.Load += new System.EventHandler(this.ProductCatalogModuleCategory_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewCategory)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.appdata)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.categoryBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.appdata)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 

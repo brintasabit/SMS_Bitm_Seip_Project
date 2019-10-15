@@ -35,12 +35,15 @@
             this.textBoxName = new System.Windows.Forms.TextBox();
             this.ButtonSave = new System.Windows.Forms.Button();
             this.dataGridViewCategory = new System.Windows.Forms.DataGridView();
+            this.appdata = new StockManagementSystem.Appdata();
             this.categoryBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.categoryTableAdapter = new StockManagementSystem.AppdataTableAdapters.CategoryTableAdapter();
             this.SL = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.codeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.nameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Edit = new System.Windows.Forms.DataGridViewLinkColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewCategory)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.appdata)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.categoryBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
@@ -98,18 +101,29 @@
             this.nameDataGridViewTextBoxColumn,
             this.Edit});
             this.dataGridViewCategory.DataSource = this.categoryBindingSource;
-            this.dataGridViewCategory.Location = new System.Drawing.Point(143, 261);
+            this.dataGridViewCategory.Location = new System.Drawing.Point(130, 254);
             this.dataGridViewCategory.Name = "dataGridViewCategory";
             this.dataGridViewCategory.RowTemplate.Height = 28;
             this.dataGridViewCategory.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridViewCategory.Size = new System.Drawing.Size(630, 150);
             this.dataGridViewCategory.TabIndex = 5;
             this.dataGridViewCategory.RowPostPaint += new System.Windows.Forms.DataGridViewRowPostPaintEventHandler(this.dataGridViewCategory_RowPostPaint);
+            this.dataGridViewCategory.KeyDown += new System.Windows.Forms.KeyEventHandler(this.dataGridViewCategory_KeyDown);
             this.dataGridViewCategory.MouseClick += new System.Windows.Forms.MouseEventHandler(this.dataGridViewCategory_MouseClick);
+            // 
+            // appdata
+            // 
+            this.appdata.DataSetName = "Appdata";
+            this.appdata.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // categoryBindingSource
             // 
-            this.categoryBindingSource.DataSource = typeof(StockManagementSystem.Model.Category);
+            this.categoryBindingSource.DataMember = "Category";
+            this.categoryBindingSource.DataSource = this.appdata;
+            // 
+            // categoryTableAdapter
+            // 
+            this.categoryTableAdapter.ClearBeforeFill = true;
             // 
             // SL
             // 
@@ -154,6 +168,7 @@
             this.Text = "Category";
             this.Load += new System.EventHandler(this.ProductCatalogModuleCategory_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewCategory)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.appdata)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.categoryBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -168,7 +183,9 @@
         private System.Windows.Forms.TextBox textBoxName;
         private System.Windows.Forms.Button ButtonSave;
         private System.Windows.Forms.DataGridView dataGridViewCategory;
+        private Appdata appdata;
         private System.Windows.Forms.BindingSource categoryBindingSource;
+        private AppdataTableAdapters.CategoryTableAdapter categoryTableAdapter;
         private System.Windows.Forms.DataGridViewTextBoxColumn SL;
         private System.Windows.Forms.DataGridViewTextBoxColumn codeDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn nameDataGridViewTextBoxColumn;

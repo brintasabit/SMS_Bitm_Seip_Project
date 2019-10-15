@@ -28,12 +28,14 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.comboBoxCategory = new System.Windows.Forms.ComboBox();
+            this.categoryBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.textBoxCode = new System.Windows.Forms.TextBox();
             this.textBoxName = new System.Windows.Forms.TextBox();
             this.textBoxReOrderLevel = new System.Windows.Forms.TextBox();
@@ -41,7 +43,16 @@
             this.buttonSave = new System.Windows.Forms.Button();
             this.dataGridViewProduct = new System.Windows.Forms.DataGridView();
             this.SL = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.categoryDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.codeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.nameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.reOrderLevelDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.descriptionDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Action = new System.Windows.Forms.DataGridViewLinkColumn();
+            this.productBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            ((System.ComponentModel.ISupportInitialize)(this.categoryBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewProduct)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.productBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -91,11 +102,19 @@
             // 
             // comboBoxCategory
             // 
+            this.comboBoxCategory.DataSource = this.categoryBindingSource;
+            this.comboBoxCategory.DisplayMember = "Name";
+            this.comboBoxCategory.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBoxCategory.FormattingEnabled = true;
             this.comboBoxCategory.Location = new System.Drawing.Point(535, 23);
             this.comboBoxCategory.Name = "comboBoxCategory";
             this.comboBoxCategory.Size = new System.Drawing.Size(188, 28);
             this.comboBoxCategory.TabIndex = 5;
+            this.comboBoxCategory.ValueMember = "Code";
+            // 
+            // categoryBindingSource
+            // 
+            this.categoryBindingSource.DataSource = typeof(StockManagementSystem.Model.Category);
             // 
             // textBoxCode
             // 
@@ -128,29 +147,82 @@
             // 
             // buttonSave
             // 
-            this.buttonSave.Location = new System.Drawing.Point(648, 401);
+            this.buttonSave.Location = new System.Drawing.Point(648, 392);
             this.buttonSave.Name = "buttonSave";
             this.buttonSave.Size = new System.Drawing.Size(75, 38);
             this.buttonSave.TabIndex = 10;
             this.buttonSave.Text = "Save";
             this.buttonSave.UseVisualStyleBackColor = true;
+            this.buttonSave.Click += new System.EventHandler(this.buttonSave_Click);
             // 
             // dataGridViewProduct
             // 
+            this.dataGridViewProduct.AutoGenerateColumns = false;
             this.dataGridViewProduct.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridViewProduct.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.SL});
-            this.dataGridViewProduct.Location = new System.Drawing.Point(193, 459);
+            this.SL,
+            this.categoryDataGridViewTextBoxColumn,
+            this.codeDataGridViewTextBoxColumn,
+            this.nameDataGridViewTextBoxColumn,
+            this.reOrderLevelDataGridViewTextBoxColumn,
+            this.descriptionDataGridViewTextBoxColumn,
+            this.Action});
+            this.dataGridViewProduct.DataSource = this.productBindingSource;
+            this.dataGridViewProduct.Location = new System.Drawing.Point(91, 445);
             this.dataGridViewProduct.Name = "dataGridViewProduct";
             this.dataGridViewProduct.RowTemplate.Height = 28;
-            this.dataGridViewProduct.Size = new System.Drawing.Size(810, 197);
+            this.dataGridViewProduct.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dataGridViewProduct.Size = new System.Drawing.Size(983, 197);
             this.dataGridViewProduct.TabIndex = 11;
             this.dataGridViewProduct.RowPostPaint += new System.Windows.Forms.DataGridViewRowPostPaintEventHandler(this.dataGridViewProduct_RowPostPaint);
+            this.dataGridViewProduct.MouseClick += new System.Windows.Forms.MouseEventHandler(this.dataGridViewProduct_MouseClick);
             // 
             // SL
             // 
             this.SL.HeaderText = "SL";
             this.SL.Name = "SL";
+            // 
+            // categoryDataGridViewTextBoxColumn
+            // 
+            this.categoryDataGridViewTextBoxColumn.DataPropertyName = "Category";
+            this.categoryDataGridViewTextBoxColumn.HeaderText = "Category";
+            this.categoryDataGridViewTextBoxColumn.Name = "categoryDataGridViewTextBoxColumn";
+            // 
+            // codeDataGridViewTextBoxColumn
+            // 
+            this.codeDataGridViewTextBoxColumn.DataPropertyName = "Code";
+            this.codeDataGridViewTextBoxColumn.HeaderText = "Code";
+            this.codeDataGridViewTextBoxColumn.Name = "codeDataGridViewTextBoxColumn";
+            // 
+            // nameDataGridViewTextBoxColumn
+            // 
+            this.nameDataGridViewTextBoxColumn.DataPropertyName = "Name";
+            this.nameDataGridViewTextBoxColumn.HeaderText = "Name";
+            this.nameDataGridViewTextBoxColumn.Name = "nameDataGridViewTextBoxColumn";
+            // 
+            // reOrderLevelDataGridViewTextBoxColumn
+            // 
+            this.reOrderLevelDataGridViewTextBoxColumn.DataPropertyName = "ReOrderLevel";
+            this.reOrderLevelDataGridViewTextBoxColumn.HeaderText = "ReOrderLevel";
+            this.reOrderLevelDataGridViewTextBoxColumn.Name = "reOrderLevelDataGridViewTextBoxColumn";
+            // 
+            // descriptionDataGridViewTextBoxColumn
+            // 
+            this.descriptionDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.descriptionDataGridViewTextBoxColumn.DataPropertyName = "Description";
+            this.descriptionDataGridViewTextBoxColumn.HeaderText = "Description";
+            this.descriptionDataGridViewTextBoxColumn.Name = "descriptionDataGridViewTextBoxColumn";
+            // 
+            // Action
+            // 
+            this.Action.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Action.DataPropertyName = "Category";
+            this.Action.HeaderText = "Action";
+            this.Action.Name = "Action";
+            // 
+            // productBindingSource
+            // 
+            this.productBindingSource.DataSource = typeof(StockManagementSystem.Model.Product);
             // 
             // ProductCatalogModuleProduct
             // 
@@ -172,7 +244,10 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Name = "ProductCatalogModuleProduct";
             this.Text = "Product";
+            this.Load += new System.EventHandler(this.ProductCatalogModuleProduct_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.categoryBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewProduct)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.productBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -192,6 +267,14 @@
         private System.Windows.Forms.TextBox textBoxDescription;
         private System.Windows.Forms.Button buttonSave;
         private System.Windows.Forms.DataGridView dataGridViewProduct;
+        private System.Windows.Forms.BindingSource categoryBindingSource;
+        private System.Windows.Forms.BindingSource productBindingSource;
         private System.Windows.Forms.DataGridViewTextBoxColumn SL;
+        private System.Windows.Forms.DataGridViewTextBoxColumn categoryDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn codeDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn nameDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn reOrderLevelDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn descriptionDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewLinkColumn Action;
     }
 }

@@ -145,6 +145,7 @@
             this.dataGridViewProduct.RowTemplate.Height = 28;
             this.dataGridViewProduct.Size = new System.Drawing.Size(810, 197);
             this.dataGridViewProduct.TabIndex = 11;
+            this.dataGridViewProduct.RowPostPaint += new System.Windows.Forms.DataGridViewRowPostPaintEventHandler(this.dataGridViewProduct_RowPostPaint);
             // 
             // SL
             // 

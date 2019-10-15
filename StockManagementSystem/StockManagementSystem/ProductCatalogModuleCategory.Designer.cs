@@ -91,6 +91,7 @@
             this.dataGridViewCategory.RowTemplate.Height = 28;
             this.dataGridViewCategory.Size = new System.Drawing.Size(587, 150);
             this.dataGridViewCategory.TabIndex = 5;
+            this.dataGridViewCategory.RowPostPaint += new System.Windows.Forms.DataGridViewRowPostPaintEventHandler(this.dataGridViewCategory_RowPostPaint);
             // 
             // SL
             // 

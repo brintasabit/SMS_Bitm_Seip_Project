@@ -20,5 +20,10 @@ namespace StockManagementSystem
         {
             InitializeComponent();
         }
+
+        private void dataGridViewCategory_RowPostPaint(object sender, DataGridViewRowPostPaintEventArgs e)
+        {
+            dataGridViewCategory.Rows[e.RowIndex].Cells[0].Value = (e.RowIndex + 1).ToString();
+        }
     }
 }

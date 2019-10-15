@@ -28,14 +28,20 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.textBoxCode = new System.Windows.Forms.TextBox();
             this.textBoxName = new System.Windows.Forms.TextBox();
             this.ButtonSave = new System.Windows.Forms.Button();
             this.dataGridViewCategory = new System.Windows.Forms.DataGridView();
+            this.categoryBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.SL = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.codeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.nameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Edit = new System.Windows.Forms.DataGridViewLinkColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewCategory)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.categoryBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -80,23 +86,57 @@
             this.ButtonSave.TabIndex = 4;
             this.ButtonSave.Text = "Save";
             this.ButtonSave.UseVisualStyleBackColor = true;
+            this.ButtonSave.Click += new System.EventHandler(this.ButtonSave_Click);
             // 
             // dataGridViewCategory
             // 
+            this.dataGridViewCategory.AutoGenerateColumns = false;
             this.dataGridViewCategory.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridViewCategory.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.SL});
-            this.dataGridViewCategory.Location = new System.Drawing.Point(161, 270);
+            this.SL,
+            this.codeDataGridViewTextBoxColumn,
+            this.nameDataGridViewTextBoxColumn,
+            this.Edit});
+            this.dataGridViewCategory.DataSource = this.categoryBindingSource;
+            this.dataGridViewCategory.Location = new System.Drawing.Point(143, 261);
             this.dataGridViewCategory.Name = "dataGridViewCategory";
             this.dataGridViewCategory.RowTemplate.Height = 28;
-            this.dataGridViewCategory.Size = new System.Drawing.Size(587, 150);
+            this.dataGridViewCategory.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dataGridViewCategory.Size = new System.Drawing.Size(630, 150);
             this.dataGridViewCategory.TabIndex = 5;
             this.dataGridViewCategory.RowPostPaint += new System.Windows.Forms.DataGridViewRowPostPaintEventHandler(this.dataGridViewCategory_RowPostPaint);
+            this.dataGridViewCategory.MouseClick += new System.Windows.Forms.MouseEventHandler(this.dataGridViewCategory_MouseClick);
+            // 
+            // categoryBindingSource
+            // 
+            this.categoryBindingSource.DataSource = typeof(StockManagementSystem.Model.Category);
             // 
             // SL
             // 
             this.SL.HeaderText = "SL";
             this.SL.Name = "SL";
+            // 
+            // codeDataGridViewTextBoxColumn
+            // 
+            this.codeDataGridViewTextBoxColumn.DataPropertyName = "Code";
+            this.codeDataGridViewTextBoxColumn.HeaderText = "Code";
+            this.codeDataGridViewTextBoxColumn.Name = "codeDataGridViewTextBoxColumn";
+            // 
+            // nameDataGridViewTextBoxColumn
+            // 
+            this.nameDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.nameDataGridViewTextBoxColumn.DataPropertyName = "Name";
+            this.nameDataGridViewTextBoxColumn.HeaderText = "Name";
+            this.nameDataGridViewTextBoxColumn.Name = "nameDataGridViewTextBoxColumn";
+            // 
+            // Edit
+            // 
+            this.Edit.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Edit.DataPropertyName = "Edit";
+            this.Edit.HeaderText = "Action";
+            this.Edit.LinkBehavior = System.Windows.Forms.LinkBehavior.AlwaysUnderline;
+            this.Edit.Name = "Edit";
+            this.Edit.Text = "Edit";
             // 
             // ProductCatalogModuleCategory
             // 
@@ -112,7 +152,9 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Name = "ProductCatalogModuleCategory";
             this.Text = "Category";
+            this.Load += new System.EventHandler(this.ProductCatalogModuleCategory_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewCategory)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.categoryBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -126,6 +168,10 @@
         private System.Windows.Forms.TextBox textBoxName;
         private System.Windows.Forms.Button ButtonSave;
         private System.Windows.Forms.DataGridView dataGridViewCategory;
+        private System.Windows.Forms.BindingSource categoryBindingSource;
         private System.Windows.Forms.DataGridViewTextBoxColumn SL;
+        private System.Windows.Forms.DataGridViewTextBoxColumn codeDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn nameDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewLinkColumn Edit;
     }
 }

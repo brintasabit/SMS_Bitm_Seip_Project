@@ -8,8 +8,21 @@ namespace StockManagementSystem.Model
 {
     class Category
     {
-        public string code { set; get; }
-        private string name { get; set; }
+        private string code;
+        private string name;
+        public string Edit { get; set; }
+
+        public string Code
+        {
+            get => code;
+            set => code = value;
+        }
+
+        public string Name
+        {
+            get => name;
+            set => name = value;
+        }
 
     }
 }

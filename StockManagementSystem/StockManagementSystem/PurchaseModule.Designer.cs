@@ -436,6 +436,7 @@
             this.dataGridViewPurchase.RowTemplate.Height = 28;
             this.dataGridViewPurchase.Size = new System.Drawing.Size(1092, 102);
             this.dataGridViewPurchase.TabIndex = 2;
+            this.dataGridViewPurchase.RowPostPaint += new System.Windows.Forms.DataGridViewRowPostPaintEventHandler(this.dataGridViewPurchase_RowPostPaint);
             // 
             // stockManagementSystemDataSet1
             // 
@@ -504,13 +505,14 @@
             this.mRPDataGridViewTextBoxColumn.DataPropertyName = "MRP";
             this.mRPDataGridViewTextBoxColumn.HeaderText = "MRP";
             this.mRPDataGridViewTextBoxColumn.Name = "mRPDataGridViewTextBoxColumn";
+            this.mRPDataGridViewTextBoxColumn.Width = 125;
             // 
             // Action
             // 
-            this.Action.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.Action.DataPropertyName = "Code";
             this.Action.HeaderText = "Action";
             this.Action.Name = "Action";
+            this.Action.Width = 124;
             // 
             // PurchaseModule
             // 

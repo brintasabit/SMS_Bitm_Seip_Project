@@ -38,6 +38,7 @@
             this.textBoxEndDate = new System.Windows.Forms.TextBox();
             this.dataGridViewStock = new System.Windows.Forms.DataGridView();
             this.buttonSearch = new System.Windows.Forms.Button();
+            this.SL = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewStock)).BeginInit();
             this.SuspendLayout();
             // 
@@ -108,11 +109,14 @@
             // dataGridViewStock
             // 
             this.dataGridViewStock.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridViewStock.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.SL});
             this.dataGridViewStock.Location = new System.Drawing.Point(111, 327);
             this.dataGridViewStock.Name = "dataGridViewStock";
             this.dataGridViewStock.RowTemplate.Height = 28;
             this.dataGridViewStock.Size = new System.Drawing.Size(1024, 259);
             this.dataGridViewStock.TabIndex = 2;
+            this.dataGridViewStock.RowPostPaint += new System.Windows.Forms.DataGridViewRowPostPaintEventHandler(this.dataGridViewStock_RowPostPaint);
             // 
             // buttonSearch
             // 
@@ -122,6 +126,12 @@
             this.buttonSearch.TabIndex = 3;
             this.buttonSearch.Text = "Search";
             this.buttonSearch.UseVisualStyleBackColor = true;
+            this.buttonSearch.Click += new System.EventHandler(this.buttonSearch_Click);
+            // 
+            // SL
+            // 
+            this.SL.HeaderText = "SL";
+            this.SL.Name = "SL";
             // 
             // StockModuleStock
             // 
@@ -159,5 +169,6 @@
         private System.Windows.Forms.TextBox textBoxEndDate;
         private System.Windows.Forms.DataGridView dataGridViewStock;
         private System.Windows.Forms.Button buttonSearch;
+        private System.Windows.Forms.DataGridViewTextBoxColumn SL;
     }
 }

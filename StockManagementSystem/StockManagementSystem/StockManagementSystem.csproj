@@ -105,6 +105,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>StockManagementSystemDataSet1.xsd</DependentUpon>
     </Compile>
+    <Compile Include="StockManagementSystemDataSet2.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>StockManagementSystemDataSet2.xsd</DependentUpon>
+    </Compile>
     <Compile Include="StockManagementSystemHome.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -186,6 +191,17 @@
     </None>
     <None Include="StockManagementSystemDataSet1.xss">
       <DependentUpon>StockManagementSystemDataSet1.xsd</DependentUpon>
+    </None>
+    <None Include="StockManagementSystemDataSet2.xsc">
+      <DependentUpon>StockManagementSystemDataSet2.xsd</DependentUpon>
+    </None>
+    <None Include="StockManagementSystemDataSet2.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>StockManagementSystemDataSet2.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="StockManagementSystemDataSet2.xss">
+      <DependentUpon>StockManagementSystemDataSet2.xsd</DependentUpon>
     </None>
   </ItemGroup>
   <ItemGroup>

@@ -23,10 +23,10 @@ namespace StockManagementSystem.Repository
             while (sqlDataReader.Read())
             {
                 Stock stock=new Stock();
-                    //  stock.Code = sqlDataReader["Code"].ToString();
+                stock.Code = sqlDataReader["Code"].ToString();
                 stock.Name = sqlDataReader["Name"].ToString();
-                //stock.Category = sqlDataReader["Category"].ToString();
-                //stock.ReOrderLevel = sqlDataReader["ReOrderLevel"].ToString();
+                stock.Category = sqlDataReader["Category"].ToString();
+                stock.ReOrderLevel = sqlDataReader["ReOrderLevel"].ToString();
 
                 stocks.Add(stock);
             }
@@ -46,10 +46,10 @@ namespace StockManagementSystem.Repository
             while (sqlDataReader.Read())
             {
                 Stock stock=new Stock();
-                //stock.Code = sqlDataReader["Code"].ToString();
+                stock.Code = sqlDataReader["Code"].ToString();
                 stock.Name = sqlDataReader["Name"].ToString();
-                //stock.Category = sqlDataReader["Category"].ToString();
-                //stock.ReOrderLevel = sqlDataReader["ReOrderLevel"].ToString();
+                stock.Category = sqlDataReader["Category"].ToString();
+                stock.ReOrderLevel = sqlDataReader["ReOrderLevel"].ToString();
 
                 stocks.Add(stock);
             }

@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
@@ -38,8 +39,14 @@
             this.textBoxEndDate = new System.Windows.Forms.TextBox();
             this.dataGridViewStock = new System.Windows.Forms.DataGridView();
             this.buttonSearch = new System.Windows.Forms.Button();
+            this.stockBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.SL = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.codeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.nameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.categoryDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.reOrderLevelDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewStock)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.stockBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -108,9 +115,15 @@
             // 
             // dataGridViewStock
             // 
+            this.dataGridViewStock.AutoGenerateColumns = false;
             this.dataGridViewStock.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridViewStock.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.SL});
+            this.SL,
+            this.codeDataGridViewTextBoxColumn,
+            this.nameDataGridViewTextBoxColumn,
+            this.categoryDataGridViewTextBoxColumn,
+            this.reOrderLevelDataGridViewTextBoxColumn});
+            this.dataGridViewStock.DataSource = this.stockBindingSource;
             this.dataGridViewStock.Location = new System.Drawing.Point(111, 327);
             this.dataGridViewStock.Name = "dataGridViewStock";
             this.dataGridViewStock.RowTemplate.Height = 28;
@@ -128,10 +141,38 @@
             this.buttonSearch.UseVisualStyleBackColor = true;
             this.buttonSearch.Click += new System.EventHandler(this.buttonSearch_Click);
             // 
+            // stockBindingSource
+            // 
+            this.stockBindingSource.DataSource = typeof(StockManagementSystem.Model.Stock);
+            // 
             // SL
             // 
             this.SL.HeaderText = "SL";
             this.SL.Name = "SL";
+            // 
+            // codeDataGridViewTextBoxColumn
+            // 
+            this.codeDataGridViewTextBoxColumn.DataPropertyName = "Code";
+            this.codeDataGridViewTextBoxColumn.HeaderText = "Code";
+            this.codeDataGridViewTextBoxColumn.Name = "codeDataGridViewTextBoxColumn";
+            // 
+            // nameDataGridViewTextBoxColumn
+            // 
+            this.nameDataGridViewTextBoxColumn.DataPropertyName = "Name";
+            this.nameDataGridViewTextBoxColumn.HeaderText = "Name";
+            this.nameDataGridViewTextBoxColumn.Name = "nameDataGridViewTextBoxColumn";
+            // 
+            // categoryDataGridViewTextBoxColumn
+            // 
+            this.categoryDataGridViewTextBoxColumn.DataPropertyName = "Category";
+            this.categoryDataGridViewTextBoxColumn.HeaderText = "Category";
+            this.categoryDataGridViewTextBoxColumn.Name = "categoryDataGridViewTextBoxColumn";
+            // 
+            // reOrderLevelDataGridViewTextBoxColumn
+            // 
+            this.reOrderLevelDataGridViewTextBoxColumn.DataPropertyName = "ReOrderLevel";
+            this.reOrderLevelDataGridViewTextBoxColumn.HeaderText = "ReOrderLevel";
+            this.reOrderLevelDataGridViewTextBoxColumn.Name = "reOrderLevelDataGridViewTextBoxColumn";
             // 
             // StockModuleStock
             // 
@@ -152,6 +193,7 @@
             this.Name = "StockModuleStock";
             this.Text = "Stock";
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewStock)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.stockBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -169,6 +211,11 @@
         private System.Windows.Forms.TextBox textBoxEndDate;
         private System.Windows.Forms.DataGridView dataGridViewStock;
         private System.Windows.Forms.Button buttonSearch;
+        private System.Windows.Forms.BindingSource stockBindingSource;
         private System.Windows.Forms.DataGridViewTextBoxColumn SL;
+        private System.Windows.Forms.DataGridViewTextBoxColumn codeDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn nameDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn categoryDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn reOrderLevelDataGridViewTextBoxColumn;
     }
 }

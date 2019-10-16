@@ -16,6 +16,7 @@ namespace StockManagementSystem
         ProductCatalogModuleProduct pcmp=new ProductCatalogModuleProduct();
         PartyModuleCustomer pmc=new PartyModuleCustomer();
         PartyModuleSupplier pms=new PartyModuleSupplier();
+        PurchaseModule purchaseModule=new PurchaseModule();
         public StockManagementSystemHome()
         {
             InitializeComponent();
@@ -59,6 +60,16 @@ namespace StockManagementSystem
             }
             pmc.Show();
             pmc.BringToFront();
+        }
+
+        private void ButtonPurchaseModule_Click(object sender, EventArgs e)
+        {
+            if (purchaseModule.IsDisposed)
+            {
+                purchaseModule=new PurchaseModule();
+            }
+            purchaseModule.Show();
+            purchaseModule.BringToFront();
         }
     }
 }

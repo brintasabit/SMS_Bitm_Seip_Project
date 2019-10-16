@@ -81,12 +81,23 @@
     <Compile Include="ProductCatalogModuleProduct.Designer.cs">
       <DependentUpon>ProductCatalogModuleProduct.cs</DependentUpon>
     </Compile>
+    <Compile Include="PurchaseModule.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PurchaseModule.Designer.cs">
+      <DependentUpon>PurchaseModule.cs</DependentUpon>
+    </Compile>
     <Compile Include="Repository\CategoryRepository.cs" />
     <Compile Include="Repository\ProductRepository.cs" />
     <Compile Include="StockManagementSystemDataSet.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>StockManagementSystemDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="StockManagementSystemDataSet1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>StockManagementSystemDataSet1.xsd</DependentUpon>
     </Compile>
     <Compile Include="StockManagementSystemHome.cs">
       <SubType>Form</SubType>
@@ -117,6 +128,9 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="PurchaseModule.resx">
+      <DependentUpon>PurchaseModule.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="StockManagementSystemHome.resx">
       <DependentUpon>StockManagementSystemHome.cs</DependentUpon>
     </EmbeddedResource>
@@ -152,6 +166,17 @@
     </None>
     <None Include="StockManagementSystemDataSet.xss">
       <DependentUpon>StockManagementSystemDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="StockManagementSystemDataSet1.xsc">
+      <DependentUpon>StockManagementSystemDataSet1.xsd</DependentUpon>
+    </None>
+    <None Include="StockManagementSystemDataSet1.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>StockManagementSystemDataSet1.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="StockManagementSystemDataSet1.xss">
+      <DependentUpon>StockManagementSystemDataSet1.xsd</DependentUpon>
     </None>
   </ItemGroup>
   <ItemGroup>

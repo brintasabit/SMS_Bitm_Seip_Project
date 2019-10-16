@@ -9,7 +9,11 @@ insert into Product values('Electronics','BA-23','Mobile','23','Quality is fine'
 select Name from Category
 drop table Category
 drop table Product
-
+drop table Suppliers
+create table SuppliersPurchase(ID int identity (1,1),Date varchar(50),Bill varchar(50),Supplier varchar(50))
+create table ProductsPurchase(ID int identity (1,1),Category varchar(50),Products varchar(50),Code varchar(50),AvailableQty varchar(50),
+ManufacturedDate varchar(50),ExpireDate varchar(50),Remarks varchar(50),Quantity varchar(50),UnitPrice varchar(50),TotalPrice varchar(50),
+PreviousUnitPrice varchar(50),PreviousMRP varchar(50),MRP varchar(50))
 
 
 

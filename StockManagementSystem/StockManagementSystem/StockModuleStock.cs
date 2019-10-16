@@ -24,8 +24,8 @@ namespace StockManagementSystem
         {
             _stock.Name = textBoxProduct.Text;
             _stock.Category = textBoxCategory.Text;
-            //_stock.StartDate = textBoxStartDate.Text;
-            //_stock.EndDate = textBoxEndDate.Text;
+            _stock.StartDate = textBoxStartDate.Text;
+            _stock.EndDate = textBoxEndDate.Text;
             List<Stock>stockProduct = _stockManager.SearchStockProduct(_stock);
             if (stockProduct.Count>0)
             {

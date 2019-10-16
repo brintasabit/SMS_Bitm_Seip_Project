@@ -442,6 +442,7 @@
             this.Controls.Add(this.groupBox4);
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox2);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Name = "SalesModule";
             this.Text = "Sales";
             this.Load += new System.EventHandler(this.SalesModule_Load);

@@ -87,6 +87,18 @@
     <Compile Include="PurchaseModule.Designer.cs">
       <DependentUpon>PurchaseModule.cs</DependentUpon>
     </Compile>
+    <Compile Include="ReportModuleSales.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ReportModuleSales.Designer.cs">
+      <DependentUpon>ReportModuleSales.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ReportModulePurchase.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ReportModulePurchase.Designer.cs">
+      <DependentUpon>ReportModulePurchase.cs</DependentUpon>
+    </Compile>
     <Compile Include="Repository\CategoryRepository.cs" />
     <Compile Include="Repository\ProductRepository.cs" />
     <Compile Include="SalesModule.cs">
@@ -118,6 +130,12 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="StockModuleStock.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="StockModuleStock.Designer.cs">
+      <DependentUpon>StockModuleStock.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="PartyModuleCustomer.resx">
       <DependentUpon>PartyModuleCustomer.cs</DependentUpon>
     </EmbeddedResource>
@@ -142,11 +160,20 @@
     <EmbeddedResource Include="PurchaseModule.resx">
       <DependentUpon>PurchaseModule.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="ReportModuleSales.resx">
+      <DependentUpon>ReportModuleSales.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ReportModulePurchase.resx">
+      <DependentUpon>ReportModulePurchase.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="SalesModule.resx">
       <DependentUpon>SalesModule.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="StockManagementSystemHome.resx">
       <DependentUpon>StockManagementSystemHome.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="StockModuleStock.resx">
+      <DependentUpon>StockModuleStock.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Appdata.xsc">
       <DependentUpon>Appdata.xsd</DependentUpon>

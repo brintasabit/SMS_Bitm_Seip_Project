@@ -18,6 +18,9 @@ namespace StockManagementSystem
         PartyModuleSupplier pms=new PartyModuleSupplier();
         PurchaseModule purchaseModule=new PurchaseModule();
         SalesModule salesModule=new SalesModule();
+        StockModuleStock stockModuleStock=new StockModuleStock();
+        ReportModuleSales reportModuleSales=new ReportModuleSales();
+        ReportModulePurchase reportModulePurchase=new ReportModulePurchase();
         public StockManagementSystemHome()
         {
             InitializeComponent();
@@ -81,6 +84,36 @@ namespace StockManagementSystem
             }
             salesModule.Show();
             salesModule.BringToFront();
+        }
+
+        private void ButtonStockModuleStock_Click(object sender, EventArgs e)
+        {
+            if (stockModuleStock.IsDisposed)
+            {
+                stockModuleStock=new StockModuleStock();
+            }
+            stockModuleStock.Show();
+            stockModuleStock.BringToFront();
+        }
+
+        private void buttonReportingModuleSales_Click(object sender, EventArgs e)
+        {
+            if (reportModuleSales.IsDisposed)
+            {
+                reportModuleSales=new ReportModuleSales();
+            }
+            reportModuleSales.Show();
+            reportModuleSales.BringToFront();
+        }
+
+        private void ButtonReportingModulePurchase_Click(object sender, EventArgs e)
+        {
+            if (reportModulePurchase.IsDisposed)
+            {
+                reportModulePurchase=new ReportModulePurchase();
+            }
+            reportModulePurchase.Show();
+            reportModulePurchase.BringToFront();
         }
     }
 }

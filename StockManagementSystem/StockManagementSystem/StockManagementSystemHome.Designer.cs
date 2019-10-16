@@ -34,11 +34,14 @@
             this.ButtonSupplier = new System.Windows.Forms.Button();
             this.ButtonPurchaseModule = new System.Windows.Forms.Button();
             this.ButtonSalesModule = new System.Windows.Forms.Button();
+            this.ButtonStockModuleStock = new System.Windows.Forms.Button();
+            this.buttonReportingModuleSales = new System.Windows.Forms.Button();
+            this.ButtonReportingModulePurchase = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // ButtonCategory
             // 
-            this.ButtonCategory.Location = new System.Drawing.Point(98, 104);
+            this.ButtonCategory.Location = new System.Drawing.Point(32, 104);
             this.ButtonCategory.Name = "ButtonCategory";
             this.ButtonCategory.Size = new System.Drawing.Size(249, 86);
             this.ButtonCategory.TabIndex = 0;
@@ -48,7 +51,7 @@
             // 
             // ButtonProduct
             // 
-            this.ButtonProduct.Location = new System.Drawing.Point(407, 104);
+            this.ButtonProduct.Location = new System.Drawing.Point(341, 104);
             this.ButtonProduct.Name = "ButtonProduct";
             this.ButtonProduct.Size = new System.Drawing.Size(249, 86);
             this.ButtonProduct.TabIndex = 1;
@@ -58,7 +61,7 @@
             // 
             // ButtonCustomer
             // 
-            this.ButtonCustomer.Location = new System.Drawing.Point(98, 250);
+            this.ButtonCustomer.Location = new System.Drawing.Point(624, 104);
             this.ButtonCustomer.Name = "ButtonCustomer";
             this.ButtonCustomer.Size = new System.Drawing.Size(249, 86);
             this.ButtonCustomer.TabIndex = 2;
@@ -68,7 +71,7 @@
             // 
             // ButtonSupplier
             // 
-            this.ButtonSupplier.Location = new System.Drawing.Point(407, 250);
+            this.ButtonSupplier.Location = new System.Drawing.Point(933, 104);
             this.ButtonSupplier.Name = "ButtonSupplier";
             this.ButtonSupplier.Size = new System.Drawing.Size(249, 86);
             this.ButtonSupplier.TabIndex = 3;
@@ -78,7 +81,7 @@
             // 
             // ButtonPurchaseModule
             // 
-            this.ButtonPurchaseModule.Location = new System.Drawing.Point(98, 385);
+            this.ButtonPurchaseModule.Location = new System.Drawing.Point(32, 268);
             this.ButtonPurchaseModule.Name = "ButtonPurchaseModule";
             this.ButtonPurchaseModule.Size = new System.Drawing.Size(253, 87);
             this.ButtonPurchaseModule.TabIndex = 4;
@@ -88,7 +91,7 @@
             // 
             // ButtonSalesModule
             // 
-            this.ButtonSalesModule.Location = new System.Drawing.Point(407, 385);
+            this.ButtonSalesModule.Location = new System.Drawing.Point(341, 268);
             this.ButtonSalesModule.Name = "ButtonSalesModule";
             this.ButtonSalesModule.Size = new System.Drawing.Size(249, 87);
             this.ButtonSalesModule.TabIndex = 5;
@@ -96,11 +99,44 @@
             this.ButtonSalesModule.UseVisualStyleBackColor = true;
             this.ButtonSalesModule.Click += new System.EventHandler(this.ButtonSalesModule_Click);
             // 
+            // ButtonStockModuleStock
+            // 
+            this.ButtonStockModuleStock.Location = new System.Drawing.Point(624, 268);
+            this.ButtonStockModuleStock.Name = "ButtonStockModuleStock";
+            this.ButtonStockModuleStock.Size = new System.Drawing.Size(253, 87);
+            this.ButtonStockModuleStock.TabIndex = 6;
+            this.ButtonStockModuleStock.Text = "Stock Module (Stock)";
+            this.ButtonStockModuleStock.UseVisualStyleBackColor = true;
+            this.ButtonStockModuleStock.Click += new System.EventHandler(this.ButtonStockModuleStock_Click);
+            // 
+            // buttonReportingModuleSales
+            // 
+            this.buttonReportingModuleSales.Location = new System.Drawing.Point(32, 436);
+            this.buttonReportingModuleSales.Name = "buttonReportingModuleSales";
+            this.buttonReportingModuleSales.Size = new System.Drawing.Size(253, 87);
+            this.buttonReportingModuleSales.TabIndex = 6;
+            this.buttonReportingModuleSales.Text = "Reporting Module (Sales)";
+            this.buttonReportingModuleSales.UseVisualStyleBackColor = true;
+            this.buttonReportingModuleSales.Click += new System.EventHandler(this.buttonReportingModuleSales_Click);
+            // 
+            // ButtonReportingModulePurchase
+            // 
+            this.ButtonReportingModulePurchase.Location = new System.Drawing.Point(341, 436);
+            this.ButtonReportingModulePurchase.Name = "ButtonReportingModulePurchase";
+            this.ButtonReportingModulePurchase.Size = new System.Drawing.Size(253, 87);
+            this.ButtonReportingModulePurchase.TabIndex = 6;
+            this.ButtonReportingModulePurchase.Text = "Reporting Module (Purchase)";
+            this.ButtonReportingModulePurchase.UseVisualStyleBackColor = true;
+            this.ButtonReportingModulePurchase.Click += new System.EventHandler(this.ButtonReportingModulePurchase_Click);
+            // 
             // StockManagementSystemHome
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(709, 629);
+            this.ClientSize = new System.Drawing.Size(1211, 624);
+            this.Controls.Add(this.ButtonReportingModulePurchase);
+            this.Controls.Add(this.buttonReportingModuleSales);
+            this.Controls.Add(this.ButtonStockModuleStock);
             this.Controls.Add(this.ButtonSalesModule);
             this.Controls.Add(this.ButtonPurchaseModule);
             this.Controls.Add(this.ButtonSupplier);
@@ -122,6 +158,9 @@
         private System.Windows.Forms.Button ButtonSupplier;
         private System.Windows.Forms.Button ButtonPurchaseModule;
         private System.Windows.Forms.Button ButtonSalesModule;
+        private System.Windows.Forms.Button ButtonStockModuleStock;
+        private System.Windows.Forms.Button buttonReportingModuleSales;
+        private System.Windows.Forms.Button ButtonReportingModulePurchase;
     }
 }
 

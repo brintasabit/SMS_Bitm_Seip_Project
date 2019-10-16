@@ -34,9 +34,9 @@
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.comboBoxSupplier = new System.Windows.Forms.ComboBox();
+            this.textBoxBillInvoice = new System.Windows.Forms.TextBox();
+            this.textBoxDate = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
@@ -50,19 +50,19 @@
             this.label14 = new System.Windows.Forms.Label();
             this.label15 = new System.Windows.Forms.Label();
             this.label16 = new System.Windows.Forms.Label();
-            this.comboBox2 = new System.Windows.Forms.ComboBox();
-            this.comboBox3 = new System.Windows.Forms.ComboBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.textBox4 = new System.Windows.Forms.TextBox();
-            this.textBox5 = new System.Windows.Forms.TextBox();
-            this.textBox6 = new System.Windows.Forms.TextBox();
-            this.textBox7 = new System.Windows.Forms.TextBox();
-            this.textBox8 = new System.Windows.Forms.TextBox();
-            this.textBox9 = new System.Windows.Forms.TextBox();
-            this.textBox10 = new System.Windows.Forms.TextBox();
-            this.textBox11 = new System.Windows.Forms.TextBox();
-            this.textBox12 = new System.Windows.Forms.TextBox();
-            this.textBox13 = new System.Windows.Forms.TextBox();
+            this.comboBoxCategory = new System.Windows.Forms.ComboBox();
+            this.comboBoxProducts = new System.Windows.Forms.ComboBox();
+            this.textBoxCode = new System.Windows.Forms.TextBox();
+            this.textBoxAvailableQuantity = new System.Windows.Forms.TextBox();
+            this.textBoxManufacturedDate = new System.Windows.Forms.TextBox();
+            this.textBoxExpireDate = new System.Windows.Forms.TextBox();
+            this.textBoxRemarks = new System.Windows.Forms.TextBox();
+            this.textBoxQuantity = new System.Windows.Forms.TextBox();
+            this.textBoxUnitPrice = new System.Windows.Forms.TextBox();
+            this.textBoxTotalPrice = new System.Windows.Forms.TextBox();
+            this.textBoxPreviousUnitPrice = new System.Windows.Forms.TextBox();
+            this.textBoxPreviousMrp = new System.Windows.Forms.TextBox();
+            this.textBoxMrp = new System.Windows.Forms.TextBox();
             this.ButtonAdd = new System.Windows.Forms.Button();
             this.ButtonSubmit = new System.Windows.Forms.Button();
             this.dataGridViewPurchase = new System.Windows.Forms.DataGridView();
@@ -88,9 +88,9 @@
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.textBox2);
-            this.groupBox1.Controls.Add(this.textBox1);
-            this.groupBox1.Controls.Add(this.comboBox1);
+            this.groupBox1.Controls.Add(this.textBoxDate);
+            this.groupBox1.Controls.Add(this.textBoxBillInvoice);
+            this.groupBox1.Controls.Add(this.comboBoxSupplier);
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Controls.Add(this.label3);
@@ -104,19 +104,19 @@
             // groupBox2
             // 
             this.groupBox2.Controls.Add(this.ButtonSubmit);
-            this.groupBox2.Controls.Add(this.textBox13);
-            this.groupBox2.Controls.Add(this.textBox12);
-            this.groupBox2.Controls.Add(this.textBox11);
-            this.groupBox2.Controls.Add(this.textBox7);
-            this.groupBox2.Controls.Add(this.textBox10);
-            this.groupBox2.Controls.Add(this.textBox6);
-            this.groupBox2.Controls.Add(this.textBox9);
-            this.groupBox2.Controls.Add(this.textBox5);
-            this.groupBox2.Controls.Add(this.textBox8);
-            this.groupBox2.Controls.Add(this.textBox4);
-            this.groupBox2.Controls.Add(this.textBox3);
-            this.groupBox2.Controls.Add(this.comboBox3);
-            this.groupBox2.Controls.Add(this.comboBox2);
+            this.groupBox2.Controls.Add(this.textBoxMrp);
+            this.groupBox2.Controls.Add(this.textBoxPreviousMrp);
+            this.groupBox2.Controls.Add(this.textBoxPreviousUnitPrice);
+            this.groupBox2.Controls.Add(this.textBoxRemarks);
+            this.groupBox2.Controls.Add(this.textBoxTotalPrice);
+            this.groupBox2.Controls.Add(this.textBoxExpireDate);
+            this.groupBox2.Controls.Add(this.textBoxUnitPrice);
+            this.groupBox2.Controls.Add(this.textBoxManufacturedDate);
+            this.groupBox2.Controls.Add(this.textBoxQuantity);
+            this.groupBox2.Controls.Add(this.textBoxAvailableQuantity);
+            this.groupBox2.Controls.Add(this.textBoxCode);
+            this.groupBox2.Controls.Add(this.comboBoxProducts);
+            this.groupBox2.Controls.Add(this.comboBoxCategory);
             this.groupBox2.Controls.Add(this.label16);
             this.groupBox2.Controls.Add(this.label15);
             this.groupBox2.Controls.Add(this.label14);
@@ -164,27 +164,27 @@
             this.label3.TabIndex = 2;
             this.label3.Text = "Supplier";
             // 
-            // comboBox1
+            // comboBoxSupplier
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(152, 118);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(182, 28);
-            this.comboBox1.TabIndex = 3;
+            this.comboBoxSupplier.FormattingEnabled = true;
+            this.comboBoxSupplier.Location = new System.Drawing.Point(152, 118);
+            this.comboBoxSupplier.Name = "comboBoxSupplier";
+            this.comboBoxSupplier.Size = new System.Drawing.Size(182, 28);
+            this.comboBoxSupplier.TabIndex = 3;
             // 
-            // textBox1
+            // textBoxBillInvoice
             // 
-            this.textBox1.Location = new System.Drawing.Point(173, 77);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(161, 26);
-            this.textBox1.TabIndex = 4;
+            this.textBoxBillInvoice.Location = new System.Drawing.Point(173, 77);
+            this.textBoxBillInvoice.Name = "textBoxBillInvoice";
+            this.textBoxBillInvoice.Size = new System.Drawing.Size(161, 26);
+            this.textBoxBillInvoice.TabIndex = 4;
             // 
-            // textBox2
+            // textBoxDate
             // 
-            this.textBox2.Location = new System.Drawing.Point(173, 31);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(161, 26);
-            this.textBox2.TabIndex = 0;
+            this.textBoxDate.Location = new System.Drawing.Point(173, 31);
+            this.textBoxDate.Name = "textBoxDate";
+            this.textBoxDate.Size = new System.Drawing.Size(161, 26);
+            this.textBoxDate.TabIndex = 0;
             // 
             // label4
             // 
@@ -303,99 +303,99 @@
             this.label16.TabIndex = 11;
             this.label16.Text = "Remarks";
             // 
-            // comboBox2
+            // comboBoxCategory
             // 
-            this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Location = new System.Drawing.Point(204, 23);
-            this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(200, 28);
-            this.comboBox2.TabIndex = 1;
+            this.comboBoxCategory.FormattingEnabled = true;
+            this.comboBoxCategory.Location = new System.Drawing.Point(204, 23);
+            this.comboBoxCategory.Name = "comboBoxCategory";
+            this.comboBoxCategory.Size = new System.Drawing.Size(200, 28);
+            this.comboBoxCategory.TabIndex = 1;
             // 
-            // comboBox3
+            // comboBoxProducts
             // 
-            this.comboBox3.FormattingEnabled = true;
-            this.comboBox3.Location = new System.Drawing.Point(204, 62);
-            this.comboBox3.Name = "comboBox3";
-            this.comboBox3.Size = new System.Drawing.Size(200, 28);
-            this.comboBox3.TabIndex = 1;
+            this.comboBoxProducts.FormattingEnabled = true;
+            this.comboBoxProducts.Location = new System.Drawing.Point(204, 62);
+            this.comboBoxProducts.Name = "comboBoxProducts";
+            this.comboBoxProducts.Size = new System.Drawing.Size(200, 28);
+            this.comboBoxProducts.TabIndex = 1;
             // 
-            // textBox3
+            // textBoxCode
             // 
-            this.textBox3.Location = new System.Drawing.Point(204, 102);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(200, 26);
-            this.textBox3.TabIndex = 12;
+            this.textBoxCode.Location = new System.Drawing.Point(204, 102);
+            this.textBoxCode.Name = "textBoxCode";
+            this.textBoxCode.Size = new System.Drawing.Size(200, 26);
+            this.textBoxCode.TabIndex = 12;
             // 
-            // textBox4
+            // textBoxAvailableQuantity
             // 
-            this.textBox4.Location = new System.Drawing.Point(204, 144);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(200, 26);
-            this.textBox4.TabIndex = 12;
+            this.textBoxAvailableQuantity.Location = new System.Drawing.Point(204, 144);
+            this.textBoxAvailableQuantity.Name = "textBoxAvailableQuantity";
+            this.textBoxAvailableQuantity.Size = new System.Drawing.Size(200, 26);
+            this.textBoxAvailableQuantity.TabIndex = 12;
             // 
-            // textBox5
+            // textBoxManufacturedDate
             // 
-            this.textBox5.Location = new System.Drawing.Point(204, 184);
-            this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(200, 26);
-            this.textBox5.TabIndex = 12;
+            this.textBoxManufacturedDate.Location = new System.Drawing.Point(204, 184);
+            this.textBoxManufacturedDate.Name = "textBoxManufacturedDate";
+            this.textBoxManufacturedDate.Size = new System.Drawing.Size(200, 26);
+            this.textBoxManufacturedDate.TabIndex = 12;
             // 
-            // textBox6
+            // textBoxExpireDate
             // 
-            this.textBox6.Location = new System.Drawing.Point(204, 225);
-            this.textBox6.Name = "textBox6";
-            this.textBox6.Size = new System.Drawing.Size(200, 26);
-            this.textBox6.TabIndex = 12;
+            this.textBoxExpireDate.Location = new System.Drawing.Point(204, 225);
+            this.textBoxExpireDate.Name = "textBoxExpireDate";
+            this.textBoxExpireDate.Size = new System.Drawing.Size(200, 26);
+            this.textBoxExpireDate.TabIndex = 12;
             // 
-            // textBox7
+            // textBoxRemarks
             // 
-            this.textBox7.Location = new System.Drawing.Point(204, 271);
-            this.textBox7.Multiline = true;
-            this.textBox7.Name = "textBox7";
-            this.textBox7.Size = new System.Drawing.Size(767, 102);
-            this.textBox7.TabIndex = 12;
+            this.textBoxRemarks.Location = new System.Drawing.Point(204, 271);
+            this.textBoxRemarks.Multiline = true;
+            this.textBoxRemarks.Name = "textBoxRemarks";
+            this.textBoxRemarks.Size = new System.Drawing.Size(767, 102);
+            this.textBoxRemarks.TabIndex = 12;
             // 
-            // textBox8
+            // textBoxQuantity
             // 
-            this.textBox8.Location = new System.Drawing.Point(771, 21);
-            this.textBox8.Name = "textBox8";
-            this.textBox8.Size = new System.Drawing.Size(200, 26);
-            this.textBox8.TabIndex = 12;
+            this.textBoxQuantity.Location = new System.Drawing.Point(771, 21);
+            this.textBoxQuantity.Name = "textBoxQuantity";
+            this.textBoxQuantity.Size = new System.Drawing.Size(200, 26);
+            this.textBoxQuantity.TabIndex = 12;
             // 
-            // textBox9
+            // textBoxUnitPrice
             // 
-            this.textBox9.Location = new System.Drawing.Point(771, 63);
-            this.textBox9.Name = "textBox9";
-            this.textBox9.Size = new System.Drawing.Size(200, 26);
-            this.textBox9.TabIndex = 12;
+            this.textBoxUnitPrice.Location = new System.Drawing.Point(771, 63);
+            this.textBoxUnitPrice.Name = "textBoxUnitPrice";
+            this.textBoxUnitPrice.Size = new System.Drawing.Size(200, 26);
+            this.textBoxUnitPrice.TabIndex = 12;
             // 
-            // textBox10
+            // textBoxTotalPrice
             // 
-            this.textBox10.Location = new System.Drawing.Point(771, 103);
-            this.textBox10.Name = "textBox10";
-            this.textBox10.Size = new System.Drawing.Size(200, 26);
-            this.textBox10.TabIndex = 12;
+            this.textBoxTotalPrice.Location = new System.Drawing.Point(771, 103);
+            this.textBoxTotalPrice.Name = "textBoxTotalPrice";
+            this.textBoxTotalPrice.Size = new System.Drawing.Size(200, 26);
+            this.textBoxTotalPrice.TabIndex = 12;
             // 
-            // textBox11
+            // textBoxPreviousUnitPrice
             // 
-            this.textBox11.Location = new System.Drawing.Point(771, 144);
-            this.textBox11.Name = "textBox11";
-            this.textBox11.Size = new System.Drawing.Size(200, 26);
-            this.textBox11.TabIndex = 12;
+            this.textBoxPreviousUnitPrice.Location = new System.Drawing.Point(771, 144);
+            this.textBoxPreviousUnitPrice.Name = "textBoxPreviousUnitPrice";
+            this.textBoxPreviousUnitPrice.Size = new System.Drawing.Size(200, 26);
+            this.textBoxPreviousUnitPrice.TabIndex = 12;
             // 
-            // textBox12
+            // textBoxPreviousMrp
             // 
-            this.textBox12.Location = new System.Drawing.Point(771, 190);
-            this.textBox12.Name = "textBox12";
-            this.textBox12.Size = new System.Drawing.Size(200, 26);
-            this.textBox12.TabIndex = 12;
+            this.textBoxPreviousMrp.Location = new System.Drawing.Point(771, 190);
+            this.textBoxPreviousMrp.Name = "textBoxPreviousMrp";
+            this.textBoxPreviousMrp.Size = new System.Drawing.Size(200, 26);
+            this.textBoxPreviousMrp.TabIndex = 12;
             // 
-            // textBox13
+            // textBoxMrp
             // 
-            this.textBox13.Location = new System.Drawing.Point(771, 231);
-            this.textBox13.Name = "textBox13";
-            this.textBox13.Size = new System.Drawing.Size(200, 26);
-            this.textBox13.TabIndex = 12;
+            this.textBoxMrp.Location = new System.Drawing.Point(771, 231);
+            this.textBoxMrp.Name = "textBoxMrp";
+            this.textBoxMrp.Size = new System.Drawing.Size(200, 26);
+            this.textBoxMrp.TabIndex = 12;
             // 
             // ButtonAdd
             // 
@@ -541,27 +541,27 @@
         #endregion
 
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.TextBox textBoxDate;
+        private System.Windows.Forms.TextBox textBoxBillInvoice;
+        private System.Windows.Forms.ComboBox comboBoxSupplier;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.Button ButtonSubmit;
-        private System.Windows.Forms.TextBox textBox13;
-        private System.Windows.Forms.TextBox textBox12;
-        private System.Windows.Forms.TextBox textBox11;
-        private System.Windows.Forms.TextBox textBox7;
-        private System.Windows.Forms.TextBox textBox10;
-        private System.Windows.Forms.TextBox textBox6;
-        private System.Windows.Forms.TextBox textBox9;
-        private System.Windows.Forms.TextBox textBox5;
-        private System.Windows.Forms.TextBox textBox8;
-        private System.Windows.Forms.TextBox textBox4;
-        private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.ComboBox comboBox3;
-        private System.Windows.Forms.ComboBox comboBox2;
+        private System.Windows.Forms.TextBox textBoxMrp;
+        private System.Windows.Forms.TextBox textBoxPreviousMrp;
+        private System.Windows.Forms.TextBox textBoxPreviousUnitPrice;
+        private System.Windows.Forms.TextBox textBoxRemarks;
+        private System.Windows.Forms.TextBox textBoxTotalPrice;
+        private System.Windows.Forms.TextBox textBoxExpireDate;
+        private System.Windows.Forms.TextBox textBoxUnitPrice;
+        private System.Windows.Forms.TextBox textBoxManufacturedDate;
+        private System.Windows.Forms.TextBox textBoxQuantity;
+        private System.Windows.Forms.TextBox textBoxAvailableQuantity;
+        private System.Windows.Forms.TextBox textBoxCode;
+        private System.Windows.Forms.ComboBox comboBoxProducts;
+        private System.Windows.Forms.ComboBox comboBoxCategory;
         private System.Windows.Forms.Label label16;
         private System.Windows.Forms.Label label15;
         private System.Windows.Forms.Label label14;

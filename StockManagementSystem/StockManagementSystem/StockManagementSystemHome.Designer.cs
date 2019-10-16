@@ -33,6 +33,7 @@
             this.ButtonCustomer = new System.Windows.Forms.Button();
             this.ButtonSupplier = new System.Windows.Forms.Button();
             this.ButtonPurchaseModule = new System.Windows.Forms.Button();
+            this.ButtonSalesModule = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // ButtonCategory
@@ -85,11 +86,22 @@
             this.ButtonPurchaseModule.UseVisualStyleBackColor = true;
             this.ButtonPurchaseModule.Click += new System.EventHandler(this.ButtonPurchaseModule_Click);
             // 
+            // ButtonSalesModule
+            // 
+            this.ButtonSalesModule.Location = new System.Drawing.Point(407, 385);
+            this.ButtonSalesModule.Name = "ButtonSalesModule";
+            this.ButtonSalesModule.Size = new System.Drawing.Size(249, 87);
+            this.ButtonSalesModule.TabIndex = 5;
+            this.ButtonSalesModule.Text = "Sales Module (Sales)";
+            this.ButtonSalesModule.UseVisualStyleBackColor = true;
+            this.ButtonSalesModule.Click += new System.EventHandler(this.ButtonSalesModule_Click);
+            // 
             // StockManagementSystemHome
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(709, 629);
+            this.Controls.Add(this.ButtonSalesModule);
             this.Controls.Add(this.ButtonPurchaseModule);
             this.Controls.Add(this.ButtonSupplier);
             this.Controls.Add(this.ButtonCustomer);
@@ -109,6 +121,7 @@
         private System.Windows.Forms.Button ButtonCustomer;
         private System.Windows.Forms.Button ButtonSupplier;
         private System.Windows.Forms.Button ButtonPurchaseModule;
+        private System.Windows.Forms.Button ButtonSalesModule;
     }
 }
 

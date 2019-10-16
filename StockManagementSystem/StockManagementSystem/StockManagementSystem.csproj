@@ -89,6 +89,12 @@
     </Compile>
     <Compile Include="Repository\CategoryRepository.cs" />
     <Compile Include="Repository\ProductRepository.cs" />
+    <Compile Include="SalesModule.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SalesModule.Designer.cs">
+      <DependentUpon>SalesModule.cs</DependentUpon>
+    </Compile>
     <Compile Include="StockManagementSystemDataSet.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -130,6 +136,9 @@
     </Compile>
     <EmbeddedResource Include="PurchaseModule.resx">
       <DependentUpon>PurchaseModule.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SalesModule.resx">
+      <DependentUpon>SalesModule.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="StockManagementSystemHome.resx">
       <DependentUpon>StockManagementSystemHome.cs</DependentUpon>

@@ -11,11 +11,12 @@ namespace StockManagementSystem.Repository
 {
     class ProductRepository
     {
+        Connection connection=new Connection();
         public List<Product> ShowProduct(Product _product)
         {
             List<Product> products=new List<Product>();
-            string connectionString = @"Server=BRINTA-PC; Database=StockManagementSystem; Integrated Security=True";
-            SqlConnection sqlConnection = new SqlConnection(connectionString);
+            //string connectionString = @"Server=BRINTA-PC; Database=StockManagementSystem; Integrated Security=True";
+            SqlConnection sqlConnection = new SqlConnection(connection.connectionString);
             string commandString = @"select * from Product";
             SqlCommand sqlCommand = new SqlCommand(commandString, sqlConnection);
             sqlConnection.Open();
@@ -36,8 +37,8 @@ namespace StockManagementSystem.Repository
         public List<Category> ComboBoxCategoryList()
         {
             List<Category> categories=new List<Category>();
-            string connectionString = @"Server=BRINTA-PC; Database=StockManagementSystem; Integrated Security=True";
-            SqlConnection sqlConnection = new SqlConnection(connectionString);
+            //string connectionString = @"Server=BRINTA-PC; Database=StockManagementSystem; Integrated Security=True";
+            SqlConnection sqlConnection = new SqlConnection(connection.connectionString);
             string commandString = @"select Name from Category";
             SqlCommand sqlCommand = new SqlCommand(commandString, sqlConnection);
             sqlConnection.Open();
@@ -53,8 +54,8 @@ namespace StockManagementSystem.Repository
         public List<Product> SearchProductCode(Product _product)
         {
             List<Product> products=new List<Product>();
-            string connectionString = @"Server=BRINTA-PC; Database=StockManagementSystem; Integrated Security=True";
-            SqlConnection sqlConnection = new SqlConnection(connectionString);
+            //string connectionString = @"Server=BRINTA-PC; Database=StockManagementSystem; Integrated Security=True";
+            SqlConnection sqlConnection = new SqlConnection(connection.connectionString);
             string commandString = @"select * from Product where Code='"+_product.Code+"'";
             SqlCommand sqlCommand = new SqlCommand(commandString, sqlConnection);
             sqlConnection.Open();
@@ -75,8 +76,8 @@ namespace StockManagementSystem.Repository
         public List<Product> SearchProductName(Product _product)
         {
             List<Product> products=new List<Product>();
-            string connectionString = @"Server=BRINTA-PC; Database=StockManagementSystem; Integrated Security=True";
-            SqlConnection sqlConnection = new SqlConnection(connectionString);
+            //string connectionString = @"Server=BRINTA-PC; Database=StockManagementSystem; Integrated Security=True";
+            SqlConnection sqlConnection = new SqlConnection(connection.connectionString);
             string commandString = @"select * from Product where Name='"+_product.Name+"'";
             SqlCommand sqlCommand = new SqlCommand(commandString, sqlConnection);
             sqlConnection.Open();
@@ -96,8 +97,8 @@ namespace StockManagementSystem.Repository
         }
         public bool SaveProduct(Product _product)
         {
-            string connectionString = @"Server=BRINTA-PC; Database=StockManagementSystem; Integrated Security=True";
-            SqlConnection sqlConnection = new SqlConnection(connectionString);
+            //string connectionString = @"Server=BRINTA-PC; Database=StockManagementSystem; Integrated Security=True";
+            SqlConnection sqlConnection = new SqlConnection(connection.connectionString);
             string commandString = @"insert into Product values('"+_product.Category+"','"+_product.Code+"','"+_product.Name+"','"+_product.ReOrderLevel+"','"+_product.Description+" is fine')";
             SqlCommand sqlCommand = new SqlCommand(commandString, sqlConnection);
             sqlConnection.Open();
@@ -112,8 +113,8 @@ namespace StockManagementSystem.Repository
         public List<Product> SearchProductCatagory(Product _product)
         {
             List<Product> products=new List<Product>();
-            string connectionString = @"Server=BRINTA-PC; Database=StockManagementSystem; Integrated Security=True";
-            SqlConnection sqlConnection = new SqlConnection(connectionString);
+            //string connectionString = @"Server=BRINTA-PC; Database=StockManagementSystem; Integrated Security=True";
+            SqlConnection sqlConnection = new SqlConnection(connection.connectionString);
             string commandString = @"select * from Product where Category='"+_product.Category+"'";
             SqlCommand sqlCommand = new SqlCommand(commandString, sqlConnection);
             sqlConnection.Open();

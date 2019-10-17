@@ -11,11 +11,12 @@ namespace StockManagementSystem.Repository
 {
     class StockRepository
     {
+        Connection connection=new Connection();
         public List<Stock> ShowStock(Stock _stock)
         {
             List<Stock> stocks=new List<Stock>();
-            string connectionString = @"Server=BRINTA-PC; Database=StockManagementSystem; Integrated Security=True";
-            SqlConnection sqlConnection = new SqlConnection(connectionString);
+            //string connectionString = @"Server=BRINTA-PC; Database=StockManagementSystem; Integrated Security=True";
+            SqlConnection sqlConnection = new SqlConnection(connection.connectionString);
             string commandString = @"select Code,Name,Category,ReOrderLevel from Product where Name='"+_stock.Name+"'";
             SqlCommand sqlCommand = new SqlCommand(commandString, sqlConnection);
             sqlConnection.Open();
@@ -37,8 +38,8 @@ namespace StockManagementSystem.Repository
         public List<Stock> SearchStockProduct(Stock _stock)
         {
             List<Stock> stocks=new List<Stock>();
-            string connectionString = @"Server=BRINTA-PC; Database=StockManagementSystem; Integrated Security=True";
-            SqlConnection sqlConnection = new SqlConnection(connectionString);
+            
+            SqlConnection sqlConnection = new SqlConnection(connection.connectionString);
             string commandString = @"select Code,Name,Category,ReOrderLevel from Product where Name='"+_stock.Name+"'";
             SqlCommand sqlCommand = new SqlCommand(commandString, sqlConnection);
             sqlConnection.Open();

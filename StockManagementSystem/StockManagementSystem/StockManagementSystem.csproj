@@ -55,6 +55,7 @@
     <Compile Include="Bill\ProductManager.cs" />
     <Compile Include="Bill\StockManager.cs" />
     <Compile Include="Model\Category.cs" />
+    <Compile Include="Model\Connection.cs" />
     <Compile Include="Model\Customer.cs" />
     <Compile Include="Model\Product.cs" />
     <Compile Include="Model\Stock.cs" />

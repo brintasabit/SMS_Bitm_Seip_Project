@@ -39,14 +39,21 @@
             this.textBoxEndDate = new System.Windows.Forms.TextBox();
             this.dataGridViewStock = new System.Windows.Forms.DataGridView();
             this.buttonSearch = new System.Windows.Forms.Button();
+            this.stockManagementSystemDataSet3 = new StockManagementSystem.StockManagementSystemDataSet3();
+            this.productsPurchaseBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.productsPurchaseTableAdapter = new StockManagementSystem.StockManagementSystemDataSet3TableAdapters.ProductsPurchaseTableAdapter();
             this.stockBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.stockBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.SL = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.codeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.nameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.categoryDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.reOrderLevelDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewStock)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.stockManagementSystemDataSet3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.productsPurchaseBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.stockBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.stockBindingSource1)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -141,9 +148,27 @@
             this.buttonSearch.UseVisualStyleBackColor = true;
             this.buttonSearch.Click += new System.EventHandler(this.buttonSearch_Click);
             // 
+            // stockManagementSystemDataSet3
+            // 
+            this.stockManagementSystemDataSet3.DataSetName = "StockManagementSystemDataSet3";
+            this.stockManagementSystemDataSet3.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // productsPurchaseBindingSource
+            // 
+            this.productsPurchaseBindingSource.DataMember = "ProductsPurchase";
+            this.productsPurchaseBindingSource.DataSource = this.stockManagementSystemDataSet3;
+            // 
+            // productsPurchaseTableAdapter
+            // 
+            this.productsPurchaseTableAdapter.ClearBeforeFill = true;
+            // 
             // stockBindingSource
             // 
             this.stockBindingSource.DataSource = typeof(StockManagementSystem.Model.Stock);
+            // 
+            // stockBindingSource1
+            // 
+            this.stockBindingSource1.DataSource = typeof(StockManagementSystem.Model.Stock);
             // 
             // SL
             // 
@@ -192,8 +217,12 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Name = "StockModuleStock";
             this.Text = "Stock";
+            this.Load += new System.EventHandler(this.StockModuleStock_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewStock)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.stockManagementSystemDataSet3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.productsPurchaseBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.stockBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.stockBindingSource1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -212,10 +241,14 @@
         private System.Windows.Forms.DataGridView dataGridViewStock;
         private System.Windows.Forms.Button buttonSearch;
         private System.Windows.Forms.BindingSource stockBindingSource;
+        private StockManagementSystemDataSet3 stockManagementSystemDataSet3;
+        private System.Windows.Forms.BindingSource productsPurchaseBindingSource;
+        private StockManagementSystemDataSet3TableAdapters.ProductsPurchaseTableAdapter productsPurchaseTableAdapter;
         private System.Windows.Forms.DataGridViewTextBoxColumn SL;
         private System.Windows.Forms.DataGridViewTextBoxColumn codeDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn nameDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn categoryDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn reOrderLevelDataGridViewTextBoxColumn;
+        private System.Windows.Forms.BindingSource stockBindingSource1;
     }
 }

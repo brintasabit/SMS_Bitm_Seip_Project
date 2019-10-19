@@ -17,6 +17,35 @@ PreviousUnitPrice varchar(50),PreviousMRP varchar(50),MRP varchar(50))
 create table Sales(ID int identity (1,1),Customer varchar(50),Date varchar(50),LoyalityPoint varchar(50),Category varchar(50),Product varchar(50),AvailableQuantity varchar(50),
 Quantity varchar(50),MRP varchar(50),TotalMRP varchar(50),)
 select * from Sales
+select * from ProductsPurchase
+select Code,Name,Category,ReOrderLevel,ExpireDate,Quantity from [Product] join ProductsPurchase on [Product].ProductPurchaseId=ProductsPurchase.ID 
+select t1.Code,t1.Name,t1.Category,t1.ReOrderLevel
+from Product t1
+inner join ProductsPurchase on Product.ID=ProductsPurchase.ID
+where Product.ID=x and Product.ID='y'
+select ExpireDate,Quantity from ProductsPurchase
+
+
+
+
+
+
+
+
+
+select * from Product a inner join ProductsPurchase b on a.ID=b.ID
+select * from Product a left join ProductsPurchase b on a.ID=b.ID
+
+
+
+
+
+
+
+
+
+
+
 
 
 

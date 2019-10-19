@@ -18,5 +18,7 @@ namespace StockManagementSystem.Model
         public string Name { get; set; }
         //public string Category { get; set; }
         public string ReOrderLevel { get; set; }
+        public string ExpireDate { get; set; }
+        public string Quantity { get; set; }
     }
 }

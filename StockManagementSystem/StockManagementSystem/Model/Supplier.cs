@@ -8,11 +8,11 @@ namespace StockManagementSystem.Model
 {
     class Supplier
     {
-        private string code;
-        private string name;
-        private string address;
-        private string email;
-        private string contact;
-        private string contactPerson;
+        public string Code { get; set; }
+        public string Name{ get; set; }
+        public string Address{ get; set; }
+        public string Email{ get; set; }
+        public string Contact{ get; set; }
+        public string ContactPerson{ get; set; }
     }
 }

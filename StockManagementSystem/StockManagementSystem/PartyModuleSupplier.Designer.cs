@@ -150,6 +150,7 @@
             this.ButtonSave.TabIndex = 12;
             this.ButtonSave.Text = "Save";
             this.ButtonSave.UseVisualStyleBackColor = true;
+            this.ButtonSave.Click += new System.EventHandler(this.ButtonSave_Click);
             // 
             // dataGridViewSupplier
             // 
@@ -190,6 +191,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Name = "PartyModuleSupplier";
             this.Text = "Supplier";
+            this.Load += new System.EventHandler(this.PartyModuleSupplier_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewSupplier)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

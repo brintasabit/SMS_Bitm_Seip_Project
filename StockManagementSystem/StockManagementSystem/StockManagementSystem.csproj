@@ -54,6 +54,7 @@
     <Compile Include="Bill\CategoryManager.cs" />
     <Compile Include="Bill\ProductManager.cs" />
     <Compile Include="Bill\StockManager.cs" />
+    <Compile Include="Bill\SupplierManager.cs" />
     <Compile Include="Model\Category.cs" />
     <Compile Include="Model\Connection.cs" />
     <Compile Include="Model\Customer.cs" />
@@ -105,6 +106,7 @@
     <Compile Include="Repository\CategoryRepository.cs" />
     <Compile Include="Repository\ProductRepository.cs" />
     <Compile Include="Repository\StockRepository.cs" />
+    <Compile Include="Repository\SupplierRepository.cs" />
     <Compile Include="SalesModule.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -198,6 +200,7 @@
     <None Include="Properties\DataSources\StockManagementSystem.Model.Category.datasource" />
     <None Include="Properties\DataSources\StockManagementSystem.Model.Product.datasource" />
     <None Include="Properties\DataSources\StockManagementSystem.Model.Stock.datasource" />
+    <None Include="Properties\DataSources\StockManagementSystem.Model.Supplier.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

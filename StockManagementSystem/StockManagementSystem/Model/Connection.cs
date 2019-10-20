@@ -8,6 +8,6 @@ namespace StockManagementSystem.Model
 {
     class Connection
     {
-        public string connectionString = @"Server=BRINTA-PC; Database=StockManagementSystem; Integrated Security=True";
+        public string connectionString = @"Server=PC-301-26\SQLEXPRESS; Database=StockManagementSystem; Integrated Security=True";
     }
 }

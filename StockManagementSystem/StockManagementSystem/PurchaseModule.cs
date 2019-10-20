@@ -20,7 +20,7 @@ namespace StockManagementSystem
         private void PurchaseModule_Load(object sender, EventArgs e)
         {
             // TODO: This line of code loads data into the 'stockManagementSystemDataSet1.ProductsPurchase' table. You can move, or remove it, as needed.
-            this.productsPurchaseTableAdapter.Fill(this.stockManagementSystemDataSet1.ProductsPurchase);
+           // this.productsPurchaseTableAdapter.Fill(this.stockManagementSystemDataSet1.ProductsPurchase);
 
         }
 

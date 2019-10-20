@@ -27,13 +27,18 @@ select ExpireDate,Quantity from ProductsPurchase
 
 
 
+select p.Code as ProductCode,p.Name as productName,c.Name, ReOrderLevel,Description
+ from Product as p
+ Left join Category as c on c.Name = p.Category
+
+ Select * from Category
+Select * from Product
 
 
 
 
 
-
-select * from Product a inner join ProductsPurchase b on a.ID=b.ID
+select Code,Name,Category,ReOrderLevel,ExpireDate,Quantity from Product left join ProductsPurchase on Product.ID=ProductsPurchase.ID
 select * from Product a left join ProductsPurchase b on a.ID=b.ID
 
 

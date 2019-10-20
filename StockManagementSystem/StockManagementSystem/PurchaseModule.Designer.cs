@@ -33,6 +33,7 @@
             this.textBoxDate = new System.Windows.Forms.TextBox();
             this.textBoxBillInvoice = new System.Windows.Forms.TextBox();
             this.comboBoxSupplier = new System.Windows.Forms.ComboBox();
+            this.supplierBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
@@ -51,7 +52,7 @@
             this.textBoxCode = new System.Windows.Forms.TextBox();
             this.comboBoxProducts = new System.Windows.Forms.ComboBox();
             this.comboBoxCategory = new System.Windows.Forms.ComboBox();
-            this.categoryBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.productBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.label16 = new System.Windows.Forms.Label();
             this.label15 = new System.Windows.Forms.Label();
             this.label14 = new System.Windows.Forms.Label();
@@ -65,6 +66,8 @@
             this.label6 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
+            this.purchaseBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.categoryBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.ButtonAdd = new System.Windows.Forms.Button();
             this.dataGridViewPurchase = new System.Windows.Forms.DataGridView();
             this.SL = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -80,14 +83,15 @@
             this.productsPurchaseBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.stockManagementSystemDataSet1 = new StockManagementSystem.StockManagementSystemDataSet1();
             this.productsPurchaseTableAdapter = new StockManagementSystem.StockManagementSystemDataSet1TableAdapters.ProductsPurchaseTableAdapter();
-            this.supplierBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.groupBox1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.supplierBindingSource)).BeginInit();
             this.groupBox2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.productBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.purchaseBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.categoryBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewPurchase)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.productsPurchaseBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.stockManagementSystemDataSet1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.supplierBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // groupBox1
@@ -129,6 +133,10 @@
             this.comboBoxSupplier.Size = new System.Drawing.Size(182, 28);
             this.comboBoxSupplier.TabIndex = 3;
             this.comboBoxSupplier.ValueMember = "Code";
+            // 
+            // supplierBindingSource
+            // 
+            this.supplierBindingSource.DataSource = typeof(StockManagementSystem.Model.Supplier);
             // 
             // label1
             // 
@@ -282,16 +290,19 @@
             // 
             // comboBoxProducts
             // 
+            this.comboBoxProducts.DataSource = this.productBindingSource;
+            this.comboBoxProducts.DisplayMember = "Name";
             this.comboBoxProducts.FormattingEnabled = true;
             this.comboBoxProducts.Location = new System.Drawing.Point(204, 62);
             this.comboBoxProducts.Name = "comboBoxProducts";
             this.comboBoxProducts.Size = new System.Drawing.Size(200, 28);
             this.comboBoxProducts.TabIndex = 1;
+            this.comboBoxProducts.ValueMember = "Category";
             // 
             // comboBoxCategory
             // 
-            this.comboBoxCategory.DataSource = this.categoryBindingSource;
-            this.comboBoxCategory.DisplayMember = "Name";
+            this.comboBoxCategory.DataSource = this.productBindingSource;
+            this.comboBoxCategory.DisplayMember = "Category";
             this.comboBoxCategory.FormattingEnabled = true;
             this.comboBoxCategory.Location = new System.Drawing.Point(204, 23);
             this.comboBoxCategory.Name = "comboBoxCategory";
@@ -299,9 +310,9 @@
             this.comboBoxCategory.TabIndex = 1;
             this.comboBoxCategory.ValueMember = "Code";
             // 
-            // categoryBindingSource
+            // productBindingSource
             // 
-            this.categoryBindingSource.DataSource = typeof(StockManagementSystem.Model.Category);
+            this.productBindingSource.DataSource = typeof(StockManagementSystem.Model.Product);
             // 
             // label16
             // 
@@ -420,6 +431,14 @@
             this.label4.TabIndex = 0;
             this.label4.Text = "Category";
             // 
+            // purchaseBindingSource
+            // 
+            this.purchaseBindingSource.DataSource = typeof(StockManagementSystem.Model.Purchase);
+            // 
+            // categoryBindingSource
+            // 
+            this.categoryBindingSource.DataSource = typeof(StockManagementSystem.Model.Category);
+            // 
             // ButtonAdd
             // 
             this.ButtonAdd.Location = new System.Drawing.Point(784, 142);
@@ -428,6 +447,7 @@
             this.ButtonAdd.TabIndex = 1;
             this.ButtonAdd.Text = "Add";
             this.ButtonAdd.UseVisualStyleBackColor = true;
+            this.ButtonAdd.Click += new System.EventHandler(this.ButtonAdd_Click);
             // 
             // dataGridViewPurchase
             // 
@@ -528,10 +548,6 @@
             // 
             this.productsPurchaseTableAdapter.ClearBeforeFill = true;
             // 
-            // supplierBindingSource
-            // 
-            this.supplierBindingSource.DataSource = typeof(StockManagementSystem.Model.Supplier);
-            // 
             // PurchaseModule
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
@@ -547,13 +563,15 @@
             this.Load += new System.EventHandler(this.PurchaseModule_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.supplierBindingSource)).EndInit();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.productBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.purchaseBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.categoryBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewPurchase)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.productsPurchaseBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.stockManagementSystemDataSet1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.supplierBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -612,5 +630,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Action;
         private System.Windows.Forms.BindingSource categoryBindingSource;
         private System.Windows.Forms.BindingSource supplierBindingSource;
+        private System.Windows.Forms.BindingSource productBindingSource;
+        private System.Windows.Forms.BindingSource purchaseBindingSource;
     }
 }

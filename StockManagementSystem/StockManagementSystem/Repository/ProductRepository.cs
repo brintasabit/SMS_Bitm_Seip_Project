@@ -97,9 +97,8 @@ namespace StockManagementSystem.Repository
         }
         public bool SaveProduct(Product _product)
         {
-            //string connectionString = @"Server=BRINTA-PC; Database=StockManagementSystem; Integrated Security=True";
             SqlConnection sqlConnection = new SqlConnection(connection.connectionString);
-            string commandString = @"insert into Product values('"+_product.Category+"','"+_product.Code+"','"+_product.Name+"','"+_product.ReOrderLevel+"','"+_product.Description+" is fine')";
+            string commandString = @"insert into Product values('"+_product.Category+"','"+_product.Code+"','"+_product.Name+"','"+_product.ReOrderLevel+"','"+_product.Description+"')";
             SqlCommand sqlCommand = new SqlCommand(commandString, sqlConnection);
             sqlConnection.Open();
             int isSaved = sqlCommand.ExecuteNonQuery();
@@ -113,7 +112,6 @@ namespace StockManagementSystem.Repository
         public List<Product> SearchProductCatagory(Product _product)
         {
             List<Product> products=new List<Product>();
-            //string connectionString = @"Server=BRINTA-PC; Database=StockManagementSystem; Integrated Security=True";
             SqlConnection sqlConnection = new SqlConnection(connection.connectionString);
             string commandString = @"select * from Product where Category='"+_product.Category+"'";
             SqlCommand sqlCommand = new SqlCommand(commandString, sqlConnection);

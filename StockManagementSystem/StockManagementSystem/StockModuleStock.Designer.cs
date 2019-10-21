@@ -45,10 +45,6 @@
             this.stockBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.stockBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.SL = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.codeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.nameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.categoryDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.reOrderLevelDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewStock)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.stockManagementSystemDataSet3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.productsPurchaseBindingSource)).BeginInit();
@@ -122,15 +118,9 @@
             // 
             // dataGridViewStock
             // 
-            this.dataGridViewStock.AutoGenerateColumns = false;
             this.dataGridViewStock.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridViewStock.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.SL,
-            this.codeDataGridViewTextBoxColumn,
-            this.nameDataGridViewTextBoxColumn,
-            this.categoryDataGridViewTextBoxColumn,
-            this.reOrderLevelDataGridViewTextBoxColumn});
-            this.dataGridViewStock.DataSource = this.stockBindingSource;
+            this.SL});
             this.dataGridViewStock.Location = new System.Drawing.Point(111, 327);
             this.dataGridViewStock.Name = "dataGridViewStock";
             this.dataGridViewStock.RowTemplate.Height = 28;
@@ -174,30 +164,6 @@
             // 
             this.SL.HeaderText = "SL";
             this.SL.Name = "SL";
-            // 
-            // codeDataGridViewTextBoxColumn
-            // 
-            this.codeDataGridViewTextBoxColumn.DataPropertyName = "Code";
-            this.codeDataGridViewTextBoxColumn.HeaderText = "Code";
-            this.codeDataGridViewTextBoxColumn.Name = "codeDataGridViewTextBoxColumn";
-            // 
-            // nameDataGridViewTextBoxColumn
-            // 
-            this.nameDataGridViewTextBoxColumn.DataPropertyName = "Name";
-            this.nameDataGridViewTextBoxColumn.HeaderText = "Name";
-            this.nameDataGridViewTextBoxColumn.Name = "nameDataGridViewTextBoxColumn";
-            // 
-            // categoryDataGridViewTextBoxColumn
-            // 
-            this.categoryDataGridViewTextBoxColumn.DataPropertyName = "Category";
-            this.categoryDataGridViewTextBoxColumn.HeaderText = "Category";
-            this.categoryDataGridViewTextBoxColumn.Name = "categoryDataGridViewTextBoxColumn";
-            // 
-            // reOrderLevelDataGridViewTextBoxColumn
-            // 
-            this.reOrderLevelDataGridViewTextBoxColumn.DataPropertyName = "ReOrderLevel";
-            this.reOrderLevelDataGridViewTextBoxColumn.HeaderText = "ReOrderLevel";
-            this.reOrderLevelDataGridViewTextBoxColumn.Name = "reOrderLevelDataGridViewTextBoxColumn";
             // 
             // StockModuleStock
             // 
@@ -244,11 +210,7 @@
         private StockManagementSystemDataSet3 stockManagementSystemDataSet3;
         private System.Windows.Forms.BindingSource productsPurchaseBindingSource;
         private StockManagementSystemDataSet3TableAdapters.ProductsPurchaseTableAdapter productsPurchaseTableAdapter;
-        private System.Windows.Forms.DataGridViewTextBoxColumn SL;
-        private System.Windows.Forms.DataGridViewTextBoxColumn codeDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn nameDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn categoryDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn reOrderLevelDataGridViewTextBoxColumn;
         private System.Windows.Forms.BindingSource stockBindingSource1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn SL;
     }
 }

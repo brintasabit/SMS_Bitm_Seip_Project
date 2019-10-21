@@ -24,13 +24,20 @@ namespace StockManagementSystem
         {
             _stock.Name = textBoxProduct.Text;
             _stock.Category = textBoxCategory.Text;
-            _stock.StartDate = textBoxStartDate.Text;
-            _stock.EndDate = textBoxEndDate.Text;
-            List<Stock>stockProduct = _stockManager.SearchStockProduct(_stock);
-            if (stockProduct.Count>0)
+            //_stock.StartDate = textBoxStartDate.Text;
+           // _stock.EndDate = textBoxEndDate.Text;
+           List<Stock> stockProductName = _stockManager.SearchStockProductName(_stock);
+           List<Stock> stockProductCategory = _stockManager.SearchStockProductCategory(_stock);
+
+            if (stockProductName.Count>0)
             {
                 MessageBox.Show("Found!");
-                dataGridViewStock.DataSource = _stockManager.ShowStock(_stock);
+                dataGridViewStock.DataSource = _stockManager.SearchStockProductName(_stock);
+            }
+            else if (stockProductCategory.Count>0)
+            {
+                MessageBox.Show("Found!");
+                dataGridViewStock.DataSource = _stockManager.SearchStockProductCategory(_stock);
             }
             else
             {
@@ -47,7 +54,7 @@ namespace StockManagementSystem
         {
             // TODO: This line of code loads data into the 'stockManagementSystemDataSet3.ProductsPurchase' table. You can move, or remove it, as needed.
             //this.productsPurchaseTableAdapter.Fill(this.stockManagementSystemDataSet3.ProductsPurchase);
-
+            dataGridViewStock.DataSource = _stockManager.ShowStock(_stock);
         }
     }
 }

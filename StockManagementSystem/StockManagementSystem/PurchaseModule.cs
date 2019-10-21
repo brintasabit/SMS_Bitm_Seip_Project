@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
-
+using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -21,7 +21,7 @@ namespace StockManagementSystem
         {
             InitializeComponent();
         }
-        private int serialNo = 2019;
+        private int serialNo = 2020;
         private void PurchaseModule_Load(object sender, EventArgs e)
         {
             // TODO: This line of code loads data into the 'stockManagementSystemDataSet1.ProductsPurchase' table. You can move, or remove it, as needed.
@@ -30,9 +30,9 @@ namespace StockManagementSystem
            comboBoxCategory.DataSource = _purchaseManager.ComboBoxCategoryList();
            comboBoxProducts.DataSource = _purchaseManager.ComboBoxProductList(_product);
            dataGridViewPurchase.DataSource = _purchaseManager.ShowPurchases(_purchase);
-            serialNo--;
-            textBoxCode.Text = serialNo.ToString();
-            
+           serialNo--;
+           textBoxCode.Text = serialNo.ToString();
+
             //textBoxCode.Text = Convert.ToString(_purchaseManager.SearchProductCode(_product));
         }
 
@@ -80,7 +80,6 @@ namespace StockManagementSystem
             try
             {
                 _purchase.Category = comboBoxCategory.Text;
-
                 _purchase.Products = comboBoxProducts.Text;
                 _purchase.Code = textBoxCode.Text;
                 _purchase.AvailableQuantity = Convert.ToInt32(textBoxAvailableQuantity.Text);

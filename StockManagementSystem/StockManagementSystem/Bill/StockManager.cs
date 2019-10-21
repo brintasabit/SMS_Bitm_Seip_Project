@@ -15,9 +15,14 @@ namespace StockManagementSystem.Bill
             return _stockRepository.ShowStock(_stock);
         }
 
-        public List<Stock> SearchStockProduct(Stock _stock)
+        public List<Stock> SearchStockProductName(Stock _stock)
         {
-            return _stockRepository.SearchStockProduct(_stock);
+            return _stockRepository.SearchStockProductName(_stock);
+        }
+
+        public List<Stock> SearchStockProductCategory(Stock _stock)
+        {
+            return _stockRepository.SearchStockProductCategory(_stock);
         }
     }
 }

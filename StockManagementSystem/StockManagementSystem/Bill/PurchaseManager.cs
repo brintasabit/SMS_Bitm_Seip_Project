@@ -27,15 +27,15 @@ namespace StockManagementSystem.Bill
             return _purchaseRepository.ComboBoxProductList(_product);
         }
 
-        public List<SuppliersPurchase> SearchSupplierBill(SuppliersPurchase _suppliersPurchase)
+        public List<Purchase> SearchSupplierBill(Purchase _purchase)
         {
-            return _purchaseRepository.SearchSupplierBill(_suppliersPurchase);
+            return _purchaseRepository.SearchSupplierBill(_purchase);
         }
 
-        public bool AddSuppliersPurchase(SuppliersPurchase _suppliersPurchase)
-        {
-            return _purchaseRepository.AddSuppliersPurchase(_suppliersPurchase);
-        }
+        //public bool AddSuppliersPurchase(SuppliersPurchase _suppliersPurchase)
+        //{
+        //    return _purchaseRepository.AddSuppliersPurchase(_suppliersPurchase);
+        //}
 
         public List<Purchase> SearchProductCode(Product _product)
         {

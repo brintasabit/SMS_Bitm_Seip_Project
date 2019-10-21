@@ -7,11 +7,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-
+using StockManagementSystem.Bill;
+using StockManagementSystem.Model;
 namespace StockManagementSystem
 {
     public partial class ReportModulePurchase : Form
     {
+        ReportPurchaseManager _reportPurchaseManager=new ReportPurchaseManager();
+        ReportPurchase _reportPurchase=new ReportPurchase();
         public ReportModulePurchase()
         {
             InitializeComponent();
@@ -20,6 +23,32 @@ namespace StockManagementSystem
         private void dataGridViewReportPurchase_RowPostPaint(object sender, DataGridViewRowPostPaintEventArgs e)
         {
             dataGridViewReportPurchase.Rows[e.RowIndex].Cells[0].Value = (e.RowIndex + 1).ToString();
+        }
+
+        private void buttonSearch_Click(object sender, EventArgs e)
+        {
+            _reportPurchase.StartDate = textBoxStartDate.Text;
+            _reportPurchase.EndDate = textBoxEndDate.Text;
+            try
+            {
+                _reportPurchase.StartDate = textBoxStartDate.Text;
+                _reportPurchase.EndDate = textBoxEndDate.Text;
+                List<ReportPurchase> reportPurchases = _reportPurchaseManager.SearchStockProductCategory(_reportPurchase);
+                if (reportPurchases.Count>0)
+                {
+                    MessageBox.Show("Found!");
+                    dataGridViewReportPurchase.DataSource =
+                        _reportPurchaseManager.SearchStockProductCategory(_reportPurchase);
+                }
+                else
+                {
+                    MessageBox.Show("Not Found!");
+                }
+            }
+            catch (Exception exception)
+            {
+                MessageBox.Show(exception.Message);
+            }
         }
     }
 }

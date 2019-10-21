@@ -33,11 +33,12 @@ insert into SuppliersPurchase values('20/10/2019','201019','Rangs')
 insert into SuppliersPurchase values('21/10/2019','211019','Lg')
 
 
-create table ProductsPurchase(ID int identity (1,1),Category varchar(50),
+create table ProductsPurchase(ID int identity (1,1),Date varchar(50),
+Bill varchar(50),Supplier varchar(50),Category varchar(50),
 Products varchar(50),Code varchar(50),AvailableQty int,
 ManufacturedDate varchar(50),ExpireDate varchar(50),Remarks varchar(50),
 Quantity int,UnitPrice float,TotalPrice float,
-PreviousUnitPrice float,PreviousMRP float,MRP float)
+PreviousUnitPrice float,PreviousMRP float,MRP float,Profit float)
 insert into ProductsPurchase 
 values ('Electronics','Mobile','0978',4,'20/10/19','12/12/19','Not Applicable',
 6,50,300,40,40,40)
@@ -64,6 +65,9 @@ select p.Code as ProductCode,p.Name as productName,c.Name, ReOrderLevel,Descript
  from Product as p
  Left join Category as c on c.Name = p.Category
 select p.Code,p.Name,pp.Category,ReOrderLevel,ExpireDate,Quantity 
+from Product as p left join ProductsPurchase as pp on pp.Products=p.Name where Name='Mobile'
+
+select * 
 from Product as p left join ProductsPurchase as pp on pp.Products=p.Name
 
 select p.Category,p.Name,p.Code from Product as p left join Category as c on c.Name=p.Name
@@ -93,7 +97,7 @@ delete from Supplier where Name='Bob'
 
 
 select Name from Product as p where p.Category='Electronics'
-
+select Code,Products,Category,AvailableQty,UnitPrice as CurrentPrice,MRP from ProductsPurchase
 
 
 

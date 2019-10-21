@@ -15,7 +15,6 @@ namespace StockManagementSystem.Repository
         public List<Stock> ShowStock(Stock _stock)
         {
             List<Stock> stocks=new List<Stock>();
-            //string connectionString = @"Server=BRINTA-PC; Database=StockManagementSystem; Integrated Security=True";
             SqlConnection sqlConnection = new SqlConnection(connection.connectionString);
             string commandString = @"select * from Product as p left join ProductsPurchase as pp on pp.Products=p.Name";
             SqlCommand sqlCommand = new SqlCommand(commandString, sqlConnection);

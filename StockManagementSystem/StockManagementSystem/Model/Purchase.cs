@@ -8,6 +8,9 @@ namespace StockManagementSystem.Model
 {
     class Purchase
     {
+        public string Date { get; set; }
+        public string BillInvoice { get; set; }
+        public string SupplierName { get; set; }
         public string Category { get; set; }
         public string Products { get; set; }
         public string Code { get; set; }
@@ -22,5 +25,7 @@ namespace StockManagementSystem.Model
         public double PreviousUnitPrice { get; set; }
         public double PreviousMRP { get; set; }
         public double MRP { get; set; }
+        public double Profit { get; set; }
+
     }
 }

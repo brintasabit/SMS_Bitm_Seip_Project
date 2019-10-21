@@ -45,26 +45,43 @@ namespace StockManagementSystem
         {
             try
             {
-                _suppliersPurchase.Date = textBoxDate.Text;
-                _suppliersPurchase.BillInvoice = textBoxBillInvoice.Text;
-                _suppliersPurchase.SupplierName = comboBoxSupplier.Text;
-                List<SuppliersPurchase> suppliersPurchases = _purchaseManager.SearchSupplierBill(_suppliersPurchase);
-                if (_suppliersPurchase.BillInvoice.Length==0)
+                _purchase.Date = textBoxDate.Text;
+                _purchase.BillInvoice = textBoxBillInvoice.Text;
+                _purchase.SupplierName = comboBoxSupplier.Text;
+                _purchase.Category = comboBoxCategory.Text;
+                _purchase.Products = comboBoxProducts.Text;
+                _purchase.Code = textBoxCode.Text;
+                _purchase.AvailableQuantity = Convert.ToInt32(textBoxAvailableQuantity.Text);
+                _purchase.ManufacturedDate = textBoxManufacturedDate.Text;
+                _purchase.ExpireDate = textBoxExpireDate.Text;
+                _purchase.Remarks = textBoxRemarks.Text;
+                _purchase.Quantity = Convert.ToInt32(textBoxQuantity.Text);
+                _purchase.UnitPrice = Convert.ToDouble(textBoxUnitPrice.Text);
+                textBoxTotalPrice.Text=Convert.ToString(_purchase.Quantity * _purchase.UnitPrice);
+                _purchase.TotalPrice = Convert.ToDouble(textBoxTotalPrice.Text);
+                _purchase.PreviousUnitPrice = Convert.ToDouble(textBoxPreviousUnitPrice.Text);
+                _purchase.PreviousMRP=Convert.ToDouble(textBoxPreviousMrp.Text);
+                textBoxMrp.Text=Convert.ToString(_purchase.UnitPrice + ((25 * _purchase.UnitPrice) / 100));
+                _purchase.MRP = Convert.ToDouble(textBoxMrp.Text);
+                _purchase.Profit = _purchase.UnitPrice - _purchase.MRP;
+                List<Purchase> purchasesCode = _purchaseManager.SearchPurchasesCode(_purchase);
+                List<Purchase> purchasesBill = _purchaseManager.SearchSupplierBill(_purchase);
+                if (purchasesBill.Count>0)
                 {
-                    MessageBox.Show("Can't Add Supplier!");
+                    MessageBox.Show("Bill-Invoice No. Exists!");
                 }
-                else if (suppliersPurchases.Count>0)
+                else if (purchasesCode.Count>0)
                 {
-                    MessageBox.Show("Bill/Invoice No Exists!");
+                    MessageBox.Show("Purchase Code Exists!");
+                    serialNo--;
+                    textBoxCode.Text = serialNo.ToString();
                 }
                 else
                 {
-                    bool isAdded = _purchaseManager.AddSuppliersPurchase(_suppliersPurchase);
-                    if (isAdded)
-                    {
-                        MessageBox.Show("Added!");
-                    }
+                    
+                    MessageBox.Show("Added!");
                 }
+                
             }
             catch (Exception exception)
             {
@@ -79,6 +96,9 @@ namespace StockManagementSystem
             //textBoxCode.Text = serialNo.ToString();
             try
             {
+                _purchase.Date = textBoxDate.Text;
+                _purchase.BillInvoice = textBoxBillInvoice.Text;
+                _purchase.SupplierName = comboBoxSupplier.Text;
                 _purchase.Category = comboBoxCategory.Text;
                 _purchase.Products = comboBoxProducts.Text;
                 _purchase.Code = textBoxCode.Text;
@@ -95,7 +115,12 @@ namespace StockManagementSystem
                 textBoxMrp.Text=Convert.ToString(_purchase.UnitPrice + ((25 * _purchase.UnitPrice) / 100));
                 _purchase.MRP = Convert.ToDouble(textBoxMrp.Text);
                 List<Purchase> purchasesCode = _purchaseManager.SearchPurchasesCode(_purchase);
-                if (purchasesCode.Count>0)
+                List<Purchase> purchasesBill = _purchaseManager.SearchSupplierBill(_purchase);
+                if (purchasesBill.Count>0)
+                {
+                    MessageBox.Show("Bill-Invoice No. Exists!");
+                }
+                else if (purchasesCode.Count>0)
                 {
                     MessageBox.Show("Purchase Code Exists!");
                     serialNo--;
@@ -107,7 +132,8 @@ namespace StockManagementSystem
                     bool isAdded = _purchaseManager.SavePurchase(_purchase);
                     if (isAdded)
                     {
-                        MessageBox.Show("Added!");
+                        MessageBox.Show("Submitted!");
+                        dataGridViewPurchase.DataSource = _purchaseManager.SavePurchase(_purchase);
                     }
                 }
                 

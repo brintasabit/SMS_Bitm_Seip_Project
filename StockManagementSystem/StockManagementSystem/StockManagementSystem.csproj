@@ -54,6 +54,7 @@
     <Compile Include="Bill\CategoryManager.cs" />
     <Compile Include="Bill\ProductManager.cs" />
     <Compile Include="Bill\PurchaseManager.cs" />
+    <Compile Include="Bill\ReportPurchaseManager.cs" />
     <Compile Include="Bill\StockManager.cs" />
     <Compile Include="Bill\SupplierManager.cs" />
     <Compile Include="Model\Category.cs" />
@@ -61,6 +62,7 @@
     <Compile Include="Model\Customer.cs" />
     <Compile Include="Model\Product.cs" />
     <Compile Include="Model\Purchase.cs" />
+    <Compile Include="Model\ReportPurchase.cs" />
     <Compile Include="Model\Stock.cs" />
     <Compile Include="Model\Supplier.cs" />
     <Compile Include="Model\SuppliersPurchase.cs" />
@@ -109,6 +111,7 @@
     <Compile Include="Repository\CategoryRepository.cs" />
     <Compile Include="Repository\ProductRepository.cs" />
     <Compile Include="Repository\PurchaseRepository.cs" />
+    <Compile Include="Repository\ReportPurchaseRepository.cs" />
     <Compile Include="Repository\StockRepository.cs" />
     <Compile Include="Repository\SupplierRepository.cs" />
     <Compile Include="SalesModule.cs">
@@ -204,6 +207,7 @@
     <None Include="Properties\DataSources\StockManagementSystem.Model.Category.datasource" />
     <None Include="Properties\DataSources\StockManagementSystem.Model.Product.datasource" />
     <None Include="Properties\DataSources\StockManagementSystem.Model.Purchase.datasource" />
+    <None Include="Properties\DataSources\StockManagementSystem.Model.ReportPurchase.datasource" />
     <None Include="Properties\DataSources\StockManagementSystem.Model.Stock.datasource" />
     <None Include="Properties\DataSources\StockManagementSystem.Model.Supplier.datasource" />
     <None Include="Properties\Settings.settings">

@@ -8,8 +8,6 @@ namespace StockManagementSystem.Model
 {
     class SuppliersPurchase
     {
-        public string Date { get; set; }
-        public string BillInvoice { get; set; }
-        public string SupplierName { get; set; }
+
     }
 }

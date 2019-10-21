@@ -38,9 +38,9 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.ButtonSubmit = new System.Windows.Forms.Button();
             this.textBoxMrp = new System.Windows.Forms.TextBox();
             this.textBoxPreviousMrp = new System.Windows.Forms.TextBox();
+            this.ButtonAdd = new System.Windows.Forms.Button();
             this.textBoxPreviousUnitPrice = new System.Windows.Forms.TextBox();
             this.textBoxRemarks = new System.Windows.Forms.TextBox();
             this.textBoxTotalPrice = new System.Windows.Forms.TextBox();
@@ -66,13 +66,10 @@
             this.label6 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
+            this.ButtonSubmit = new System.Windows.Forms.Button();
             this.purchaseBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.categoryBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.ButtonAdd = new System.Windows.Forms.Button();
             this.dataGridViewPurchase = new System.Windows.Forms.DataGridView();
-            this.productsPurchaseBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.stockManagementSystemDataSet1 = new StockManagementSystem.StockManagementSystemDataSet1();
-            this.productsPurchaseTableAdapter = new StockManagementSystem.StockManagementSystemDataSet1TableAdapters.ProductsPurchaseTableAdapter();
             this.SL = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.codeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.manufacturedDateDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -83,6 +80,9 @@
             this.mRPDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Remarks = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Action = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.productsPurchaseBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.stockManagementSystemDataSet1 = new StockManagementSystem.StockManagementSystemDataSet1();
+            this.productsPurchaseTableAdapter = new StockManagementSystem.StockManagementSystemDataSet1TableAdapters.ProductsPurchaseTableAdapter();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.supplierBindingSource)).BeginInit();
             this.groupBox2.SuspendLayout();
@@ -102,7 +102,7 @@
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Controls.Add(this.label3);
-            this.groupBox1.Location = new System.Drawing.Point(402, 12);
+            this.groupBox1.Location = new System.Drawing.Point(456, 12);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(364, 165);
             this.groupBox1.TabIndex = 0;
@@ -167,9 +167,9 @@
             // 
             // groupBox2
             // 
-            this.groupBox2.Controls.Add(this.ButtonSubmit);
             this.groupBox2.Controls.Add(this.textBoxMrp);
             this.groupBox2.Controls.Add(this.textBoxPreviousMrp);
+            this.groupBox2.Controls.Add(this.ButtonAdd);
             this.groupBox2.Controls.Add(this.textBoxPreviousUnitPrice);
             this.groupBox2.Controls.Add(this.textBoxRemarks);
             this.groupBox2.Controls.Add(this.textBoxTotalPrice);
@@ -196,20 +196,10 @@
             this.groupBox2.Controls.Add(this.label4);
             this.groupBox2.Location = new System.Drawing.Point(42, 182);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(1092, 385);
+            this.groupBox2.Size = new System.Drawing.Size(1161, 385);
             this.groupBox2.TabIndex = 0;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Products";
-            // 
-            // ButtonSubmit
-            // 
-            this.ButtonSubmit.Location = new System.Drawing.Point(998, 338);
-            this.ButtonSubmit.Name = "ButtonSubmit";
-            this.ButtonSubmit.Size = new System.Drawing.Size(75, 35);
-            this.ButtonSubmit.TabIndex = 1;
-            this.ButtonSubmit.Text = "Submit";
-            this.ButtonSubmit.UseVisualStyleBackColor = true;
-            this.ButtonSubmit.Click += new System.EventHandler(this.ButtonSubmit_Click);
             // 
             // textBoxMrp
             // 
@@ -224,6 +214,16 @@
             this.textBoxPreviousMrp.Name = "textBoxPreviousMrp";
             this.textBoxPreviousMrp.Size = new System.Drawing.Size(200, 26);
             this.textBoxPreviousMrp.TabIndex = 12;
+            // 
+            // ButtonAdd
+            // 
+            this.ButtonAdd.Location = new System.Drawing.Point(995, 338);
+            this.ButtonAdd.Name = "ButtonAdd";
+            this.ButtonAdd.Size = new System.Drawing.Size(97, 35);
+            this.ButtonAdd.TabIndex = 1;
+            this.ButtonAdd.Text = "Add";
+            this.ButtonAdd.UseVisualStyleBackColor = true;
+            this.ButtonAdd.Click += new System.EventHandler(this.ButtonAdd_Click);
             // 
             // textBoxPreviousUnitPrice
             // 
@@ -432,6 +432,16 @@
             this.label4.TabIndex = 0;
             this.label4.Text = "Category";
             // 
+            // ButtonSubmit
+            // 
+            this.ButtonSubmit.Location = new System.Drawing.Point(1037, 691);
+            this.ButtonSubmit.Name = "ButtonSubmit";
+            this.ButtonSubmit.Size = new System.Drawing.Size(116, 47);
+            this.ButtonSubmit.TabIndex = 1;
+            this.ButtonSubmit.Text = "Submit";
+            this.ButtonSubmit.UseVisualStyleBackColor = true;
+            this.ButtonSubmit.Click += new System.EventHandler(this.ButtonSubmit_Click);
+            // 
             // purchaseBindingSource
             // 
             this.purchaseBindingSource.DataSource = typeof(StockManagementSystem.Model.Purchase);
@@ -439,16 +449,6 @@
             // categoryBindingSource
             // 
             this.categoryBindingSource.DataSource = typeof(StockManagementSystem.Model.Category);
-            // 
-            // ButtonAdd
-            // 
-            this.ButtonAdd.Location = new System.Drawing.Point(784, 142);
-            this.ButtonAdd.Name = "ButtonAdd";
-            this.ButtonAdd.Size = new System.Drawing.Size(75, 35);
-            this.ButtonAdd.TabIndex = 1;
-            this.ButtonAdd.Text = "Add";
-            this.ButtonAdd.UseVisualStyleBackColor = true;
-            this.ButtonAdd.Click += new System.EventHandler(this.ButtonAdd_Click);
             // 
             // dataGridViewPurchase
             // 
@@ -469,23 +469,9 @@
             this.dataGridViewPurchase.Location = new System.Drawing.Point(42, 572);
             this.dataGridViewPurchase.Name = "dataGridViewPurchase";
             this.dataGridViewPurchase.RowTemplate.Height = 28;
-            this.dataGridViewPurchase.Size = new System.Drawing.Size(1092, 102);
+            this.dataGridViewPurchase.Size = new System.Drawing.Size(1161, 102);
             this.dataGridViewPurchase.TabIndex = 2;
             this.dataGridViewPurchase.RowPostPaint += new System.Windows.Forms.DataGridViewRowPostPaintEventHandler(this.dataGridViewPurchase_RowPostPaint);
-            // 
-            // productsPurchaseBindingSource
-            // 
-            this.productsPurchaseBindingSource.DataMember = "ProductsPurchase";
-            this.productsPurchaseBindingSource.DataSource = this.stockManagementSystemDataSet1;
-            // 
-            // stockManagementSystemDataSet1
-            // 
-            this.stockManagementSystemDataSet1.DataSetName = "StockManagementSystemDataSet1";
-            this.stockManagementSystemDataSet1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // productsPurchaseTableAdapter
-            // 
-            this.productsPurchaseTableAdapter.ClearBeforeFill = true;
             // 
             // SL
             // 
@@ -549,16 +535,29 @@
             this.Action.Name = "Action";
             this.Action.Width = 124;
             // 
+            // productsPurchaseBindingSource
+            // 
+            this.productsPurchaseBindingSource.DataMember = "ProductsPurchase";
+            this.productsPurchaseBindingSource.DataSource = this.stockManagementSystemDataSet1;
+            // 
+            // stockManagementSystemDataSet1
+            // 
+            this.stockManagementSystemDataSet1.DataSetName = "StockManagementSystemDataSet1";
+            this.stockManagementSystemDataSet1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // productsPurchaseTableAdapter
+            // 
+            this.productsPurchaseTableAdapter.ClearBeforeFill = true;
+            // 
             // PurchaseModule
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1166, 686);
+            this.ClientSize = new System.Drawing.Size(1275, 750);
+            this.Controls.Add(this.ButtonSubmit);
             this.Controls.Add(this.dataGridViewPurchase);
-            this.Controls.Add(this.ButtonAdd);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Name = "PurchaseModule";
             this.Text = "Purchase Module";
             this.Load += new System.EventHandler(this.PurchaseModule_Load);

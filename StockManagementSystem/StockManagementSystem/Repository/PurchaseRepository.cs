@@ -93,7 +93,7 @@ namespace StockManagementSystem.Repository
             {
                 Purchase purchase=new Purchase();
                 purchase.Code=sqlDataReader["Code"].ToString();
-                purchase.Products=sqlDataReader["Products"].ToString();
+                //purchase.Products=sqlDataReader["Products"].ToString();
                 //suppliersPurchase.Date = sqlDataReader["Date"].ToString();
                 //suppliersPurchase.BillInvoice = sqlDataReader["BillInvoice"].ToString();
                 //suppliersPurchase.SupplierName = sqlDataReader["SupplierName"].ToString();
@@ -116,6 +116,53 @@ namespace StockManagementSystem.Repository
             }
             sqlConnection.Close();
             return false;
+        }
+        public bool SavePurchase(Purchase _purchase)
+        {
+            //_purchase.TotalPrice = _purchase.Quantity * _purchase.UnitPrice;
+            //_purchase.MRP = _purchase.UnitPrice + ((25 * _purchase.UnitPrice) / 100);
+            SqlConnection sqlConnection = new SqlConnection(connection.connectionString);
+            string commandString = @"insert into ProductsPurchase 
+                                     values ('"+_purchase.Category+"','"+_purchase.Products+"','"+_purchase.Code+"',"+_purchase.AvailableQuantity+",'"+_purchase.ManufacturedDate+"','"+_purchase.ExpireDate+"','"+_purchase.Remarks+"',"+_purchase.Quantity+","+_purchase.UnitPrice+","+_purchase.TotalPrice+","+_purchase.PreviousUnitPrice+","+_purchase.PreviousMRP+","+_purchase.MRP+")";
+            SqlCommand sqlCommand = new SqlCommand(commandString, sqlConnection);
+            sqlConnection.Open();
+            int isSaved = sqlCommand.ExecuteNonQuery();
+            if (isSaved>0)
+            {
+                return true;
+            }
+            sqlConnection.Close();
+            return false;
+        }
+        public List<Purchase> ShowPurchases(Purchase _purchase)
+        {
+            List<Purchase> purchases=new List<Purchase>();
+            SqlConnection sqlConnection = new SqlConnection(connection.connectionString);
+            string commandString = @"select * from ProductsPurchase";
+            SqlCommand sqlCommand = new SqlCommand(commandString, sqlConnection);
+            sqlConnection.Open();
+            SqlDataReader sqlDataReader = sqlCommand.ExecuteReader();
+            while (sqlDataReader.Read())
+            {
+                Purchase purchase=new Purchase();
+                purchase.Category = sqlDataReader["Category"].ToString();
+                purchase.Products = sqlDataReader["Products"].ToString();
+                purchase.Code = sqlDataReader["Code"].ToString();
+                purchase.AvailableQuantity = Convert.ToInt32(sqlDataReader["AvailableQty"].ToString());
+                purchase.ManufacturedDate = sqlDataReader["ManufacturedDate"].ToString();
+                purchase.ExpireDate = sqlDataReader["ExpireDate"].ToString();
+                purchase.Remarks = sqlDataReader["Remarks"].ToString();
+                purchase.Quantity = Convert.ToInt32(sqlDataReader["Quantity"].ToString());
+                purchase.UnitPrice = Convert.ToDouble(sqlDataReader["UnitPrice"].ToString());
+                purchase.TotalPrice = Convert.ToDouble(sqlDataReader["TotalPrice"].ToString());
+                purchase.PreviousUnitPrice = Convert.ToDouble(sqlDataReader["PreviousUnitPrice"].ToString());
+                purchase.PreviousMRP = Convert.ToDouble(sqlDataReader["PreviousMRP"].ToString());
+                purchase.MRP = Convert.ToDouble(sqlDataReader["MRP"].ToString());
+                purchases.Add(purchase);
+            }
+            sqlConnection.Close();
+            return purchases;
+
         }
     }
 }

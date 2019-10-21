@@ -51,8 +51,8 @@
             this.textBoxAvailableQuantity = new System.Windows.Forms.TextBox();
             this.textBoxCode = new System.Windows.Forms.TextBox();
             this.comboBoxProducts = new System.Windows.Forms.ComboBox();
-            this.comboBoxCategory = new System.Windows.Forms.ComboBox();
             this.productBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.comboBoxCategory = new System.Windows.Forms.ComboBox();
             this.label16 = new System.Windows.Forms.Label();
             this.label15 = new System.Windows.Forms.Label();
             this.label14 = new System.Windows.Forms.Label();
@@ -70,19 +70,19 @@
             this.categoryBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.ButtonAdd = new System.Windows.Forms.Button();
             this.dataGridViewPurchase = new System.Windows.Forms.DataGridView();
+            this.productsPurchaseBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.stockManagementSystemDataSet1 = new StockManagementSystem.StockManagementSystemDataSet1();
+            this.productsPurchaseTableAdapter = new StockManagementSystem.StockManagementSystemDataSet1TableAdapters.ProductsPurchaseTableAdapter();
             this.SL = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.codeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.manufacturedDateDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.expireDateDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.remarksDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.quantityDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.unitPriceDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.totalPriceDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.mRPDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Remarks = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Action = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.productsPurchaseBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.stockManagementSystemDataSet1 = new StockManagementSystem.StockManagementSystemDataSet1();
-            this.productsPurchaseTableAdapter = new StockManagementSystem.StockManagementSystemDataSet1TableAdapters.ProductsPurchaseTableAdapter();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.supplierBindingSource)).BeginInit();
             this.groupBox2.SuspendLayout();
@@ -209,6 +209,7 @@
             this.ButtonSubmit.TabIndex = 1;
             this.ButtonSubmit.Text = "Submit";
             this.ButtonSubmit.UseVisualStyleBackColor = true;
+            this.ButtonSubmit.Click += new System.EventHandler(this.ButtonSubmit_Click);
             // 
             // textBoxMrp
             // 
@@ -299,6 +300,10 @@
             this.comboBoxProducts.TabIndex = 1;
             this.comboBoxProducts.ValueMember = "Category";
             // 
+            // productBindingSource
+            // 
+            this.productBindingSource.DataSource = typeof(StockManagementSystem.Model.Product);
+            // 
             // comboBoxCategory
             // 
             this.comboBoxCategory.DataSource = this.productBindingSource;
@@ -309,10 +314,6 @@
             this.comboBoxCategory.Size = new System.Drawing.Size(200, 28);
             this.comboBoxCategory.TabIndex = 1;
             this.comboBoxCategory.ValueMember = "Code";
-            // 
-            // productBindingSource
-            // 
-            this.productBindingSource.DataSource = typeof(StockManagementSystem.Model.Product);
             // 
             // label16
             // 
@@ -458,11 +459,11 @@
             this.codeDataGridViewTextBoxColumn,
             this.manufacturedDateDataGridViewTextBoxColumn,
             this.expireDateDataGridViewTextBoxColumn,
-            this.remarksDataGridViewTextBoxColumn,
             this.quantityDataGridViewTextBoxColumn,
             this.unitPriceDataGridViewTextBoxColumn,
             this.totalPriceDataGridViewTextBoxColumn,
             this.mRPDataGridViewTextBoxColumn,
+            this.Remarks,
             this.Action});
             this.dataGridViewPurchase.DataSource = this.productsPurchaseBindingSource;
             this.dataGridViewPurchase.Location = new System.Drawing.Point(42, 572);
@@ -471,6 +472,20 @@
             this.dataGridViewPurchase.Size = new System.Drawing.Size(1092, 102);
             this.dataGridViewPurchase.TabIndex = 2;
             this.dataGridViewPurchase.RowPostPaint += new System.Windows.Forms.DataGridViewRowPostPaintEventHandler(this.dataGridViewPurchase_RowPostPaint);
+            // 
+            // productsPurchaseBindingSource
+            // 
+            this.productsPurchaseBindingSource.DataMember = "ProductsPurchase";
+            this.productsPurchaseBindingSource.DataSource = this.stockManagementSystemDataSet1;
+            // 
+            // stockManagementSystemDataSet1
+            // 
+            this.stockManagementSystemDataSet1.DataSetName = "StockManagementSystemDataSet1";
+            this.stockManagementSystemDataSet1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // productsPurchaseTableAdapter
+            // 
+            this.productsPurchaseTableAdapter.ClearBeforeFill = true;
             // 
             // SL
             // 
@@ -495,12 +510,6 @@
             this.expireDateDataGridViewTextBoxColumn.DataPropertyName = "ExpireDate";
             this.expireDateDataGridViewTextBoxColumn.HeaderText = "ExpireDate";
             this.expireDateDataGridViewTextBoxColumn.Name = "expireDateDataGridViewTextBoxColumn";
-            // 
-            // remarksDataGridViewTextBoxColumn
-            // 
-            this.remarksDataGridViewTextBoxColumn.DataPropertyName = "Remarks";
-            this.remarksDataGridViewTextBoxColumn.HeaderText = "Remarks";
-            this.remarksDataGridViewTextBoxColumn.Name = "remarksDataGridViewTextBoxColumn";
             // 
             // quantityDataGridViewTextBoxColumn
             // 
@@ -527,26 +536,18 @@
             this.mRPDataGridViewTextBoxColumn.Name = "mRPDataGridViewTextBoxColumn";
             this.mRPDataGridViewTextBoxColumn.Width = 125;
             // 
+            // Remarks
+            // 
+            this.Remarks.DataPropertyName = "Remarks";
+            this.Remarks.HeaderText = "Remarks";
+            this.Remarks.Name = "Remarks";
+            // 
             // Action
             // 
             this.Action.DataPropertyName = "Code";
             this.Action.HeaderText = "Action";
             this.Action.Name = "Action";
             this.Action.Width = 124;
-            // 
-            // productsPurchaseBindingSource
-            // 
-            this.productsPurchaseBindingSource.DataMember = "ProductsPurchase";
-            this.productsPurchaseBindingSource.DataSource = this.stockManagementSystemDataSet1;
-            // 
-            // stockManagementSystemDataSet1
-            // 
-            this.stockManagementSystemDataSet1.DataSetName = "StockManagementSystemDataSet1";
-            this.stockManagementSystemDataSet1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // productsPurchaseTableAdapter
-            // 
-            this.productsPurchaseTableAdapter.ClearBeforeFill = true;
             // 
             // PurchaseModule
             // 
@@ -618,19 +619,19 @@
         private StockManagementSystemDataSet1 stockManagementSystemDataSet1;
         private System.Windows.Forms.BindingSource productsPurchaseBindingSource;
         private StockManagementSystemDataSet1TableAdapters.ProductsPurchaseTableAdapter productsPurchaseTableAdapter;
-        private System.Windows.Forms.DataGridViewTextBoxColumn SL;
-        private System.Windows.Forms.DataGridViewTextBoxColumn codeDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn manufacturedDateDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn expireDateDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn remarksDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn quantityDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn unitPriceDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn totalPriceDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn mRPDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Action;
         private System.Windows.Forms.BindingSource categoryBindingSource;
         private System.Windows.Forms.BindingSource supplierBindingSource;
         private System.Windows.Forms.BindingSource productBindingSource;
         private System.Windows.Forms.BindingSource purchaseBindingSource;
+        private System.Windows.Forms.DataGridViewTextBoxColumn SL;
+        private System.Windows.Forms.DataGridViewTextBoxColumn codeDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn manufacturedDateDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn expireDateDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn quantityDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn unitPriceDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn totalPriceDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn mRPDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Remarks;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Action;
     }
 }

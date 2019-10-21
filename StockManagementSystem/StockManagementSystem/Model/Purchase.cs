@@ -11,14 +11,16 @@ namespace StockManagementSystem.Model
         public string Category { get; set; }
         public string Products { get; set; }
         public string Code { get; set; }
-        public string AvailableQuantity { get; set; }
+        public int AvailableQuantity { get; set; }
         public string ManufacturedDate { get; set; }
-        public string ExpiredDate { get; set; }
+        public string ExpireDate { get; set; }
         public string Remarks { get; set; }
-        public string UnitPrice { get; set; }
-        public string TotalPrice { get; set; }
-        public string PreviousUnitPrice { get; set; }
-        public string PreviousMRP { get; set; }
-        public string MRP { get; set; }
+        public int Quantity { get; set; }
+
+        public double UnitPrice { get; set; }
+        public double TotalPrice { get; set; }
+        public double PreviousUnitPrice { get; set; }
+        public double PreviousMRP { get; set; }
+        public double MRP { get; set; }
     }
 }

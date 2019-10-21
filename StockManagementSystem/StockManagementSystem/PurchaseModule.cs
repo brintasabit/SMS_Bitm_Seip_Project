@@ -29,8 +29,9 @@ namespace StockManagementSystem
            comboBoxSupplier.DataSource = _purchaseManager.ComboBoxSupplierList();
            comboBoxCategory.DataSource = _purchaseManager.ComboBoxCategoryList();
            comboBoxProducts.DataSource = _purchaseManager.ComboBoxProductList(_product);
+           dataGridViewPurchase.DataSource = _purchaseManager.ShowPurchases(_purchase);
            
-           textBoxCode.Text = Convert.ToString(_purchaseManager.SearchProductCode(_product));
+           //textBoxCode.Text = Convert.ToString(_purchaseManager.SearchProductCode(_product));
         }
 
         private void dataGridViewPurchase_RowPostPaint(object sender, DataGridViewRowPostPaintEventArgs e)
@@ -70,5 +71,34 @@ namespace StockManagementSystem
 
         }
 
+        private void ButtonSubmit_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                _purchase.Category = comboBoxCategory.Text;
+                _purchase.Products = comboBoxProducts.Text;
+                _purchase.Code = textBoxCode.Text;
+                _purchase.AvailableQuantity = Convert.ToInt32(textBoxAvailableQuantity.Text);
+                _purchase.ManufacturedDate = textBoxManufacturedDate.Text;
+                _purchase.ExpireDate = textBoxExpireDate.Text;
+                _purchase.Remarks = textBoxRemarks.Text;
+                _purchase.Quantity = Convert.ToInt32(textBoxQuantity.Text);
+                _purchase.UnitPrice = Convert.ToDouble(textBoxUnitPrice.Text);
+                textBoxTotalPrice.Text=Convert.ToString(_purchase.Quantity * _purchase.UnitPrice);
+                _purchase.PreviousUnitPrice = Convert.ToDouble(textBoxPreviousUnitPrice.Text);
+                _purchase.PreviousMRP=Convert.ToDouble(textBoxPreviousMrp.Text);
+                textBoxMrp.Text=Convert.ToString(_purchase.UnitPrice + ((25 * _purchase.UnitPrice) / 100));
+                bool isAdded = _purchaseManager.SavePurchase(_purchase);
+                if (isAdded)
+                {
+                    MessageBox.Show("Added!");
+                }
+            }
+            catch (Exception exception)
+            {
+                MessageBox.Show(exception.Message);
+            }
+           
+        }
     }
 }

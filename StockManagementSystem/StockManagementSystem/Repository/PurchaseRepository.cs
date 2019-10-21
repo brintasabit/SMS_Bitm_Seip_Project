@@ -158,6 +158,7 @@ namespace StockManagementSystem.Repository
                 purchase.PreviousUnitPrice = Convert.ToDouble(sqlDataReader["PreviousUnitPrice"].ToString());
                 purchase.PreviousMRP = Convert.ToDouble(sqlDataReader["PreviousMRP"].ToString());
                 purchase.MRP = Convert.ToDouble(sqlDataReader["MRP"].ToString());
+                purchase.Profit = Convert.ToDouble(sqlDataReader["Profit"].ToString());
                 purchases.Add(purchase);
             }
             sqlConnection.Close();

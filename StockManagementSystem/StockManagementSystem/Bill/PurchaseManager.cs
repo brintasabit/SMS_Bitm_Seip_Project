@@ -51,5 +51,20 @@ namespace StockManagementSystem.Bill
         {
             return _purchaseRepository.ShowPurchases(_purchase);
         }
+
+        public List<Purchase> SearchPurchasesCode(Purchase _purchase)
+        {
+            return _purchaseRepository.SearchPurchasesCode(_purchase);
+        }
+
+        public List<Purchase> SearchPurchasesExpireDate(Purchase _purchase)
+        {
+            return _purchaseRepository.SearchPurchasesExpireDate(_purchase);
+        }
+
+        public List<Purchase> SearchPurchasesManufacturedDate(Purchase _purchase)
+        {
+            return _purchaseRepository.SearchPurchasesManufacturedDate(_purchase);
+        }
     }
 }

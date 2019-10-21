@@ -164,5 +164,56 @@ namespace StockManagementSystem.Repository
             return purchases;
 
         }
+        public List<Purchase> SearchPurchasesCode(Purchase _purchase)
+        {
+            List<Purchase> purchases=new List<Purchase>();
+            SqlConnection sqlConnection = new SqlConnection(connection.connectionString);
+            string commandString = @"select * from ProductsPurchase where Code='"+_purchase.Code+"'";
+            SqlCommand sqlCommand = new SqlCommand(commandString, sqlConnection);
+            sqlConnection.Open();
+            SqlDataReader sqlDataReader = sqlCommand.ExecuteReader();
+            while (sqlDataReader.Read())
+            {
+                Purchase purchase=new Purchase();
+                purchase.Code = sqlDataReader["Code"].ToString();
+                purchases.Add(purchase);
+            }
+            sqlConnection.Close();
+            return purchases;
+        }
+        public List<Purchase> SearchPurchasesManufacturedDate(Purchase _purchase)
+        {
+            List<Purchase> purchases=new List<Purchase>();
+            SqlConnection sqlConnection = new SqlConnection(connection.connectionString);
+            string commandString = @"select * from ProductsPurchase where ManufacturedDate='"+_purchase.ManufacturedDate+"'";
+            SqlCommand sqlCommand = new SqlCommand(commandString, sqlConnection);
+            sqlConnection.Open();
+            SqlDataReader sqlDataReader = sqlCommand.ExecuteReader();
+            while (sqlDataReader.Read())
+            {
+                Purchase purchase=new Purchase();
+                purchase.ManufacturedDate = sqlDataReader["ManufacturedDate"].ToString();
+                purchases.Add(purchase);
+            }
+            sqlConnection.Close();
+            return purchases;
+        }
+        public List<Purchase> SearchPurchasesExpireDate(Purchase _purchase)
+        {
+            List<Purchase> purchases=new List<Purchase>();
+            SqlConnection sqlConnection = new SqlConnection(connection.connectionString);
+            string commandString = @"select * from ProductsPurchase where ExpireDate='"+_purchase.ExpireDate+"'";
+            SqlCommand sqlCommand = new SqlCommand(commandString, sqlConnection);
+            sqlConnection.Open();
+            SqlDataReader sqlDataReader = sqlCommand.ExecuteReader();
+            while (sqlDataReader.Read())
+            {
+                Purchase purchase=new Purchase();
+                purchase.ExpireDate = sqlDataReader["ExpireDate"].ToString();
+                purchases.Add(purchase);
+            }
+            sqlConnection.Close();
+            return purchases;
+        }
     }
 }

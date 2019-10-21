@@ -50,6 +50,7 @@ AvailableQuantity varchar(50),Quantity varchar(50),MRP varchar(50),
 TotalMRP varchar(50))
 select * from Sales
 
+
 select Code,Name,Category,ReOrderLevel,ExpireDate,Quantity from [Product] join ProductsPurchase on [Product].ProductPurchaseId=ProductsPurchase.ID 
 select t1.Code,t1.Name,t1.Category,t1.ReOrderLevel
 from Product t1

@@ -46,12 +46,13 @@
             this.label9 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.comboBoxProduct = new System.Windows.Forms.ComboBox();
-            this.purchaseBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.productBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.comboBoxCategory = new System.Windows.Forms.ComboBox();
             this.label6 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
+            this.purchaseBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.ButtonSubmit = new System.Windows.Forms.Button();
             this.textBoxPayableAmount = new System.Windows.Forms.TextBox();
@@ -72,15 +73,16 @@
             this.label10 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
             this.salesTableAdapter = new StockManagementSystem.StockManagementSystemDataSet2TableAdapters.SalesTableAdapter();
-            this.productBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.textBoxSearch = new System.Windows.Forms.TextBox();
+            this.SearchButton = new System.Windows.Forms.Button();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.productBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.purchaseBindingSource)).BeginInit();
             this.groupBox4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewSales)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.salesBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.stockManagementSystemDataSet2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.productBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // groupBox2
@@ -177,6 +179,7 @@
             this.ButtonAdd.TabIndex = 3;
             this.ButtonAdd.Text = "Add";
             this.ButtonAdd.UseVisualStyleBackColor = true;
+            this.ButtonAdd.Click += new System.EventHandler(this.ButtonAdd_Click);
             // 
             // textBoxTotalMrp
             // 
@@ -233,11 +236,11 @@
             this.comboBoxProduct.Name = "comboBoxProduct";
             this.comboBoxProduct.Size = new System.Drawing.Size(150, 28);
             this.comboBoxProduct.TabIndex = 1;
-            this.comboBoxProduct.ValueMember = "Category";
+            this.comboBoxProduct.ValueMember = "Code";
             // 
-            // purchaseBindingSource
+            // productBindingSource
             // 
-            this.purchaseBindingSource.DataSource = typeof(StockManagementSystem.Model.Purchase);
+            this.productBindingSource.DataSource = typeof(StockManagementSystem.Model.Product);
             // 
             // comboBoxCategory
             // 
@@ -286,6 +289,10 @@
             this.label4.TabIndex = 0;
             this.label4.Text = "Category";
             // 
+            // purchaseBindingSource
+            // 
+            this.purchaseBindingSource.DataSource = typeof(StockManagementSystem.Model.Purchase);
+            // 
             // groupBox4
             // 
             this.groupBox4.Controls.Add(this.ButtonSubmit);
@@ -313,6 +320,7 @@
             this.ButtonSubmit.TabIndex = 4;
             this.ButtonSubmit.Text = "Submit";
             this.ButtonSubmit.UseVisualStyleBackColor = true;
+            this.ButtonSubmit.Click += new System.EventHandler(this.ButtonSubmit_Click);
             // 
             // textBoxPayableAmount
             // 
@@ -448,19 +456,33 @@
             // 
             this.salesTableAdapter.ClearBeforeFill = true;
             // 
-            // productBindingSource
+            // textBoxSearch
             // 
-            this.productBindingSource.DataSource = typeof(StockManagementSystem.Model.Product);
+            this.textBoxSearch.Location = new System.Drawing.Point(1216, 214);
+            this.textBoxSearch.Name = "textBoxSearch";
+            this.textBoxSearch.Size = new System.Drawing.Size(252, 26);
+            this.textBoxSearch.TabIndex = 1;
+            // 
+            // SearchButton
+            // 
+            this.SearchButton.Location = new System.Drawing.Point(1286, 261);
+            this.SearchButton.Name = "SearchButton";
+            this.SearchButton.Size = new System.Drawing.Size(109, 33);
+            this.SearchButton.TabIndex = 2;
+            this.SearchButton.Text = "Search";
+            this.SearchButton.UseVisualStyleBackColor = true;
+            this.SearchButton.Click += new System.EventHandler(this.SearchButton_Click);
             // 
             // SalesModule
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1197, 626);
+            this.ClientSize = new System.Drawing.Size(1480, 626);
+            this.Controls.Add(this.SearchButton);
+            this.Controls.Add(this.textBoxSearch);
             this.Controls.Add(this.groupBox4);
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox2);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Name = "SalesModule";
             this.Text = "Sales";
             this.Load += new System.EventHandler(this.SalesModule_Load);
@@ -468,14 +490,15 @@
             this.groupBox2.PerformLayout();
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.productBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.purchaseBindingSource)).EndInit();
             this.groupBox4.ResumeLayout(false);
             this.groupBox4.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewSales)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.salesBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.stockManagementSystemDataSet2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.productBindingSource)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -525,5 +548,7 @@
         private System.Windows.Forms.DataGridViewLinkColumn Action;
         private System.Windows.Forms.BindingSource purchaseBindingSource;
         private System.Windows.Forms.BindingSource productBindingSource;
+        private System.Windows.Forms.TextBox textBoxSearch;
+        private System.Windows.Forms.Button SearchButton;
     }
 }

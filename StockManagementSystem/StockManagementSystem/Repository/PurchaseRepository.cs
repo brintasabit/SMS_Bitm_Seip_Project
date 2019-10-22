@@ -60,6 +60,7 @@ namespace StockManagementSystem.Repository
                 product.Name = sqlDataReader["Name"].ToString();
                 purchases.Add(product);
             }
+            sqlConnection.Close();
             return purchases;
         }
         public List<Purchase> SearchSupplierBill(Purchase _purchase)

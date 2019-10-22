@@ -17,5 +17,6 @@ namespace StockManagementSystem.Model
         public string Quantity { get; set; }
         public string MRP { get; set; }
         public string TotalMRP { get; set; }
+        public string Search { get; set; }
     }
 }

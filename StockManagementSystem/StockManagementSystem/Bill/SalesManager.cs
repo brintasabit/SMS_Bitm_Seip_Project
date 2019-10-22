@@ -18,9 +18,9 @@ namespace StockManagementSystem.Bill
         {
             return _salesRepository.SearchSalesCustomer(_sales);
         }
-        public List<Sales> ShowPurchases(Sales _sales)
+        public List<Sales> ShowSaleses(Sales _sales)
         {
-            return _salesRepository.ShowPurchases(_sales);
+            return _salesRepository.ShowSaleses(_sales);
         }
         public List<Product> ComboBoxCategoryList()
         {

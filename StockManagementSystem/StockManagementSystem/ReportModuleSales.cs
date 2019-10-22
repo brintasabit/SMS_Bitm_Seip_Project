@@ -7,11 +7,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-
+using StockManagementSystem.Bill;
+using StockManagementSystem.Model;
 namespace StockManagementSystem
 {
     public partial class ReportModuleSales : Form
     {
+        ReportSalesManager _reportSalesManager=new ReportSalesManager();
+        ReportSales _reportSales=new ReportSales();
         public ReportModuleSales()
         {
             InitializeComponent();

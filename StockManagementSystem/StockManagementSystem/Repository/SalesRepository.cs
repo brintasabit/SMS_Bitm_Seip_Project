@@ -78,7 +78,7 @@ namespace StockManagementSystem.Repository
             sqlConnection.Close();
             return false;
         }
-        public List<Sales> ShowPurchases(Sales _sales)
+        public List<Sales> ShowSaleses(Sales _sales)
         {
             List<Sales>saleses=new List<Sales>();
             SqlConnection sqlConnection = new SqlConnection(connection.connectionString);
@@ -89,7 +89,7 @@ namespace StockManagementSystem.Repository
             while (sqlDataReader.Read())
             {
                 Sales sales=new Sales();
-                sales.CustomerName = sqlDataReader["Customer"].ToString();
+                sales.CustomerName = sqlDataReader["CustomerName"].ToString();
                 sales.Date = sqlDataReader["Date"].ToString();
                 sales.LoyalityPoint = sqlDataReader["LoyalityPoint"].ToString();
                 sales.Category = sqlDataReader["Category"].ToString();

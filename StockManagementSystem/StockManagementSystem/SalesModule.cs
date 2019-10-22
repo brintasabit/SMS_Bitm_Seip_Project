@@ -29,7 +29,8 @@ namespace StockManagementSystem
            
            comboBoxCategory.DataSource = _salesManager.ComboBoxCategoryList();
            comboBoxProduct.DataSource = _salesManager.ComboBoxProductsList();
-           
+           dataGridViewSales.DataSource = _salesManager.ShowSaleses(_sales);
+
         }
 
         private void dataGridViewSales_RowPostPaint(object sender, DataGridViewRowPostPaintEventArgs e)

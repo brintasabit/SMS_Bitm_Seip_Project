@@ -15,5 +15,10 @@ namespace StockManagementSystem.Bill
         {
             return _reportPurchaseRepository.SearchPurchaseDate(_reportPurchase);
         }
+
+        public List<ReportPurchase> ShowReportPurchases(ReportPurchase _reportPurchase)
+        {
+            return _reportPurchaseRepository.ShowReportPurchases(_reportPurchase);
+        }
     }
 }

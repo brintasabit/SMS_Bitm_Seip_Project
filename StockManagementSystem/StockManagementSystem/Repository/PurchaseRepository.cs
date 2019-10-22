@@ -32,14 +32,14 @@ namespace StockManagementSystem.Repository
         {
             List<Product> products=new List<Product>();
             SqlConnection sqlConnection = new SqlConnection(connection.connectionString);
-            string commandString = @"select Category from Product";
+            string commandString = @"select Name from Category";
             SqlCommand sqlCommand = new SqlCommand(commandString, sqlConnection);
             sqlConnection.Open();
             SqlDataReader sqlDataReader = sqlCommand.ExecuteReader();
             while (sqlDataReader.Read())
             {
                 Product product=new Product();
-                product.Category = sqlDataReader["Category"].ToString();
+                product.Category = sqlDataReader["Name"].ToString();
                 products.Add(product);
             }
             return products;

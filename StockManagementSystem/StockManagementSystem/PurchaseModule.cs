@@ -133,7 +133,7 @@ namespace StockManagementSystem
                     if (isAdded)
                     {
                         MessageBox.Show("Submitted!");
-                        dataGridViewPurchase.DataSource = _purchaseManager.SavePurchase(_purchase);
+                        dataGridViewPurchase.DataSource = _purchaseManager.ShowPurchases(_purchase);
                     }
                 }
                 

@@ -20,7 +20,7 @@ namespace StockManagementSystem
         private void SalesModule_Load(object sender, EventArgs e)
         {
             // TODO: This line of code loads data into the 'stockManagementSystemDataSet2.Sales' table. You can move, or remove it, as needed.
-            this.salesTableAdapter.Fill(this.stockManagementSystemDataSet2.Sales);
+           // this.salesTableAdapter.Fill(this.stockManagementSystemDataSet2.Sales);
 
         }
 

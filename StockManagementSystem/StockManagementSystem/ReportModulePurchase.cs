@@ -38,7 +38,7 @@ namespace StockManagementSystem
                 {
                     MessageBox.Show("Found!");
                     dataGridViewReportPurchase.DataSource =
-                        _reportPurchaseManager.SearchStockProductCategory(_reportPurchase);
+                        _reportPurchaseManager.ShowReportPurchases(_reportPurchase);
                 }
                 else
                 {

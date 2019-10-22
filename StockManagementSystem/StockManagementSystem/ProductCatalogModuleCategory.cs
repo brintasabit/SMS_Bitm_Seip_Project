@@ -103,10 +103,10 @@ namespace StockManagementSystem
         private void ProductCatalogModuleCategory_Load(object sender, EventArgs e)
         {
             // TODO: This line of code loads data into the 'appdata.Category' table. You can move, or remove it, as needed.
-            this.categoryTableAdapter.Fill(this.appdata.Category);
+           // this.categoryTableAdapter.Fill(this.appdata.Category);
             // TODO: This line of code loads data into the 'stockManagementSystemDataSet.Category' table. You can move, or remove it, as needed.
-            this.categoryTableAdapter.Fill(this.appdata.Category);
-            //dataGridViewCategory.DataSource = _categoryManager.ShowCategories(_category);
+            //this.categoryTableAdapter.Fill(this.appdata.Category);
+            dataGridViewCategory.DataSource = _categoryManager.ShowCategories(_category);
         }
 
         private void dataGridViewCategory_KeyDown(object sender, KeyEventArgs e)

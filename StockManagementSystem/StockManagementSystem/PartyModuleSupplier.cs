@@ -103,5 +103,39 @@ namespace StockManagementSystem
 
 
         }
+
+        private void PartyModuleSupplier_MouseClick(object sender, MouseEventArgs e)
+        {
+            try
+            {
+                textBoxCode.Text = dataGridViewSupplier.SelectedRows[0].Cells[1].Value.ToString();
+                textBoxName.Text = dataGridViewSupplier.SelectedRows[0].Cells[2].Value.ToString();
+                textBoxAddress.Text = dataGridViewSupplier.SelectedRows[0].Cells[3].Value.ToString();
+                textBoxEmail.Text = dataGridViewSupplier.SelectedRows[0].Cells[4].Value.ToString();
+                textBoxContact.Text = dataGridViewSupplier.SelectedRows[0].Cells[5].Value.ToString();
+                textBoxContactPerson.Text = dataGridViewSupplier.SelectedRows[0].Cells[6].Value.ToString();
+            }
+            catch (Exception exception)
+            {
+                MessageBox.Show(exception.Message);
+            }
+        }
+
+        private void dataGridViewSupplier_MouseClick(object sender, MouseEventArgs e)
+        {
+            try
+            {
+                textBoxCode.Text = dataGridViewSupplier.SelectedRows[0].Cells[1].Value.ToString();
+                textBoxName.Text = dataGridViewSupplier.SelectedRows[0].Cells[2].Value.ToString();
+                textBoxAddress.Text = dataGridViewSupplier.SelectedRows[0].Cells[3].Value.ToString();
+                textBoxEmail.Text = dataGridViewSupplier.SelectedRows[0].Cells[4].Value.ToString();
+                textBoxContact.Text = dataGridViewSupplier.SelectedRows[0].Cells[5].Value.ToString();
+                textBoxContactPerson.Text = dataGridViewSupplier.SelectedRows[0].Cells[6].Value.ToString();
+            }
+            catch (Exception exception)
+            {
+                MessageBox.Show(exception.Message);
+            }
+        }
     }
 }

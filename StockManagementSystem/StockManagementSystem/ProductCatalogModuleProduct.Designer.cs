@@ -50,6 +50,8 @@
             this.descriptionDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Action = new System.Windows.Forms.DataGridViewLinkColumn();
             this.productBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.SearchButton = new System.Windows.Forms.Button();
+            this.textBoxSearch = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.categoryBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewProduct)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.productBindingSource)).BeginInit();
@@ -224,11 +226,30 @@
             // 
             this.productBindingSource.DataSource = typeof(StockManagementSystem.Model.Product);
             // 
+            // SearchButton
+            // 
+            this.SearchButton.Location = new System.Drawing.Point(984, 23);
+            this.SearchButton.Name = "SearchButton";
+            this.SearchButton.Size = new System.Drawing.Size(90, 31);
+            this.SearchButton.TabIndex = 12;
+            this.SearchButton.Text = "Search";
+            this.SearchButton.UseVisualStyleBackColor = true;
+            this.SearchButton.Click += new System.EventHandler(this.SearchButton_Click);
+            // 
+            // textBoxSearch
+            // 
+            this.textBoxSearch.Location = new System.Drawing.Point(845, 25);
+            this.textBoxSearch.Name = "textBoxSearch";
+            this.textBoxSearch.Size = new System.Drawing.Size(121, 26);
+            this.textBoxSearch.TabIndex = 13;
+            // 
             // ProductCatalogModuleProduct
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1160, 698);
+            this.Controls.Add(this.textBoxSearch);
+            this.Controls.Add(this.SearchButton);
             this.Controls.Add(this.dataGridViewProduct);
             this.Controls.Add(this.buttonSave);
             this.Controls.Add(this.textBoxDescription);
@@ -276,5 +297,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn reOrderLevelDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn descriptionDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewLinkColumn Action;
+        private System.Windows.Forms.Button SearchButton;
+        private System.Windows.Forms.TextBox textBoxSearch;
     }
 }

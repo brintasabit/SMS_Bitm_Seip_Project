@@ -8,6 +8,7 @@ namespace StockManagementSystem.Model
 {
     class Supplier
     {
+        public string Search { get; set; }
         public string Code { get; set; }
         public string Name{ get; set; }
         public string Address{ get; set; }

@@ -27,5 +27,14 @@ namespace StockManagementSystem.Bill
         {
             return _categoryRepository.SaveInfo(_category);
         }
+
+        public List<Category> SearchCategoriesCode2(Category _category)
+        {
+            return _categoryRepository.SearchCategoriesCode2(_category);
+        }
+        public List<Category> SearchCategoriesName2(Category _category)
+        {
+            return _categoryRepository.SearchCategoriesName2(_category);
+        }
     }
 }

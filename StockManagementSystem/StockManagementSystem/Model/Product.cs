@@ -13,6 +13,7 @@ namespace StockManagementSystem.Model
         private string name;
         private string reOrderLevel;
         private string description;
+        public string Search { get; set; }
 
         public string Category
         {

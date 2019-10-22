@@ -10,7 +10,7 @@ namespace StockManagementSystem.Model
     {
         private string code;
         private string name;
-        public string Edit { get; set; }
+        public string Search { get; set; }
 
         public string Code
         {

@@ -21,15 +21,27 @@ namespace StockManagementSystem.Bill
         {
             return _supplierRepository.SearchSupplierName(_supplier);
         }
+        public List<Supplier> SearchSupplierName2(Supplier _supplier)
+        {
+            return _supplierRepository.SearchSupplierName2(_supplier);
+        }
 
         public List<Supplier> SearchSupplierContact(Supplier _supplier)
         {
             return _supplierRepository.SearchSupplierContact(_supplier);
         }
+        public List<Supplier> SearchSupplierContact2(Supplier _supplier)
+        {
+            return _supplierRepository.SearchSupplierContact2(_supplier);
+        }
 
         public List<Supplier> SearchSupplierEmail(Supplier _supplier)
         {
             return _supplierRepository.SearchSupplierEmail(_supplier);
+        }
+        public List<Supplier> SearchSupplierEmail2(Supplier _supplier)
+        {
+            return _supplierRepository.SearchSupplierEmail2(_supplier);
         }
 
         public List<Supplier> SearchSupplierCode(Supplier _supplier)

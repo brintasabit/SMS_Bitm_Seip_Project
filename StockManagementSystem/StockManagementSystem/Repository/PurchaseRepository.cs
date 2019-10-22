@@ -199,18 +199,31 @@ namespace StockManagementSystem.Repository
             sqlConnection.Close();
             return purchases;
         }
-        public List<Purchase> SearchPurchasesExpireDate(Purchase _purchase)
+        public List<Purchase> SearchPurchasesDate(Purchase _purchase)
         {
             List<Purchase> purchases=new List<Purchase>();
             SqlConnection sqlConnection = new SqlConnection(connection.connectionString);
-            string commandString = @"select * from ProductsPurchase where ExpireDate='"+_purchase.ExpireDate+"'";
+            string commandString = @"select * from ProductsPurchase where ExpireDate='"+_purchase.Search+"'";
             SqlCommand sqlCommand = new SqlCommand(commandString, sqlConnection);
             sqlConnection.Open();
             SqlDataReader sqlDataReader = sqlCommand.ExecuteReader();
             while (sqlDataReader.Read())
             {
                 Purchase purchase=new Purchase();
+                purchase.Category = sqlDataReader["Category"].ToString();
+                purchase.Products = sqlDataReader["Products"].ToString();
+                purchase.Code = sqlDataReader["Code"].ToString();
+                purchase.AvailableQuantity = Convert.ToInt32(sqlDataReader["AvailableQty"].ToString());
+                purchase.ManufacturedDate = sqlDataReader["ManufacturedDate"].ToString();
                 purchase.ExpireDate = sqlDataReader["ExpireDate"].ToString();
+                purchase.Remarks = sqlDataReader["Remarks"].ToString();
+                purchase.Quantity = Convert.ToInt32(sqlDataReader["Quantity"].ToString());
+                purchase.UnitPrice = Convert.ToDouble(sqlDataReader["UnitPrice"].ToString());
+                purchase.TotalPrice = Convert.ToDouble(sqlDataReader["TotalPrice"].ToString());
+                purchase.PreviousUnitPrice = Convert.ToDouble(sqlDataReader["PreviousUnitPrice"].ToString());
+                purchase.PreviousMRP = Convert.ToDouble(sqlDataReader["PreviousMRP"].ToString());
+                purchase.MRP = Convert.ToDouble(sqlDataReader["MRP"].ToString());
+                purchase.Profit = Convert.ToDouble(sqlDataReader["Profit"].ToString());
                 purchases.Add(purchase);
             }
             sqlConnection.Close();

@@ -83,6 +83,9 @@
             this.productsPurchaseBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.stockManagementSystemDataSet1 = new StockManagementSystem.StockManagementSystemDataSet1();
             this.productsPurchaseTableAdapter = new StockManagementSystem.StockManagementSystemDataSet1TableAdapters.ProductsPurchaseTableAdapter();
+            this.label17 = new System.Windows.Forms.Label();
+            this.textBoxSearch = new System.Windows.Forms.TextBox();
+            this.SearchButton = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.supplierBindingSource)).BeginInit();
             this.groupBox2.SuspendLayout();
@@ -549,11 +552,40 @@
             // 
             this.productsPurchaseTableAdapter.ClearBeforeFill = true;
             // 
+            // label17
+            // 
+            this.label17.AutoSize = true;
+            this.label17.Location = new System.Drawing.Point(897, 12);
+            this.label17.Name = "label17";
+            this.label17.Size = new System.Drawing.Size(163, 20);
+            this.label17.TabIndex = 3;
+            this.label17.Text = "Search By Code/Date";
+            // 
+            // textBoxSearch
+            // 
+            this.textBoxSearch.Location = new System.Drawing.Point(901, 46);
+            this.textBoxSearch.Name = "textBoxSearch";
+            this.textBoxSearch.Size = new System.Drawing.Size(169, 26);
+            this.textBoxSearch.TabIndex = 4;
+            // 
+            // SearchButton
+            // 
+            this.SearchButton.Location = new System.Drawing.Point(1093, 44);
+            this.SearchButton.Name = "SearchButton";
+            this.SearchButton.Size = new System.Drawing.Size(100, 31);
+            this.SearchButton.TabIndex = 5;
+            this.SearchButton.Text = "Search";
+            this.SearchButton.UseVisualStyleBackColor = true;
+            this.SearchButton.Click += new System.EventHandler(this.SearchButton_Click);
+            // 
             // PurchaseModule
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1275, 750);
+            this.Controls.Add(this.SearchButton);
+            this.Controls.Add(this.textBoxSearch);
+            this.Controls.Add(this.label17);
             this.Controls.Add(this.ButtonSubmit);
             this.Controls.Add(this.dataGridViewPurchase);
             this.Controls.Add(this.groupBox2);
@@ -573,6 +605,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.productsPurchaseBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.stockManagementSystemDataSet1)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -632,5 +665,8 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn mRPDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn Remarks;
         private System.Windows.Forms.DataGridViewTextBoxColumn Action;
+        private System.Windows.Forms.Label label17;
+        private System.Windows.Forms.TextBox textBoxSearch;
+        private System.Windows.Forms.Button SearchButton;
     }
 }

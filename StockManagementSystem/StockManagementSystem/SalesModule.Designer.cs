@@ -46,6 +46,7 @@
             this.label9 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.comboBoxProduct = new System.Windows.Forms.ComboBox();
+            this.purchaseBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.comboBoxCategory = new System.Windows.Forms.ComboBox();
             this.label6 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
@@ -56,27 +57,30 @@
             this.textBoxPayableAmount = new System.Windows.Forms.TextBox();
             this.textBoxDiscountAmount = new System.Windows.Forms.TextBox();
             this.dataGridViewSales = new System.Windows.Forms.DataGridView();
-            this.textBoxDiscount = new System.Windows.Forms.TextBox();
-            this.label13 = new System.Windows.Forms.Label();
-            this.textBoxGrandTotal = new System.Windows.Forms.TextBox();
-            this.label12 = new System.Windows.Forms.Label();
-            this.label10 = new System.Windows.Forms.Label();
-            this.label11 = new System.Windows.Forms.Label();
-            this.stockManagementSystemDataSet2 = new StockManagementSystem.StockManagementSystemDataSet2();
-            this.salesBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.salesTableAdapter = new StockManagementSystem.StockManagementSystemDataSet2TableAdapters.SalesTableAdapter();
             this.SL = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.productDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.quantityDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.mRPDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.totalMRPDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Action = new System.Windows.Forms.DataGridViewLinkColumn();
+            this.salesBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.stockManagementSystemDataSet2 = new StockManagementSystem.StockManagementSystemDataSet2();
+            this.textBoxDiscount = new System.Windows.Forms.TextBox();
+            this.label13 = new System.Windows.Forms.Label();
+            this.textBoxGrandTotal = new System.Windows.Forms.TextBox();
+            this.label12 = new System.Windows.Forms.Label();
+            this.label10 = new System.Windows.Forms.Label();
+            this.label11 = new System.Windows.Forms.Label();
+            this.salesTableAdapter = new StockManagementSystem.StockManagementSystemDataSet2TableAdapters.SalesTableAdapter();
+            this.productBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.purchaseBindingSource)).BeginInit();
             this.groupBox4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewSales)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.stockManagementSystemDataSet2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.salesBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.stockManagementSystemDataSet2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.productBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // groupBox2
@@ -222,19 +226,29 @@
             // 
             // comboBoxProduct
             // 
+            this.comboBoxProduct.DataSource = this.productBindingSource;
+            this.comboBoxProduct.DisplayMember = "Name";
             this.comboBoxProduct.FormattingEnabled = true;
             this.comboBoxProduct.Location = new System.Drawing.Point(201, 70);
             this.comboBoxProduct.Name = "comboBoxProduct";
             this.comboBoxProduct.Size = new System.Drawing.Size(150, 28);
             this.comboBoxProduct.TabIndex = 1;
+            this.comboBoxProduct.ValueMember = "Category";
+            // 
+            // purchaseBindingSource
+            // 
+            this.purchaseBindingSource.DataSource = typeof(StockManagementSystem.Model.Purchase);
             // 
             // comboBoxCategory
             // 
+            this.comboBoxCategory.DataSource = this.productBindingSource;
+            this.comboBoxCategory.DisplayMember = "Category";
             this.comboBoxCategory.FormattingEnabled = true;
             this.comboBoxCategory.Location = new System.Drawing.Point(201, 25);
             this.comboBoxCategory.Name = "comboBoxCategory";
             this.comboBoxCategory.Size = new System.Drawing.Size(150, 28);
             this.comboBoxCategory.TabIndex = 1;
+            this.comboBoxCategory.ValueMember = "Code";
             // 
             // label6
             // 
@@ -333,6 +347,53 @@
             this.dataGridViewSales.TabIndex = 0;
             this.dataGridViewSales.RowPostPaint += new System.Windows.Forms.DataGridViewRowPostPaintEventHandler(this.dataGridViewSales_RowPostPaint);
             // 
+            // SL
+            // 
+            this.SL.DataPropertyName = "Product";
+            this.SL.HeaderText = "SL";
+            this.SL.Name = "SL";
+            // 
+            // productDataGridViewTextBoxColumn
+            // 
+            this.productDataGridViewTextBoxColumn.DataPropertyName = "Product";
+            this.productDataGridViewTextBoxColumn.HeaderText = "Product";
+            this.productDataGridViewTextBoxColumn.Name = "productDataGridViewTextBoxColumn";
+            // 
+            // quantityDataGridViewTextBoxColumn
+            // 
+            this.quantityDataGridViewTextBoxColumn.DataPropertyName = "Quantity";
+            this.quantityDataGridViewTextBoxColumn.HeaderText = "Quantity";
+            this.quantityDataGridViewTextBoxColumn.Name = "quantityDataGridViewTextBoxColumn";
+            // 
+            // mRPDataGridViewTextBoxColumn
+            // 
+            this.mRPDataGridViewTextBoxColumn.DataPropertyName = "MRP";
+            this.mRPDataGridViewTextBoxColumn.HeaderText = "MRP";
+            this.mRPDataGridViewTextBoxColumn.Name = "mRPDataGridViewTextBoxColumn";
+            // 
+            // totalMRPDataGridViewTextBoxColumn
+            // 
+            this.totalMRPDataGridViewTextBoxColumn.DataPropertyName = "TotalMRP";
+            this.totalMRPDataGridViewTextBoxColumn.HeaderText = "TotalMRP";
+            this.totalMRPDataGridViewTextBoxColumn.Name = "totalMRPDataGridViewTextBoxColumn";
+            // 
+            // Action
+            // 
+            this.Action.DataPropertyName = "Product";
+            this.Action.HeaderText = "Action";
+            this.Action.Name = "Action";
+            this.Action.Width = 168;
+            // 
+            // salesBindingSource
+            // 
+            this.salesBindingSource.DataMember = "Sales";
+            this.salesBindingSource.DataSource = this.stockManagementSystemDataSet2;
+            // 
+            // stockManagementSystemDataSet2
+            // 
+            this.stockManagementSystemDataSet2.DataSetName = "StockManagementSystemDataSet2";
+            this.stockManagementSystemDataSet2.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
             // textBoxDiscount
             // 
             this.textBoxDiscount.Location = new System.Drawing.Point(363, 367);
@@ -383,56 +444,13 @@
             this.label11.TabIndex = 0;
             this.label11.Text = "Discount (%)";
             // 
-            // stockManagementSystemDataSet2
-            // 
-            this.stockManagementSystemDataSet2.DataSetName = "StockManagementSystemDataSet2";
-            this.stockManagementSystemDataSet2.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // salesBindingSource
-            // 
-            this.salesBindingSource.DataMember = "Sales";
-            this.salesBindingSource.DataSource = this.stockManagementSystemDataSet2;
-            // 
             // salesTableAdapter
             // 
             this.salesTableAdapter.ClearBeforeFill = true;
             // 
-            // SL
+            // productBindingSource
             // 
-            this.SL.DataPropertyName = "Product";
-            this.SL.HeaderText = "SL";
-            this.SL.Name = "SL";
-            // 
-            // productDataGridViewTextBoxColumn
-            // 
-            this.productDataGridViewTextBoxColumn.DataPropertyName = "Product";
-            this.productDataGridViewTextBoxColumn.HeaderText = "Product";
-            this.productDataGridViewTextBoxColumn.Name = "productDataGridViewTextBoxColumn";
-            // 
-            // quantityDataGridViewTextBoxColumn
-            // 
-            this.quantityDataGridViewTextBoxColumn.DataPropertyName = "Quantity";
-            this.quantityDataGridViewTextBoxColumn.HeaderText = "Quantity";
-            this.quantityDataGridViewTextBoxColumn.Name = "quantityDataGridViewTextBoxColumn";
-            // 
-            // mRPDataGridViewTextBoxColumn
-            // 
-            this.mRPDataGridViewTextBoxColumn.DataPropertyName = "MRP";
-            this.mRPDataGridViewTextBoxColumn.HeaderText = "MRP";
-            this.mRPDataGridViewTextBoxColumn.Name = "mRPDataGridViewTextBoxColumn";
-            // 
-            // totalMRPDataGridViewTextBoxColumn
-            // 
-            this.totalMRPDataGridViewTextBoxColumn.DataPropertyName = "TotalMRP";
-            this.totalMRPDataGridViewTextBoxColumn.HeaderText = "TotalMRP";
-            this.totalMRPDataGridViewTextBoxColumn.Name = "totalMRPDataGridViewTextBoxColumn";
-            // 
-            // Action
-            // 
-            this.Action.DataPropertyName = "Product";
-            this.Action.HeaderText = "Action";
-            this.Action.Name = "Action";
-            this.Action.Width = 168;
+            this.productBindingSource.DataSource = typeof(StockManagementSystem.Model.Product);
             // 
             // SalesModule
             // 
@@ -450,11 +468,13 @@
             this.groupBox2.PerformLayout();
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.purchaseBindingSource)).EndInit();
             this.groupBox4.ResumeLayout(false);
             this.groupBox4.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewSales)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.stockManagementSystemDataSet2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.salesBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.stockManagementSystemDataSet2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.productBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -503,5 +523,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn mRPDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn totalMRPDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewLinkColumn Action;
+        private System.Windows.Forms.BindingSource purchaseBindingSource;
+        private System.Windows.Forms.BindingSource productBindingSource;
     }
 }

@@ -112,5 +112,50 @@ namespace StockManagementSystem
                 MessageBox.Show(exception.Message);
             }
         }
+
+        private void SearchButton_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                _product.Search = textBoxSearch.Text;
+                List<Product> productCode = _productManager.SearchProductCode2(_product);
+                List<Product> productName = _productManager.SearchProductName2(_product);
+                List<Product> productCategory = _productManager.SearchProductCatagory(_product);
+                if (_product.Search.Length==0)
+                {
+                    MessageBox.Show("Enter Data!");
+                    textBoxSearch.Clear();
+                }
+                else if (productCode.Count>0)
+                {
+                    MessageBox.Show("Found Code!");
+                    dataGridViewProduct.DataSource=_productManager.SearchProductCode2(_product);
+                    textBoxSearch.Clear();
+                }
+                else if (productName.Count>0)
+                {
+                    MessageBox.Show("Found Name!");
+                    dataGridViewProduct.DataSource=_productManager.SearchProductName2(_product);
+                    textBoxSearch.Clear();
+                }
+                else if (productCategory.Count>0)
+                {
+                    MessageBox.Show("Found Category!");
+                    dataGridViewProduct.DataSource=_productManager.SearchProductCatagory(_product);
+                    textBoxSearch.Clear();
+                }
+                else
+                {
+                    MessageBox.Show("Not Found!");
+                }
+            }
+            catch (Exception exception)
+            {
+                MessageBox.Show(exception.Message);
+            }
+            
+
+
+        }
     }
 }

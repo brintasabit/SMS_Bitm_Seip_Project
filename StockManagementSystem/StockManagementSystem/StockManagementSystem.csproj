@@ -55,6 +55,7 @@
     <Compile Include="Bill\ProductManager.cs" />
     <Compile Include="Bill\PurchaseManager.cs" />
     <Compile Include="Bill\ReportPurchaseManager.cs" />
+    <Compile Include="Bill\SalesManager.cs" />
     <Compile Include="Bill\StockManager.cs" />
     <Compile Include="Bill\SupplierManager.cs" />
     <Compile Include="Model\Category.cs" />
@@ -63,6 +64,7 @@
     <Compile Include="Model\Product.cs" />
     <Compile Include="Model\Purchase.cs" />
     <Compile Include="Model\ReportPurchase.cs" />
+    <Compile Include="Model\Sales.cs" />
     <Compile Include="Model\Stock.cs" />
     <Compile Include="Model\Supplier.cs" />
     <Compile Include="Model\SuppliersPurchase.cs" />
@@ -112,6 +114,7 @@
     <Compile Include="Repository\ProductRepository.cs" />
     <Compile Include="Repository\PurchaseRepository.cs" />
     <Compile Include="Repository\ReportPurchaseRepository.cs" />
+    <Compile Include="Repository\SalesRepository.cs" />
     <Compile Include="Repository\StockRepository.cs" />
     <Compile Include="Repository\SupplierRepository.cs" />
     <Compile Include="SalesModule.cs">

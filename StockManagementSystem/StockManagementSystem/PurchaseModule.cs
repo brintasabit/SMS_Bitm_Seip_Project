@@ -144,5 +144,35 @@ namespace StockManagementSystem
             }
            
         }
+
+        private void SearchButton_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                _purchase.Search = textBoxSearch.Text;
+                List<Purchase> purchasesDate = _purchaseManager.SearchPurchasesDate(_purchase);
+                if (_purchase.Search.Length==0)
+                {
+                    MessageBox.Show("Enter data!");
+
+                }
+                else if (purchasesDate.Count>0)
+                {
+                    MessageBox.Show("Data found!");
+                    textBoxSearch.Clear();
+                    dataGridViewPurchase.DataSource=_purchaseManager.SearchPurchasesDate(_purchase);
+                }
+                else
+                {
+                    MessageBox.Show("Not found!");
+                    textBoxSearch.Clear();
+                }
+            }
+            catch (Exception exception)
+            {
+                MessageBox.Show(exception.Message);
+            }
+            
+        }
     }
 }

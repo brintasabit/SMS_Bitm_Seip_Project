@@ -116,5 +116,41 @@ namespace StockManagementSystem
                 categoryBindingSource.RemoveCurrent();
             }
         }
+
+        private void SearchButton_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                _category.Search = textBoxSearch.Text;
+                List<Category> categoriesCode = _categoryManager.SearchCategoriesCode2(_category);
+                List<Category> categoriesName = _categoryManager.SearchCategoriesName2(_category);
+                if (_category.Search.Length==0)
+                {
+                    MessageBox.Show("Enter Data!");
+                }
+                else if (categoriesCode.Count>0)
+                {
+                    MessageBox.Show("Found!");
+                    textBoxSearch.Clear();
+                    dataGridViewCategory.DataSource=_categoryManager.SearchCategoriesCode2(_category);
+                }
+                else if (categoriesName.Count>0)
+                {
+                    MessageBox.Show("Found!");
+                    textBoxSearch.Clear();
+                    dataGridViewCategory.DataSource=_categoryManager.SearchCategoriesName2(_category);
+                }
+                else
+                {
+                    MessageBox.Show("Not Found!");
+                    textBoxSearch.Clear();
+                }
+            }
+            catch (Exception exception)
+            {
+                MessageBox.Show(exception.Message);
+            }
+            
+        }
     }
 }

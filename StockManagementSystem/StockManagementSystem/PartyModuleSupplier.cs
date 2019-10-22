@@ -137,5 +137,49 @@ namespace StockManagementSystem
                 MessageBox.Show(exception.Message);
             }
         }
+
+        private void SearchButton_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                _supplier.Search = textBoxSearch.Text;
+                List<Supplier> suppliersName = _supplierManager.SearchSupplierName2(_supplier);
+                List<Supplier> suppliersContact = _supplierManager.SearchSupplierContact2(_supplier);
+                List<Supplier> suppliersEmail = _supplierManager.SearchSupplierEmail2(_supplier);
+                if (_supplier.Search.Length==0)
+                {
+                    MessageBox.Show("Enter Data!");
+                    textBoxSearch.Clear();
+                }
+                else if (suppliersContact.Count>0)
+                {
+                    MessageBox.Show("Data found!");
+                    textBoxSearch.Clear();
+                    dataGridViewSupplier.DataSource=_supplierManager.SearchSupplierContact2(_supplier);
+                }
+                else if (suppliersEmail.Count>0)
+                {
+                    MessageBox.Show("Data found!");
+                    textBoxSearch.Clear();
+                    dataGridViewSupplier.DataSource=_supplierManager.SearchSupplierEmail2(_supplier);
+                }
+                else if (suppliersName.Count>0)
+                {
+                    MessageBox.Show("Data found!");
+                    textBoxSearch.Clear();
+                    dataGridViewSupplier.DataSource=_supplierManager.SearchSupplierName2(_supplier);
+                }
+                else
+                {
+                    textBoxSearch.Clear();
+                    MessageBox.Show("Not found!");
+                }
+            }
+            catch (Exception exception)
+            {
+                MessageBox.Show(exception.Message);
+            }
+            
+        }
     }
 }

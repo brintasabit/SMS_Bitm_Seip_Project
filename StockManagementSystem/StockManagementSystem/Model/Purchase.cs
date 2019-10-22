@@ -26,6 +26,7 @@ namespace StockManagementSystem.Model
         public double PreviousMRP { get; set; }
         public double MRP { get; set; }
         public double Profit { get; set; }
+        public string Search { get; set; }
 
     }
 }

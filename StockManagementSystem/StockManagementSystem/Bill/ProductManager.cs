@@ -26,6 +26,10 @@ namespace StockManagementSystem.Bill
         {
             return _productRepository.SearchProductCode(_product);
         }
+        public List<Product> SearchProductCode2(Product _product)
+        {
+            return _productRepository.SearchProductCode2(_product);
+        }
 
         public List<Product> SearchProductName(Product _product)
         {
@@ -40,6 +44,10 @@ namespace StockManagementSystem.Bill
         public List<Product> SearchProductCatagory(Product _product)
         {
             return _productRepository.SearchProductCatagory(_product);
+        }
+        public List<Product> SearchProductName2(Product _product)
+        {
+            return _productRepository.SearchProductName2(_product);
         }
     }
 }

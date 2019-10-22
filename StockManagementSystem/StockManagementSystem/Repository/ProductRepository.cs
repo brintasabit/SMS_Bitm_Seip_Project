@@ -113,7 +113,7 @@ namespace StockManagementSystem.Repository
         {
             List<Product> products=new List<Product>();
             SqlConnection sqlConnection = new SqlConnection(connection.connectionString);
-            string commandString = @"select * from Product where Category='"+_product.Category+"'";
+            string commandString = @"select * from Product where Category='"+_product.Search+"'";
             SqlCommand sqlCommand = new SqlCommand(commandString, sqlConnection);
             sqlConnection.Open();
             SqlDataReader sqlDataReader = sqlCommand.ExecuteReader();
@@ -121,10 +121,52 @@ namespace StockManagementSystem.Repository
             {
                 Product product=new Product();
                 product.Category = sqlDataReader["Category"].ToString();
-                //product.Code = sqlDataReader["Code"].ToString();
-                //product.Name = sqlDataReader["Name"].ToString();
-                //product.ReOrderLevel = sqlDataReader["ReOrderLevel"].ToString();
-                //product.Description = sqlDataReader["Description"].ToString();
+                product.Code = sqlDataReader["Code"].ToString();
+                product.Name = sqlDataReader["Name"].ToString();
+                product.ReOrderLevel = sqlDataReader["ReOrderLevel"].ToString();
+                product.Description = sqlDataReader["Description"].ToString();
+                products.Add(product);
+            }
+            sqlConnection.Close();
+            return products;
+        }
+        public List<Product> SearchProductCode2(Product _product)
+        {
+            List<Product> products=new List<Product>();
+            SqlConnection sqlConnection = new SqlConnection(connection.connectionString);
+            string commandString = @"select * from Product where Code='"+_product.Search+"'";
+            SqlCommand sqlCommand = new SqlCommand(commandString, sqlConnection);
+            sqlConnection.Open();
+            SqlDataReader sqlDataReader = sqlCommand.ExecuteReader();
+            while (sqlDataReader.Read())
+            {
+                Product product=new Product();
+                product.Category = sqlDataReader["Category"].ToString();
+                product.Code = sqlDataReader["Code"].ToString();
+                product.Name = sqlDataReader["Name"].ToString();
+                product.ReOrderLevel = sqlDataReader["ReOrderLevel"].ToString();
+                product.Description = sqlDataReader["Description"].ToString();
+                products.Add(product);
+            }
+            sqlConnection.Close();
+            return products;
+        }
+        public List<Product> SearchProductName2(Product _product)
+        {
+            List<Product> products=new List<Product>();
+            SqlConnection sqlConnection = new SqlConnection(connection.connectionString);
+            string commandString = @"select * from Product where Name='"+_product.Search+"'";
+            SqlCommand sqlCommand = new SqlCommand(commandString, sqlConnection);
+            sqlConnection.Open();
+            SqlDataReader sqlDataReader = sqlCommand.ExecuteReader();
+            while (sqlDataReader.Read())
+            {
+                Product product=new Product();
+                product.Category = sqlDataReader["Category"].ToString();
+                product.Code = sqlDataReader["Code"].ToString();
+                product.Name = sqlDataReader["Name"].ToString();
+                product.ReOrderLevel = sqlDataReader["ReOrderLevel"].ToString();
+                product.Description = sqlDataReader["Description"].ToString();
                 products.Add(product);
             }
             sqlConnection.Close();

@@ -35,7 +35,6 @@ namespace StockManagementSystem.Repository
         public List<Category> SearchCategoriesCode(Category _category)
         {
             List<Category> categories=new List<Category>();
-            //string connectionString = @"Server=BRINTA-PC; Database=StockManagementSystem; Integrated Security=True";
             SqlConnection sqlConnection = new SqlConnection(connection.connectionString);
             string commandString = @"select * from Category where Code='"+_category.Code+"'";
             SqlCommand sqlCommand = new SqlCommand(commandString, sqlConnection);
@@ -84,6 +83,43 @@ namespace StockManagementSystem.Repository
             }
             sqlConnection.Close();
             return false;
+        }
+        public List<Category> SearchCategoriesCode2(Category _category)
+        {
+            List<Category> categories=new List<Category>();
+            SqlConnection sqlConnection = new SqlConnection(connection.connectionString);
+            string commandString = @"select * from Category where Code='"+_category.Search+"'";
+            SqlCommand sqlCommand = new SqlCommand(commandString, sqlConnection);
+            sqlConnection.Open();
+            SqlDataReader sqlDataReader = sqlCommand.ExecuteReader();
+            while (sqlDataReader.Read())
+            {
+                Category category=new Category();
+                category.Code = sqlDataReader["Code"].ToString();
+                category.Name = sqlDataReader["Name"].ToString();
+                categories.Add(category);
+            }
+            sqlConnection.Close();
+            return categories;
+        }
+        public List<Category> SearchCategoriesName2(Category _category)
+        {
+            List<Category> categories=new List<Category>();
+            //string connectionString = @"Server=BRINTA-PC; Database=StockManagementSystem; Integrated Security=True";
+            SqlConnection sqlConnection = new SqlConnection(connection.connectionString);
+            string commandString = @"select * from Category where Name='"+_category.Search+"'";
+            SqlCommand sqlCommand = new SqlCommand(commandString, sqlConnection);
+            sqlConnection.Open();
+            SqlDataReader sqlDataReader = sqlCommand.ExecuteReader();
+            while (sqlDataReader.Read())
+            {
+                Category category=new Category();
+                category.Code = sqlDataReader["Code"].ToString();
+                category.Name = sqlDataReader["Name"].ToString();
+                categories.Add(category);
+            }
+            sqlConnection.Close();
+            return categories;
         }
     }
 }

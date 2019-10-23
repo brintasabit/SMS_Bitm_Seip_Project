@@ -7,6 +7,7 @@ insert into Category values('CA-12','Stationary')
 insert into Category values('CA-23','Electronics')
 insert into Category values('CA-31','Textile')
 select Name from Category
+update Category set Code='St23',Name='Staionary' where Code='CA-12'
 
 
 create table Product(ID int identity (1,1),Category varchar(50),Code varchar(50),
@@ -14,8 +15,8 @@ Name varchar(50),ReOrderLevel varchar(50),Description varchar(100))
 select * from Product
 insert into Product values('Electronics','BA-23','Mobile','23','Quality is fine')
 insert into Product values('Stationary','CA-23','Pen','23','Fountain Pen')
-
-
+update Product set Category='Tex',Code='3456',Name='Shirt',ReOrderLevel='56',Description='Yea' where Code='BA-23'
+delete from Product where Code='CA-23'
 
 
 

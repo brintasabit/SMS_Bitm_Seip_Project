@@ -19,7 +19,7 @@ insert into Product values('Stationary','CA-23','Pen','23','Fountain Pen')
 
 
 
-
+drop table Sales
 drop table Category
 drop table Product
 drop table Supplier
@@ -43,14 +43,14 @@ insert into ProductsPurchase
 values ('Electronics','Mobile','0978',4,'20/10/19','12/12/19','Not Applicable',
 6,50,300,40,40,40)
 select * from ProductsPurchase
+select Quantity from ProductsPurchase where Products='Shirt'
 
-
-create table Sales(ID int identity (1,1),Customer varchar(50),Date varchar(50),
-LoyalityPoint varchar(50),Category varchar(50),Product varchar(50),
-AvailableQuantity varchar(50),Quantity varchar(50),MRP varchar(50),
-TotalMRP varchar(50))
+create table Sales(ID int identity (1,1),CustomerName varchar(50),Date varchar(50),
+LoyalityPoint int,Category varchar(50),Product varchar(50),AvailableQty int,
+Quantity int,MRP float,TotalMRP float)
 select * from Sales
-
+insert into sales 
+values('Bob','23-10-19','10','Electronics','Mobile',10,5,10000,15000)
 
 select Code,Name,Category,ReOrderLevel,ExpireDate,Quantity from [Product] join ProductsPurchase on [Product].ProductPurchaseId=ProductsPurchase.ID 
 select t1.Code,t1.Name,t1.Category,t1.ReOrderLevel

@@ -12,6 +12,15 @@ namespace StockManagementSystem.Bill
     {
         ProductRepository _productRepository=new ProductRepository();
 
+        public bool DeleteProduct(Product _product)
+        {
+            return _productRepository.DeleteProduct(_product);
+        }
+
+        public bool UpdateProduct(Product _product)
+        {
+            return _productRepository.UpdateProduct(_product);
+        }
         public List<Product> ShowProduct(Product _product)
         {
             return _productRepository.ShowProduct(_product);

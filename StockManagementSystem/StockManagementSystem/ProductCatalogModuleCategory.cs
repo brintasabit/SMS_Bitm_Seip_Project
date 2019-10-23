@@ -28,53 +28,150 @@ namespace StockManagementSystem
 
         private void ButtonSave_Click(object sender, EventArgs e)
         {
+            
             Cursor.Current = Cursors.WaitCursor;
             try
             {
-                        categoryBindingSource.EndEdit();
-                        categoryTableAdapter.Update(appdata.Category);
-                        
+                categoryBindingSource.EndEdit();
+                categoryTableAdapter.Update(appdata.Category);
 
-                _category.Code = textBoxCode.Text;
-                _category.Name = textBoxName.Text;
-                List<Category> categoriesCode = _categoryManager.SearchCategoriesCode(_category);
-                List<Category> categoriesName = _categoryManager.SearchCategoriesName(_category);
-                if (_category.Code.Length == 0)
+                if (ButtonSave.Text=="Save")
                 {
-                    MessageBox.Show("Code Can't Be Empty!");
-                }
-                else if (_category.Name.Length == 0)
-                {
-                    MessageBox.Show("Name Can't Be Empty!");
-                }
-                else if (_category.Code.Length < 4)
-                {
-                    MessageBox.Show("Code Must Be 4 Character");
-                }
-                else if (_category.Code.Length > 4)
-                {
-                    MessageBox.Show("Code Must Not Exceed 4 Character!");
-                }
-                else if (categoriesCode.Count > 0)
-                {
-                    MessageBox.Show("Code Exists!");
-                }
-                else if (categoriesName.Count > 0)
-                {
-                    MessageBox.Show("Name Exists!");
-                }
-                else
-                {
-                    bool isSaved = _categoryManager.SaveInfo(_category);
-                    if (isSaved)
+                    _category.Code = textBoxCode.Text;
+                    _category.Name = textBoxName.Text;
+                    List<Category> categoriesCode = _categoryManager.SearchCategoriesCode(_category);
+                    List<Category> categoriesName = _categoryManager.SearchCategoriesName(_category);
+                    if (_category.Code.Length==0 && _category.Name.Length == 0)
                     {
-                        MessageBox.Show("Saved");
-                        dataGridViewCategory.DataSource = _categoryManager.ShowCategories(_category);
-
+                        ButtonSave.Text = "Update";
+                    }
+                    else if (_category.Code.Length == 0)
+                    {
+                        MessageBox.Show("Code Can't Be Empty!");
+                    }
+                    else if (_category.Name.Length == 0)
+                    {
+                        MessageBox.Show("Name Can't Be Empty!");
+                    }
+                    else if (_category.Code.Length < 4)
+                    {
+                        MessageBox.Show("Code Must Be 4 Character");
+                        textBoxCode.Clear();
+                    }
+                    else if (_category.Code.Length > 4)
+                    {
+                        MessageBox.Show("Code Must Not Exceed 4 Character!");
+                        textBoxCode.Clear();
+                    }
+                    else if (categoriesCode.Count > 0)
+                    {
+                        MessageBox.Show("Code Exists!");
+                        textBoxCode.Clear();
+                    }
+                    else if (categoriesName.Count > 0)
+                    {
+                        MessageBox.Show("Name Exists!");
+                        textBoxName.Clear();
+                    }
+                    else
+                    {
+                        bool isSaved = _categoryManager.SaveInfo(_category);
+                        bool isUpdateCategories = _categoryManager.UpdateCategories(_category);
+                        if (isSaved)
+                        {
+                            ButtonSave.Text = "Update";
+                            MessageBox.Show("Saved!");
+                            textBoxCode.Clear();
+                            textBoxName.Clear();
+                            dataGridViewCategory.DataSource = _categoryManager.SearchCategoriesCode(_category);
+                        }
+                    }
+                    
+                }
+                else if (ButtonSave.Text=="Update")
+                {
+                    _category.Code = textBoxCode.Text;
+                    _category.Name = textBoxName.Text;
+                    List<Category> categoriesCode = _categoryManager.SearchCategoriesCode(_category);
+                    List<Category> categoriesName = _categoryManager.SearchCategoriesName(_category);
+                    if (_category.Code.Length==0 && _category.Name.Length == 0)
+                    {
+                        ButtonSave.Text = "Delete";
+                    }
+                    else if (_category.Code.Length == 0)
+                    {
+                        MessageBox.Show("Code Can't Be Empty!");
+                        //textBoxCode.Clear();
+                    }
+                    else if (_category.Name.Length == 0)
+                    {
+                        MessageBox.Show("Name Can't Be Empty!");
+                    }
+                    else if (_category.Code.Length < 4)
+                    {
+                        MessageBox.Show("Code Must Be 4 Character");
+                        textBoxCode.Clear();
+                    }
+                    else if (_category.Code.Length > 4)
+                    {
+                        MessageBox.Show("Code Must Not Exceed 4 Character!");
+                        textBoxCode.Clear();
+                    }
+                    //else if (categoriesCode.Count > 0)
+                    //{
+                    //    MessageBox.Show("Code Exists!");
+                    //    textBoxCode.Clear();
+                    //}
+                    else if (categoriesName.Count > 0)
+                    {
+                        MessageBox.Show("Name Exists!");
+                        textBoxName.Clear();
+                    }
+                    else
+                    {
+                        bool isUpdateCategories = _categoryManager.UpdateCategories(_category);
+                        if (isUpdateCategories)
+                        {
+                            ButtonSave.Text = "Delete";
+                            MessageBox.Show("Updated!");
+                            textBoxCode.Clear();
+                            textBoxName.Clear();
+                            dataGridViewCategory.DataSource = _categoryManager.SearchCategoriesCode(_category);
+                        }
                     }
                 }
-                textBoxCode.Clear();
-                textBoxName.Clear();
+                else if (ButtonSave.Text=="Delete")
+                {
+                    _category.Code = textBoxCode.Text;
+                    _category.Name = textBoxName.Text;
+                    List<Category> categoriesCode = _categoryManager.SearchCategoriesCode(_category);
+                    List<Category> categoriesName = _categoryManager.SearchCategoriesName(_category);
+                    if (_category.Code.Length==0 && _category.Name.Length == 0)
+                    {
+                        ButtonSave.Text = "Save";
+                    }
+                    else if (_category.Code.Length == 0)
+                    {
+                        MessageBox.Show("Code Can't Be Empty!");
+                    }
+                    //else if (_category.Name.Length == 0)
+                    //{
+                    //    MessageBox.Show("Name Can't Be Empty!");
+                    //}
+                    else
+                    {
+                        bool isUpdateCategories = _categoryManager.DeleteCategories(_category);
+                        if (isUpdateCategories)
+                        {
+                            ButtonSave.Text = "Delete";
+                            MessageBox.Show("Deleted!");
+                            textBoxCode.Clear();
+                            textBoxName.Clear();
+                            dataGridViewCategory.DataSource = _categoryManager.ShowCategories(_category);
+                        }
+                    }
+                }
+                
 
 
             }
@@ -85,6 +182,7 @@ namespace StockManagementSystem
 
             Cursor.Current = Cursors.Default;
         }
+
 
         private void dataGridViewCategory_MouseClick(object sender, MouseEventArgs e)
         {

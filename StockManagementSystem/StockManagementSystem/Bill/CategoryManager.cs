@@ -11,6 +11,11 @@ namespace StockManagementSystem.Bill
     class CategoryManager
     {
         CategoryRepository _categoryRepository=new CategoryRepository();
+
+        public bool UpdateCategories(Category _category)
+        {
+            return _categoryRepository.UpdateCategories(_category);
+        }
         public List<Category> ShowCategories(Category _category)
         {
             return _categoryRepository.ShowCategories(_category);
@@ -35,6 +40,11 @@ namespace StockManagementSystem.Bill
         public List<Category> SearchCategoriesName2(Category _category)
         {
             return _categoryRepository.SearchCategoriesName2(_category);
+        }
+
+        public bool DeleteCategories(Category _category)
+        {
+            return _categoryRepository.DeleteCategories(_category);
         }
     }
 }

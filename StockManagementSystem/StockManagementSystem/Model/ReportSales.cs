@@ -18,5 +18,6 @@ namespace StockManagementSystem.Model
         public string SalesPrice { get; set; }
         public string Profit { get; set; }
 
+
     }
 }

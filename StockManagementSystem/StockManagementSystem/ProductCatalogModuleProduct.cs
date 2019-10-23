@@ -53,58 +53,165 @@ namespace StockManagementSystem
         {
             try
             {
-                _product.Category = comboBoxCategory.Text;
-                _product.Code = textBoxCode.Text;
-                _product.Name = textBoxName.Text;
-                _product.ReOrderLevel = textBoxReOrderLevel.Text;
-                _product.Description = textBoxDescription.Text;
-                List<Product> productCode = _productManager.SearchProductCode(_product);
-                List<Product> productName = _productManager.SearchProductName(_product);
-                if (_product.Category.Length==0)
+                if (buttonSave.Text=="Save")
                 {
-                    MessageBox.Show("Select A Category");
-                }
-                else if (_product.Code.Length==0)
-                {
-                    MessageBox.Show("Code can't be empty");
-                }
-                else if (_product.Code.Length<4)
-                {
-                    MessageBox.Show("Code Must Be 4 Character");
-                }
-                else if (_product.Code.Length>4)
-                {
-                    MessageBox.Show("Code Must Not Exceed 4 Character!");
-                }
-                else if (productCode.Count>0)
-                {
-                    MessageBox.Show("Code Exists!");
-                }
-                else if (_product.Name.Length==0)
-                {
-                    MessageBox.Show("Name can't be empty'");
-                }
-                else if (productName.Count>0)
-                {
-                    MessageBox.Show("Name Exists!");
-                }
-                else if (_product.ReOrderLevel.Length==0)
-                {
-                    MessageBox.Show("Re-order level must be given");
-                }
-                else if (_product.ReOrderLevel.Length<0)
-                {
-                    MessageBox.Show("Re-order level must be positive");
-                }
-                else
-                {
-                    bool isSaved = _productManager.SaveProduct(_product);
-                    if (isSaved)
+                    _product.Category = comboBoxCategory.Text;
+                    _product.Code = textBoxCode.Text;
+                    _product.Name = textBoxName.Text;
+                    _product.ReOrderLevel = textBoxReOrderLevel.Text;
+                    _product.Description = textBoxDescription.Text;
+                    List<Product> productCode = _productManager.SearchProductCode(_product);
+                    List<Product> productName = _productManager.SearchProductName(_product);
+                    if (_product.Code.Length==0 && _product.Name.Length==0)
                     {
-                        MessageBox.Show("Saved");
-                        dataGridViewProduct.DataSource = _productManager.SearchProductCode(_product);
+                        buttonSave.Text = "Update";
+                    }
+                    else if (_product.Category.Length==0)
+                    {
+                        MessageBox.Show("Select A Category");
+                    }
+                    else if (_product.Code.Length==0)
+                    {
+                        MessageBox.Show("Code can't be empty");
+                        buttonSave.Text = "Update";
+                    }
+                    else if (_product.Code.Length<4)
+                    {
+                        MessageBox.Show("Code Must Be 4 Character");
+                        //buttonSave.Text = "Update";
+                    }
+                    else if (_product.Code.Length>4)
+                    {
+                        MessageBox.Show("Code Must Not Exceed 4 Character!");
+                    }
+                    else if (productCode.Count>0)
+                    {
+                        MessageBox.Show("Code Exists!");
+                    }
+                    else if (_product.Name.Length==0)
+                    {
+                        MessageBox.Show("Name can't be empty'");
+                    }
+                    else if (productName.Count>0)
+                    {
+                        MessageBox.Show("Name Exists!");
+                    }
+                    else if (_product.ReOrderLevel.Length==0)
+                    {
+                        MessageBox.Show("Re-order level must be given");
+                    }
+                    else if (_product.ReOrderLevel.Length<0)
+                    {
+                        MessageBox.Show("Re-order level must be positive");
+                    }
+                    else
+                    {
+                        bool isSaved = _productManager.SaveProduct(_product);
+                        if (isSaved)
+                        {
+                            
+                            MessageBox.Show("Saved!");
+                            buttonSave.Text = "Update";
+                            dataGridViewProduct.DataSource = _productManager.SearchProductCode(_product);
+
+                            textBoxCode.Clear();
+                            textBoxDescription.Clear();
+                            textBoxName.Clear();
+                            textBoxReOrderLevel.Clear();
+                            //comboBoxCategory.Text = "";
+                        }
                     }
                 }
+                else if (buttonSave.Text=="Update")
+                {
+                    _product.Category = comboBoxCategory.Text;
+                    _product.Code = textBoxCode.Text;
+                    _product.Name = textBoxName.Text;
+                    _product.ReOrderLevel = textBoxReOrderLevel.Text;
+                    _product.Description = textBoxDescription.Text;
+                    List<Product> productCode = _productManager.SearchProductCode(_product);
+                    List<Product> productName = _productManager.SearchProductName(_product);
+                    
+                    if (_product.Code.Length==0 && _product.Name.Length==0)
+                    {
+                        buttonSave.Text = "Delete";
+                    }
+                    else if (_product.Category.Length==0)
+                    {
+                        MessageBox.Show("Select A Category");
+                    }
+                    else if (_product.Code.Length<4)
+                    {
+                        MessageBox.Show("Code Must Be 4 Character");
+                    }
+                    else if (_product.Code.Length>4)
+                    {
+                        MessageBox.Show("Code Must Not Exceed 4 Character!");
+                    }
+                    else if (productName.Count>0)
+                    {
+                        MessageBox.Show("Name Exists!");
+                    }
+                    else if (_product.ReOrderLevel.Length==0)
+                    {
+                        MessageBox.Show("Re-order level must be given");
+                    }
+                    else if (_product.ReOrderLevel.Length<0)
+                    {
+                        MessageBox.Show("Re-order level must be positive");
+                    }
+                    else
+                    {
+                        bool isSaved = _productManager.UpdateProduct(_product);
+                        if (isSaved)
+                        {
+                            buttonSave.Text = "Delete";
+                            MessageBox.Show("Updated!");
+                            textBoxCode.Clear();
+                            textBoxDescription.Clear();
+                            textBoxName.Clear();
+                            textBoxReOrderLevel.Clear();
+                            dataGridViewProduct.DataSource = _productManager.SearchProductCode(_product);
+                        }
+                    }
+                }
+                else if (buttonSave.Text=="Delete")
+                {
+
+                    //comboBoxCategory.Text = "";
+                    //_product.Category = comboBoxCategory.Text;
+                    _product.Code = textBoxCode.Text;
+                    _product.Name = textBoxName.Text;
+                    //_product.ReOrderLevel = textBoxReOrderLevel.Text;
+                    //_product.Description = textBoxDescription.Text;
+                    List<Product> productCode = _productManager.SearchProductCode(_product);
+                    List<Product> productName = _productManager.SearchProductName(_product);
+                    if (_product.Code.Length==0 && _product.Name.Length==0)
+                    {
+                        buttonSave.Text = "Save";
+                    }
+                    else if (productCode.Count>0)
+                    {
+                        bool isSaved = _productManager.DeleteProduct(_product);
+                        if (isSaved)
+                        {
+                            buttonSave.Text = "Delete";
+                            MessageBox.Show("Deleted!");
+                            textBoxCode.Clear();
+                            textBoxDescription.Clear();
+                            textBoxName.Clear();
+                            textBoxReOrderLevel.Clear();
+                            comboBoxCategory.Text = "";
+                            dataGridViewProduct.DataSource = _productManager.ShowProduct(_product);
+                        }
+                        else
+                        {
+                            MessageBox.Show("Not Deleted!");
+                        }
+                    }
+                        
+                }
+                
 
             }
             catch (Exception exception)

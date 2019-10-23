@@ -172,5 +172,34 @@ namespace StockManagementSystem.Repository
             sqlConnection.Close();
             return products;
         }
+        public bool DeleteProduct(Product _product)
+        {
+            SqlConnection sqlConnection = new SqlConnection(connection.connectionString);
+            string commandString = @"delete from Product where Code='"+_product.Code+"'";
+            SqlCommand sqlCommand = new SqlCommand(commandString, sqlConnection);
+            sqlConnection.Open();
+            int isSaved = sqlCommand.ExecuteNonQuery();
+            if (isSaved>0)
+            {
+                return true;
+            }
+            sqlConnection.Close();
+            return false;
+        }
+        public bool UpdateProduct(Product _product)
+        {
+            SqlConnection sqlConnection = new SqlConnection(connection.connectionString);
+            string commandString = @"update Product set Category='"+_product.Category+"',Code='"+_product.Code+"',Name='"+_product.Name+"',ReOrderLevel='"+_product.ReOrderLevel+"',Description='"+_product.Description+"' where Code='"+_product.Code+"'";
+            SqlCommand sqlCommand = new SqlCommand(commandString, sqlConnection);
+            sqlConnection.Open();
+            int isSaved = sqlCommand.ExecuteNonQuery();
+            if (isSaved>0)
+            {
+                return true;
+            }
+            sqlConnection.Close();
+            return false;
+        }
+
     }
 }

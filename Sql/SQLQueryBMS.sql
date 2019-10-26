@@ -13,6 +13,8 @@ update Category set Code='St23',Name='Staionary' where Code='CA-12'
 create table Product(ID int identity (1,1),Category varchar(50),Code varchar(50),
 Name varchar(50),ReOrderLevel varchar(50),Description varchar(100))
 select * from Product
+select Code from Product where Name='Pant'
+select p.Code from Product as p left join Category as c on p.Category=c.Name
 insert into Product values('Electronics','BA-23','Mobile','23','Quality is fine')
 insert into Product values('Stationary','CA-23','Pen','23','Fountain Pen')
 update Product set Category='Tex',Code='3456',Name='Shirt',ReOrderLevel='56',Description='Yea' where Code='BA-23'

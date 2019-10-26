@@ -12,6 +12,10 @@ namespace StockManagementSystem.Bill
     {
         PurchaseRepository _purchaseRepository=new PurchaseRepository();
 
+        public bool SearchProduct(Purchase _purchase)
+        {
+            return _purchaseRepository.SearchProduct(_purchase);
+        }
         public List<Supplier> ComboBoxSupplierList()
         {
             return _purchaseRepository.ComboBoxSupplierList();
@@ -22,9 +26,9 @@ namespace StockManagementSystem.Bill
             return _purchaseRepository.ComboBoxCategoryList();
         }
 
-        public List<Product> ComboBoxProductList(Product _product)
+        public List<Product> ComboBoxProductList()
         {
-            return _purchaseRepository.ComboBoxProductList(_product);
+            return _purchaseRepository.ComboBoxProductList();
         }
 
         public List<Purchase> SearchSupplierBill(Purchase _purchase)
@@ -65,6 +69,11 @@ namespace StockManagementSystem.Bill
         public List<Purchase> SearchPurchasesManufacturedDate(Purchase _purchase)
         {
             return _purchaseRepository.SearchPurchasesManufacturedDate(_purchase);
+        }
+
+        public List<Product> SearchProductCode2(Product _product)
+        {
+            return _purchaseRepository.SearchProductCode2(_product);
         }
     }
 }

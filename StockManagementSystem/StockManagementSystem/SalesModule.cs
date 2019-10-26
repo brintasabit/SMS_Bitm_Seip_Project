@@ -45,7 +45,7 @@ namespace StockManagementSystem
             try
             {
                 _sales.CustomerName = comboBoxCustomer.Text;
-                _sales.Date = textBoxDate.Text;
+                _sales.Date = dateTimePickerCustomer.Text;
                 _sales.LoyalityPoint = textBoxLoyalityPoint.Text;
                 _sales.Category = comboBoxCategory.Text;
                 _sales.Product = comboBoxProduct.Text;
@@ -70,7 +70,7 @@ namespace StockManagementSystem
             try
             {
                 _sales.CustomerName = comboBoxCustomer.Text;
-                _sales.Date = textBoxDate.Text;
+                _sales.Date = dateTimePickerCustomer.Text;
                 _sales.LoyalityPoint = textBoxLoyalityPoint.Text;
                 _sales.Category = comboBoxCategory.Text;
                 _sales.Product = comboBoxProduct.Text;

@@ -30,11 +30,11 @@
         {
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.textBoxStartDate = new System.Windows.Forms.TextBox();
-            this.textBoxEndDate = new System.Windows.Forms.TextBox();
             this.ButtonSearch = new System.Windows.Forms.Button();
             this.dataGridViewReportSales = new System.Windows.Forms.DataGridView();
             this.SL = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dateTimePickerEndDate = new System.Windows.Forms.DateTimePicker();
+            this.dateTimePickerStartDate = new System.Windows.Forms.DateTimePicker();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewReportSales)).BeginInit();
             this.SuspendLayout();
             // 
@@ -55,20 +55,6 @@
             this.label2.Size = new System.Drawing.Size(77, 20);
             this.label2.TabIndex = 1;
             this.label2.Text = "End Date";
-            // 
-            // textBoxStartDate
-            // 
-            this.textBoxStartDate.Location = new System.Drawing.Point(193, 61);
-            this.textBoxStartDate.Name = "textBoxStartDate";
-            this.textBoxStartDate.Size = new System.Drawing.Size(167, 26);
-            this.textBoxStartDate.TabIndex = 2;
-            // 
-            // textBoxEndDate
-            // 
-            this.textBoxEndDate.Location = new System.Drawing.Point(530, 61);
-            this.textBoxEndDate.Name = "textBoxEndDate";
-            this.textBoxEndDate.Size = new System.Drawing.Size(167, 26);
-            this.textBoxEndDate.TabIndex = 3;
             // 
             // ButtonSearch
             // 
@@ -96,19 +82,35 @@
             this.SL.HeaderText = "SL";
             this.SL.Name = "SL";
             // 
-            // ReportingModuleSales
+            // dateTimePickerEndDate
+            // 
+            this.dateTimePickerEndDate.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dateTimePickerEndDate.Location = new System.Drawing.Point(493, 58);
+            this.dateTimePickerEndDate.Name = "dateTimePickerEndDate";
+            this.dateTimePickerEndDate.Size = new System.Drawing.Size(200, 26);
+            this.dateTimePickerEndDate.TabIndex = 6;
+            // 
+            // dateTimePickerStartDate
+            // 
+            this.dateTimePickerStartDate.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dateTimePickerStartDate.Location = new System.Drawing.Point(160, 59);
+            this.dateTimePickerStartDate.Name = "dateTimePickerStartDate";
+            this.dateTimePickerStartDate.Size = new System.Drawing.Size(200, 26);
+            this.dateTimePickerStartDate.TabIndex = 6;
+            // 
+            // ReportModuleSales
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(929, 438);
+            this.Controls.Add(this.dateTimePickerStartDate);
+            this.Controls.Add(this.dateTimePickerEndDate);
             this.Controls.Add(this.dataGridViewReportSales);
             this.Controls.Add(this.ButtonSearch);
-            this.Controls.Add(this.textBoxEndDate);
-            this.Controls.Add(this.textBoxStartDate);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
-            this.Name = "ReportingModuleSales";
+            this.Name = "ReportModuleSales";
             this.Text = "Periodic Income Expense Report On Sales";
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewReportSales)).EndInit();
             this.ResumeLayout(false);
@@ -120,10 +122,10 @@
 
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox textBoxStartDate;
-        private System.Windows.Forms.TextBox textBoxEndDate;
         private System.Windows.Forms.Button ButtonSearch;
         private System.Windows.Forms.DataGridView dataGridViewReportSales;
         private System.Windows.Forms.DataGridViewTextBoxColumn SL;
+        private System.Windows.Forms.DateTimePicker dateTimePickerEndDate;
+        private System.Windows.Forms.DateTimePicker dateTimePickerStartDate;
     }
 }

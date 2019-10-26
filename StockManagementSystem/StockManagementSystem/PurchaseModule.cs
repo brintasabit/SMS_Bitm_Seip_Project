@@ -1,7 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
-using System.Data;
+
+
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -17,23 +18,26 @@ namespace StockManagementSystem
         Purchase _purchase=new Purchase();
         Product _product=new Product();
         SuppliersPurchase _suppliersPurchase=new SuppliersPurchase();
+        DateTime aDateTime=DateTime.UtcNow;
         public PurchaseModule()
         {
             InitializeComponent();
         }
         private int serialNo = 2020;
+        
         private void PurchaseModule_Load(object sender, EventArgs e)
         {
             // TODO: This line of code loads data into the 'stockManagementSystemDataSet1.ProductsPurchase' table. You can move, or remove it, as needed.
            // this.productsPurchaseTableAdapter.Fill(this.stockManagementSystemDataSet1.ProductsPurchase);
+           //_purchase.Category = comboBoxCategory.Text;
            comboBoxSupplier.DataSource = _purchaseManager.ComboBoxSupplierList();
            comboBoxCategory.DataSource = _purchaseManager.ComboBoxCategoryList();
-           comboBoxProducts.DataSource = _purchaseManager.ComboBoxProductList(_product);
+           comboBoxProducts.DataSource = _purchaseManager.ComboBoxProductList();
            dataGridViewPurchase.DataSource = _purchaseManager.ShowPurchases(_purchase);
            serialNo--;
-           textBoxCode.Text = serialNo.ToString();
-
-            //textBoxCode.Text = Convert.ToString(_purchaseManager.SearchProductCode(_product));
+           //textBoxCode.Text = serialNo.ToString();
+           //textBoxDate.Text = aDateTime.ToString();
+           //textBoxCode.Text = Convert.ToString(_purchaseManager.SearchProductCode(_product));
         }
 
         private void dataGridViewPurchase_RowPostPaint(object sender, DataGridViewRowPostPaintEventArgs e)
@@ -45,15 +49,15 @@ namespace StockManagementSystem
         {
             try
             {
-                _purchase.Date = textBoxDate.Text;
+                _purchase.Date = dateTimePickerSupplier.Text;
                 _purchase.BillInvoice = textBoxBillInvoice.Text;
                 _purchase.SupplierName = comboBoxSupplier.Text;
                 _purchase.Category = comboBoxCategory.Text;
                 _purchase.Products = comboBoxProducts.Text;
                 _purchase.Code = textBoxCode.Text;
                 _purchase.AvailableQuantity = Convert.ToInt32(textBoxAvailableQuantity.Text);
-                _purchase.ManufacturedDate = textBoxManufacturedDate.Text;
-                _purchase.ExpireDate = textBoxExpireDate.Text;
+                _purchase.ManufacturedDate = dateTimePickerManufactured.Text;
+                _purchase.ExpireDate = dateTimePickerExpire.Text;
                 _purchase.Remarks = textBoxRemarks.Text;
                 _purchase.Quantity = Convert.ToInt32(textBoxQuantity.Text);
                 _purchase.UnitPrice = Convert.ToDouble(textBoxUnitPrice.Text);
@@ -96,15 +100,15 @@ namespace StockManagementSystem
             //textBoxCode.Text = serialNo.ToString();
             try
             {
-                _purchase.Date = textBoxDate.Text;
+                _purchase.Date = dateTimePickerSupplier.Text;
                 _purchase.BillInvoice = textBoxBillInvoice.Text;
                 _purchase.SupplierName = comboBoxSupplier.Text;
                 _purchase.Category = comboBoxCategory.Text;
                 _purchase.Products = comboBoxProducts.Text;
                 _purchase.Code = textBoxCode.Text;
                 _purchase.AvailableQuantity = Convert.ToInt32(textBoxAvailableQuantity.Text);
-                _purchase.ManufacturedDate = textBoxManufacturedDate.Text;
-                _purchase.ExpireDate = textBoxExpireDate.Text;
+                _purchase.ManufacturedDate = dateTimePickerManufactured.Text;
+                _purchase.ExpireDate = dateTimePickerExpire.Text;
                 _purchase.Remarks = textBoxRemarks.Text;
                 _purchase.Quantity = Convert.ToInt32(textBoxQuantity.Text);
                 _purchase.UnitPrice = Convert.ToDouble(textBoxUnitPrice.Text);
@@ -171,6 +175,32 @@ namespace StockManagementSystem
             catch (Exception exception)
             {
                 MessageBox.Show(exception.Message);
+            }
+            
+        }
+
+        private void comboBoxProducts_MouseClick(object sender, MouseEventArgs e)
+        {
+
+        }
+
+        private void comboBoxCategory_MouseClick(object sender, MouseEventArgs e)
+        {
+            
+           // comboBoxProducts.DataSource=_purchaseManager.ComboBoxProductList();
+        }
+
+        private void comboBoxProducts_SelectedIndexChanged(object sender, EventArgs e)
+        { 
+            //comboBoxProducts.Text=_product.Name;
+            //_product.Name = comboBoxProducts.Text;
+            //_purchase.Products = comboBoxProducts.Text;
+            
+            //textBoxCode.Text = Convert.ToString(_purchaseManager.SearchProductCode2(_product));
+            bool r = _purchaseManager.SearchProduct(_purchase);
+            if (r)
+            {
+                textBoxCode.Text = Convert.ToString(_purchaseManager.SearchProduct(_purchase));
             }
             
         }

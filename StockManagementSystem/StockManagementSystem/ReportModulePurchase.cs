@@ -27,12 +27,12 @@ namespace StockManagementSystem
 
         private void buttonSearch_Click(object sender, EventArgs e)
         {
-            _reportPurchase.StartDate = textBoxStartDate.Text;
-            _reportPurchase.EndDate = textBoxEndDate.Text;
+            _reportPurchase.StartDate = dateTimePickerStartDate.Text;
+            _reportPurchase.EndDate = dateTimePickerEndDate.Text;
             try
             {
-                _reportPurchase.StartDate = textBoxStartDate.Text;
-                _reportPurchase.EndDate = textBoxEndDate.Text;
+                _reportPurchase.StartDate = dateTimePickerStartDate.Text;
+                _reportPurchase.EndDate = dateTimePickerEndDate.Text;
                 List<ReportPurchase> reportPurchases = _reportPurchaseManager.SearchStockProductCategory(_reportPurchase);
                 if (reportPurchases.Count>0)
                 {

@@ -30,7 +30,7 @@
         {
             this.components = new System.ComponentModel.Container();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.textBoxDate = new System.Windows.Forms.TextBox();
+            this.dateTimePickerSupplier = new System.Windows.Forms.DateTimePicker();
             this.textBoxBillInvoice = new System.Windows.Forms.TextBox();
             this.comboBoxSupplier = new System.Windows.Forms.ComboBox();
             this.supplierBindingSource = new System.Windows.Forms.BindingSource(this.components);
@@ -44,9 +44,7 @@
             this.textBoxPreviousUnitPrice = new System.Windows.Forms.TextBox();
             this.textBoxRemarks = new System.Windows.Forms.TextBox();
             this.textBoxTotalPrice = new System.Windows.Forms.TextBox();
-            this.textBoxExpireDate = new System.Windows.Forms.TextBox();
             this.textBoxUnitPrice = new System.Windows.Forms.TextBox();
-            this.textBoxManufacturedDate = new System.Windows.Forms.TextBox();
             this.textBoxQuantity = new System.Windows.Forms.TextBox();
             this.textBoxAvailableQuantity = new System.Windows.Forms.TextBox();
             this.textBoxCode = new System.Windows.Forms.TextBox();
@@ -86,6 +84,8 @@
             this.label17 = new System.Windows.Forms.Label();
             this.textBoxSearch = new System.Windows.Forms.TextBox();
             this.SearchButton = new System.Windows.Forms.Button();
+            this.dateTimePickerManufactured = new System.Windows.Forms.DateTimePicker();
+            this.dateTimePickerExpire = new System.Windows.Forms.DateTimePicker();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.supplierBindingSource)).BeginInit();
             this.groupBox2.SuspendLayout();
@@ -99,7 +99,7 @@
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.textBoxDate);
+            this.groupBox1.Controls.Add(this.dateTimePickerSupplier);
             this.groupBox1.Controls.Add(this.textBoxBillInvoice);
             this.groupBox1.Controls.Add(this.comboBoxSupplier);
             this.groupBox1.Controls.Add(this.label1);
@@ -112,12 +112,13 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Supplier";
             // 
-            // textBoxDate
+            // dateTimePickerSupplier
             // 
-            this.textBoxDate.Location = new System.Drawing.Point(172, 31);
-            this.textBoxDate.Name = "textBoxDate";
-            this.textBoxDate.Size = new System.Drawing.Size(162, 26);
-            this.textBoxDate.TabIndex = 0;
+            this.dateTimePickerSupplier.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dateTimePickerSupplier.Location = new System.Drawing.Point(134, 31);
+            this.dateTimePickerSupplier.Name = "dateTimePickerSupplier";
+            this.dateTimePickerSupplier.Size = new System.Drawing.Size(200, 26);
+            this.dateTimePickerSupplier.TabIndex = 6;
             // 
             // textBoxBillInvoice
             // 
@@ -170,15 +171,15 @@
             // 
             // groupBox2
             // 
+            this.groupBox2.Controls.Add(this.dateTimePickerExpire);
+            this.groupBox2.Controls.Add(this.dateTimePickerManufactured);
             this.groupBox2.Controls.Add(this.textBoxMrp);
             this.groupBox2.Controls.Add(this.textBoxPreviousMrp);
             this.groupBox2.Controls.Add(this.ButtonAdd);
             this.groupBox2.Controls.Add(this.textBoxPreviousUnitPrice);
             this.groupBox2.Controls.Add(this.textBoxRemarks);
             this.groupBox2.Controls.Add(this.textBoxTotalPrice);
-            this.groupBox2.Controls.Add(this.textBoxExpireDate);
             this.groupBox2.Controls.Add(this.textBoxUnitPrice);
-            this.groupBox2.Controls.Add(this.textBoxManufacturedDate);
             this.groupBox2.Controls.Add(this.textBoxQuantity);
             this.groupBox2.Controls.Add(this.textBoxAvailableQuantity);
             this.groupBox2.Controls.Add(this.textBoxCode);
@@ -250,26 +251,12 @@
             this.textBoxTotalPrice.Size = new System.Drawing.Size(200, 26);
             this.textBoxTotalPrice.TabIndex = 12;
             // 
-            // textBoxExpireDate
-            // 
-            this.textBoxExpireDate.Location = new System.Drawing.Point(204, 225);
-            this.textBoxExpireDate.Name = "textBoxExpireDate";
-            this.textBoxExpireDate.Size = new System.Drawing.Size(200, 26);
-            this.textBoxExpireDate.TabIndex = 12;
-            // 
             // textBoxUnitPrice
             // 
             this.textBoxUnitPrice.Location = new System.Drawing.Point(771, 63);
             this.textBoxUnitPrice.Name = "textBoxUnitPrice";
             this.textBoxUnitPrice.Size = new System.Drawing.Size(200, 26);
             this.textBoxUnitPrice.TabIndex = 12;
-            // 
-            // textBoxManufacturedDate
-            // 
-            this.textBoxManufacturedDate.Location = new System.Drawing.Point(204, 185);
-            this.textBoxManufacturedDate.Name = "textBoxManufacturedDate";
-            this.textBoxManufacturedDate.Size = new System.Drawing.Size(200, 26);
-            this.textBoxManufacturedDate.TabIndex = 12;
             // 
             // textBoxQuantity
             // 
@@ -302,6 +289,7 @@
             this.comboBoxProducts.Size = new System.Drawing.Size(200, 28);
             this.comboBoxProducts.TabIndex = 1;
             this.comboBoxProducts.ValueMember = "Category";
+            this.comboBoxProducts.SelectedIndexChanged += new System.EventHandler(this.comboBoxProducts_SelectedIndexChanged);
             // 
             // productBindingSource
             // 
@@ -317,6 +305,7 @@
             this.comboBoxCategory.Size = new System.Drawing.Size(200, 28);
             this.comboBoxCategory.TabIndex = 1;
             this.comboBoxCategory.ValueMember = "Code";
+            this.comboBoxCategory.MouseClick += new System.Windows.Forms.MouseEventHandler(this.comboBoxCategory_MouseClick);
             // 
             // label16
             // 
@@ -578,6 +567,22 @@
             this.SearchButton.UseVisualStyleBackColor = true;
             this.SearchButton.Click += new System.EventHandler(this.SearchButton_Click);
             // 
+            // dateTimePickerManufactured
+            // 
+            this.dateTimePickerManufactured.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dateTimePickerManufactured.Location = new System.Drawing.Point(204, 185);
+            this.dateTimePickerManufactured.Name = "dateTimePickerManufactured";
+            this.dateTimePickerManufactured.Size = new System.Drawing.Size(200, 26);
+            this.dateTimePickerManufactured.TabIndex = 13;
+            // 
+            // dateTimePickerExpire
+            // 
+            this.dateTimePickerExpire.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dateTimePickerExpire.Location = new System.Drawing.Point(204, 226);
+            this.dateTimePickerExpire.Name = "dateTimePickerExpire";
+            this.dateTimePickerExpire.Size = new System.Drawing.Size(200, 26);
+            this.dateTimePickerExpire.TabIndex = 13;
+            // 
             // PurchaseModule
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
@@ -612,7 +617,6 @@
         #endregion
 
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.TextBox textBoxDate;
         private System.Windows.Forms.TextBox textBoxBillInvoice;
         private System.Windows.Forms.ComboBox comboBoxSupplier;
         private System.Windows.Forms.Label label1;
@@ -625,9 +629,7 @@
         private System.Windows.Forms.TextBox textBoxPreviousUnitPrice;
         private System.Windows.Forms.TextBox textBoxRemarks;
         private System.Windows.Forms.TextBox textBoxTotalPrice;
-        private System.Windows.Forms.TextBox textBoxExpireDate;
         private System.Windows.Forms.TextBox textBoxUnitPrice;
-        private System.Windows.Forms.TextBox textBoxManufacturedDate;
         private System.Windows.Forms.TextBox textBoxQuantity;
         private System.Windows.Forms.TextBox textBoxAvailableQuantity;
         private System.Windows.Forms.TextBox textBoxCode;
@@ -668,5 +670,8 @@
         private System.Windows.Forms.Label label17;
         private System.Windows.Forms.TextBox textBoxSearch;
         private System.Windows.Forms.Button SearchButton;
+        private System.Windows.Forms.DateTimePicker dateTimePickerSupplier;
+        private System.Windows.Forms.DateTimePicker dateTimePickerExpire;
+        private System.Windows.Forms.DateTimePicker dateTimePickerManufactured;
     }
 }

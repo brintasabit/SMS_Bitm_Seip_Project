@@ -32,10 +32,7 @@
             this.buttonSearch = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.textBoxStartDate = new System.Windows.Forms.TextBox();
-            this.textBoxEndDate = new System.Windows.Forms.TextBox();
             this.dataGridViewReportPurchase = new System.Windows.Forms.DataGridView();
-            this.reportPurchaseBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.SL = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.codeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.nameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -44,13 +41,16 @@
             this.currentPriceDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.mRPDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.profitDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.reportPurchaseBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.dateTimePickerEndDate = new System.Windows.Forms.DateTimePicker();
+            this.dateTimePickerStartDate = new System.Windows.Forms.DateTimePicker();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewReportPurchase)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.reportPurchaseBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // buttonSearch
             // 
-            this.buttonSearch.Location = new System.Drawing.Point(723, 59);
+            this.buttonSearch.Location = new System.Drawing.Point(741, 56);
             this.buttonSearch.Name = "buttonSearch";
             this.buttonSearch.Size = new System.Drawing.Size(114, 35);
             this.buttonSearch.TabIndex = 0;
@@ -61,7 +61,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(140, 70);
+            this.label1.Location = new System.Drawing.Point(95, 70);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(83, 20);
             this.label1.TabIndex = 1;
@@ -70,25 +70,11 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(430, 70);
+            this.label2.Location = new System.Drawing.Point(414, 69);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(77, 20);
             this.label2.TabIndex = 1;
             this.label2.Text = "End Date";
-            // 
-            // textBoxStartDate
-            // 
-            this.textBoxStartDate.Location = new System.Drawing.Point(243, 64);
-            this.textBoxStartDate.Name = "textBoxStartDate";
-            this.textBoxStartDate.Size = new System.Drawing.Size(158, 26);
-            this.textBoxStartDate.TabIndex = 2;
-            // 
-            // textBoxEndDate
-            // 
-            this.textBoxEndDate.Location = new System.Drawing.Point(522, 63);
-            this.textBoxEndDate.Name = "textBoxEndDate";
-            this.textBoxEndDate.Size = new System.Drawing.Size(158, 26);
-            this.textBoxEndDate.TabIndex = 2;
             // 
             // dataGridViewReportPurchase
             // 
@@ -110,10 +96,6 @@
             this.dataGridViewReportPurchase.Size = new System.Drawing.Size(938, 150);
             this.dataGridViewReportPurchase.TabIndex = 3;
             this.dataGridViewReportPurchase.RowPostPaint += new System.Windows.Forms.DataGridViewRowPostPaintEventHandler(this.dataGridViewReportPurchase_RowPostPaint);
-            // 
-            // reportPurchaseBindingSource
-            // 
-            this.reportPurchaseBindingSource.DataSource = typeof(StockManagementSystem.Model.ReportPurchase);
             // 
             // SL
             // 
@@ -162,14 +144,34 @@
             this.profitDataGridViewTextBoxColumn.HeaderText = "Profit";
             this.profitDataGridViewTextBoxColumn.Name = "profitDataGridViewTextBoxColumn";
             // 
+            // reportPurchaseBindingSource
+            // 
+            this.reportPurchaseBindingSource.DataSource = typeof(StockManagementSystem.Model.ReportPurchase);
+            // 
+            // dateTimePickerEndDate
+            // 
+            this.dateTimePickerEndDate.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dateTimePickerEndDate.Location = new System.Drawing.Point(513, 64);
+            this.dateTimePickerEndDate.Name = "dateTimePickerEndDate";
+            this.dateTimePickerEndDate.Size = new System.Drawing.Size(200, 26);
+            this.dateTimePickerEndDate.TabIndex = 4;
+            // 
+            // dateTimePickerStartDate
+            // 
+            this.dateTimePickerStartDate.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dateTimePickerStartDate.Location = new System.Drawing.Point(208, 65);
+            this.dateTimePickerStartDate.Name = "dateTimePickerStartDate";
+            this.dateTimePickerStartDate.Size = new System.Drawing.Size(200, 26);
+            this.dateTimePickerStartDate.TabIndex = 4;
+            // 
             // ReportModulePurchase
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(962, 475);
+            this.Controls.Add(this.dateTimePickerStartDate);
+            this.Controls.Add(this.dateTimePickerEndDate);
             this.Controls.Add(this.dataGridViewReportPurchase);
-            this.Controls.Add(this.textBoxEndDate);
-            this.Controls.Add(this.textBoxStartDate);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.buttonSearch);
@@ -188,8 +190,6 @@
         private System.Windows.Forms.Button buttonSearch;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox textBoxStartDate;
-        private System.Windows.Forms.TextBox textBoxEndDate;
         private System.Windows.Forms.DataGridView dataGridViewReportPurchase;
         private System.Windows.Forms.BindingSource reportPurchaseBindingSource;
         private System.Windows.Forms.DataGridViewTextBoxColumn SL;
@@ -200,5 +200,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn currentPriceDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn mRPDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn profitDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DateTimePicker dateTimePickerEndDate;
+        private System.Windows.Forms.DateTimePicker dateTimePickerStartDate;
     }
 }

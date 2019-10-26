@@ -35,16 +35,16 @@
             this.label4 = new System.Windows.Forms.Label();
             this.textBoxProduct = new System.Windows.Forms.TextBox();
             this.textBoxCategory = new System.Windows.Forms.TextBox();
-            this.textBoxStartDate = new System.Windows.Forms.TextBox();
-            this.textBoxEndDate = new System.Windows.Forms.TextBox();
             this.dataGridViewStock = new System.Windows.Forms.DataGridView();
+            this.SL = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.buttonSearch = new System.Windows.Forms.Button();
             this.stockManagementSystemDataSet3 = new StockManagementSystem.StockManagementSystemDataSet3();
             this.productsPurchaseBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.productsPurchaseTableAdapter = new StockManagementSystem.StockManagementSystemDataSet3TableAdapters.ProductsPurchaseTableAdapter();
             this.stockBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.stockBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
-            this.SL = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dateTimePickerStartDate = new System.Windows.Forms.DateTimePicker();
+            this.dateTimePickerEndDate = new System.Windows.Forms.DateTimePicker();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewStock)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.stockManagementSystemDataSet3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.productsPurchaseBindingSource)).BeginInit();
@@ -102,20 +102,6 @@
             this.textBoxCategory.Size = new System.Drawing.Size(223, 26);
             this.textBoxCategory.TabIndex = 1;
             // 
-            // textBoxStartDate
-            // 
-            this.textBoxStartDate.Location = new System.Drawing.Point(711, 91);
-            this.textBoxStartDate.Name = "textBoxStartDate";
-            this.textBoxStartDate.Size = new System.Drawing.Size(269, 26);
-            this.textBoxStartDate.TabIndex = 1;
-            // 
-            // textBoxEndDate
-            // 
-            this.textBoxEndDate.Location = new System.Drawing.Point(711, 173);
-            this.textBoxEndDate.Name = "textBoxEndDate";
-            this.textBoxEndDate.Size = new System.Drawing.Size(269, 26);
-            this.textBoxEndDate.TabIndex = 1;
-            // 
             // dataGridViewStock
             // 
             this.dataGridViewStock.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
@@ -127,6 +113,11 @@
             this.dataGridViewStock.Size = new System.Drawing.Size(1024, 259);
             this.dataGridViewStock.TabIndex = 2;
             this.dataGridViewStock.RowPostPaint += new System.Windows.Forms.DataGridViewRowPostPaintEventHandler(this.dataGridViewStock_RowPostPaint);
+            // 
+            // SL
+            // 
+            this.SL.HeaderText = "SL";
+            this.SL.Name = "SL";
             // 
             // buttonSearch
             // 
@@ -160,20 +151,31 @@
             // 
             this.stockBindingSource1.DataSource = typeof(StockManagementSystem.Model.Stock);
             // 
-            // SL
+            // dateTimePickerStartDate
             // 
-            this.SL.HeaderText = "SL";
-            this.SL.Name = "SL";
+            this.dateTimePickerStartDate.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dateTimePickerStartDate.Location = new System.Drawing.Point(726, 90);
+            this.dateTimePickerStartDate.Name = "dateTimePickerStartDate";
+            this.dateTimePickerStartDate.Size = new System.Drawing.Size(200, 26);
+            this.dateTimePickerStartDate.TabIndex = 4;
+            // 
+            // dateTimePickerEndDate
+            // 
+            this.dateTimePickerEndDate.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dateTimePickerEndDate.Location = new System.Drawing.Point(726, 171);
+            this.dateTimePickerEndDate.Name = "dateTimePickerEndDate";
+            this.dateTimePickerEndDate.Size = new System.Drawing.Size(200, 26);
+            this.dateTimePickerEndDate.TabIndex = 4;
             // 
             // StockModuleStock
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1247, 622);
+            this.Controls.Add(this.dateTimePickerEndDate);
+            this.Controls.Add(this.dateTimePickerStartDate);
             this.Controls.Add(this.buttonSearch);
             this.Controls.Add(this.dataGridViewStock);
-            this.Controls.Add(this.textBoxEndDate);
-            this.Controls.Add(this.textBoxStartDate);
             this.Controls.Add(this.textBoxCategory);
             this.Controls.Add(this.textBoxProduct);
             this.Controls.Add(this.label4);
@@ -202,8 +204,6 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.TextBox textBoxProduct;
         private System.Windows.Forms.TextBox textBoxCategory;
-        private System.Windows.Forms.TextBox textBoxStartDate;
-        private System.Windows.Forms.TextBox textBoxEndDate;
         private System.Windows.Forms.DataGridView dataGridViewStock;
         private System.Windows.Forms.Button buttonSearch;
         private System.Windows.Forms.BindingSource stockBindingSource;
@@ -212,5 +212,7 @@
         private StockManagementSystemDataSet3TableAdapters.ProductsPurchaseTableAdapter productsPurchaseTableAdapter;
         private System.Windows.Forms.BindingSource stockBindingSource1;
         private System.Windows.Forms.DataGridViewTextBoxColumn SL;
+        private System.Windows.Forms.DateTimePicker dateTimePickerStartDate;
+        private System.Windows.Forms.DateTimePicker dateTimePickerEndDate;
     }
 }

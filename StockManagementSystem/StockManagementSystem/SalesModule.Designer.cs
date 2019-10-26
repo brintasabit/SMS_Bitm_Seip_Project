@@ -32,7 +32,6 @@
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.textBoxLoyalityPoint = new System.Windows.Forms.TextBox();
-            this.textBoxDate = new System.Windows.Forms.TextBox();
             this.comboBoxCustomer = new System.Windows.Forms.ComboBox();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
@@ -75,6 +74,7 @@
             this.salesTableAdapter = new StockManagementSystem.StockManagementSystemDataSet2TableAdapters.SalesTableAdapter();
             this.textBoxSearch = new System.Windows.Forms.TextBox();
             this.SearchButton = new System.Windows.Forms.Button();
+            this.dateTimePickerCustomer = new System.Windows.Forms.DateTimePicker();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.productBindingSource)).BeginInit();
@@ -87,8 +87,8 @@
             // 
             // groupBox2
             // 
+            this.groupBox2.Controls.Add(this.dateTimePickerCustomer);
             this.groupBox2.Controls.Add(this.textBoxLoyalityPoint);
-            this.groupBox2.Controls.Add(this.textBoxDate);
             this.groupBox2.Controls.Add(this.comboBoxCustomer);
             this.groupBox2.Controls.Add(this.label3);
             this.groupBox2.Controls.Add(this.label2);
@@ -106,13 +106,6 @@
             this.textBoxLoyalityPoint.Name = "textBoxLoyalityPoint";
             this.textBoxLoyalityPoint.Size = new System.Drawing.Size(121, 26);
             this.textBoxLoyalityPoint.TabIndex = 2;
-            // 
-            // textBoxDate
-            // 
-            this.textBoxDate.Location = new System.Drawing.Point(210, 77);
-            this.textBoxDate.Name = "textBoxDate";
-            this.textBoxDate.Size = new System.Drawing.Size(121, 26);
-            this.textBoxDate.TabIndex = 2;
             // 
             // comboBoxCustomer
             // 
@@ -473,6 +466,14 @@
             this.SearchButton.UseVisualStyleBackColor = true;
             this.SearchButton.Click += new System.EventHandler(this.SearchButton_Click);
             // 
+            // dateTimePickerCustomer
+            // 
+            this.dateTimePickerCustomer.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dateTimePickerCustomer.Location = new System.Drawing.Point(131, 72);
+            this.dateTimePickerCustomer.Name = "dateTimePickerCustomer";
+            this.dateTimePickerCustomer.Size = new System.Drawing.Size(200, 26);
+            this.dateTimePickerCustomer.TabIndex = 3;
+            // 
             // SalesModule
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
@@ -507,7 +508,6 @@
         private System.ComponentModel.BackgroundWorker backgroundWorker1;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.TextBox textBoxLoyalityPoint;
-        private System.Windows.Forms.TextBox textBoxDate;
         private System.Windows.Forms.ComboBox comboBoxCustomer;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
@@ -550,5 +550,6 @@
         private System.Windows.Forms.BindingSource productBindingSource;
         private System.Windows.Forms.TextBox textBoxSearch;
         private System.Windows.Forms.Button SearchButton;
+        private System.Windows.Forms.DateTimePicker dateTimePickerCustomer;
     }
 }

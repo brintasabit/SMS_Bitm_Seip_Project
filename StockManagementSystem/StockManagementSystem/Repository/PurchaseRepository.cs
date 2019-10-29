@@ -46,10 +46,28 @@ namespace StockManagementSystem.Repository
         }
         public List<Product> ComboBoxProductList()
         {
-            
             List<Product> products=new List<Product>();
             SqlConnection sqlConnection = new SqlConnection(connection.connectionString);
             string commandString = @"select Name from Product";
+            SqlCommand sqlCommand = new SqlCommand(commandString, sqlConnection);
+            sqlConnection.Open();
+            SqlDataReader sqlDataReader = sqlCommand.ExecuteReader();
+            while (sqlDataReader.Read())
+            {
+                Product product=new Product();
+                //Purchase purchase=new Purchase();
+                product.Name = sqlDataReader["Name"].ToString();
+                products.Add(product);
+            }
+            sqlConnection.Close();
+            return products;
+        }
+        public List<Product> ComboBoxProductList2(Product _product)
+        {
+            
+            List<Product> products=new List<Product>();
+            SqlConnection sqlConnection = new SqlConnection(connection.connectionString);
+            string commandString = @"select Name from Product where Category='"+_product.Category+"'";
             SqlCommand sqlCommand = new SqlCommand(commandString, sqlConnection);
             sqlConnection.Open();
             SqlDataReader sqlDataReader = sqlCommand.ExecuteReader();
@@ -230,9 +248,9 @@ namespace StockManagementSystem.Repository
             sqlConnection.Close();
             return purchases;
         }
-        public List<Product> SearchProductCode2(Product _product)
+        public string SearchProductCode2(Product _product)
         {
-            List<Product> products=new List<Product>();
+           // List<Product> products=new List<Product>();
             SqlConnection sqlConnection = new SqlConnection(connection.connectionString);
             string commandString = @"select Code from Product where Name='"+_product.Name+"'";
             SqlCommand sqlCommand = new SqlCommand(commandString, sqlConnection);
@@ -240,15 +258,17 @@ namespace StockManagementSystem.Repository
             SqlDataReader sqlDataReader = sqlCommand.ExecuteReader();
             while (sqlDataReader.Read())
             {
-                Product product=new Product();
+               // Product product=new Product();
                 //suppliersPurchase.Date = sqlDataReader["Date"].ToString();
-                product.Name=sqlDataReader["Name"].ToString();
-                product.Code = sqlDataReader["Code"].ToString();
+                //product.Name=sqlDataReader["Name"].ToString();
+                _product.Code = sqlDataReader["Code"].ToString();
+                
+                
                 //suppliersPurchase.SupplierName = sqlDataReader["SupplierName"].ToString();
-                products.Add(product);
+               // products.Add(product);
             }
             sqlConnection.Close();
-            return products;
+            return _product.Code;
         }
         public bool SearchProduct(Purchase _purchase)
         {
@@ -266,5 +286,72 @@ namespace StockManagementSystem.Repository
             sqlConnection.Close();
             return false;
         }
+        public int SearchProductAvailableQty(Purchase _purchase)
+        {
+            // List<Product> products=new List<Product>();
+            SqlConnection sqlConnection = new SqlConnection(connection.connectionString);
+            string commandString = @"select AvailableQty from ProductsPurchase where Products='"+_purchase.Products+"'";
+            SqlCommand sqlCommand = new SqlCommand(commandString, sqlConnection);
+            sqlConnection.Open();
+            SqlDataReader sqlDataReader = sqlCommand.ExecuteReader();
+            while (sqlDataReader.Read())
+            {
+                // Product product=new Product();
+                //suppliersPurchase.Date = sqlDataReader["Date"].ToString();
+                //product.Name=sqlDataReader["Name"].ToString();
+                _purchase.AvailableQuantity = Convert.ToInt32(sqlDataReader["AvailableQty"].ToString());
+                
+                
+                //suppliersPurchase.SupplierName = sqlDataReader["SupplierName"].ToString();
+                // products.Add(product);
+            }
+            sqlConnection.Close();
+            return _purchase.AvailableQuantity;
+        }
+        public double SearchProductPreviousUnitPrice(Purchase _purchase)
+        {
+            // List<Product> products=new List<Product>();
+            SqlConnection sqlConnection = new SqlConnection(connection.connectionString);
+            string commandString = @"select PreviousUnitPrice from ProductsPurchase where Products='"+_purchase.Products+"'";
+            SqlCommand sqlCommand = new SqlCommand(commandString, sqlConnection);
+            sqlConnection.Open();
+            SqlDataReader sqlDataReader = sqlCommand.ExecuteReader();
+            while (sqlDataReader.Read())
+            {
+                // Product product=new Product();
+                //suppliersPurchase.Date = sqlDataReader["Date"].ToString();
+                //product.Name=sqlDataReader["Name"].ToString();
+                _purchase.PreviousUnitPrice = Convert.ToDouble(sqlDataReader["PreviousUnitPrice"].ToString());
+                
+                
+                //suppliersPurchase.SupplierName = sqlDataReader["SupplierName"].ToString();
+                // products.Add(product);
+            }
+            sqlConnection.Close();
+            return _purchase.PreviousUnitPrice;
+        }
+        public double SearchProductPreviousMRP(Purchase _purchase)
+        {
+            // List<Product> products=new List<Product>();
+            SqlConnection sqlConnection = new SqlConnection(connection.connectionString);
+            string commandString = @"select PreviousMRP from ProductsPurchase where Products='"+_purchase.Products+"'";
+            SqlCommand sqlCommand = new SqlCommand(commandString, sqlConnection);
+            sqlConnection.Open();
+            SqlDataReader sqlDataReader = sqlCommand.ExecuteReader();
+            while (sqlDataReader.Read())
+            {
+                // Product product=new Product();
+                //suppliersPurchase.Date = sqlDataReader["Date"].ToString();
+                //product.Name=sqlDataReader["Name"].ToString();
+                _purchase.PreviousMRP = Convert.ToDouble(sqlDataReader["PreviousMRP"].ToString());
+                
+                
+                //suppliersPurchase.SupplierName = sqlDataReader["SupplierName"].ToString();
+                // products.Add(product);
+            }
+            sqlConnection.Close();
+            return _purchase.PreviousMRP;
+        }
+
     }
 }

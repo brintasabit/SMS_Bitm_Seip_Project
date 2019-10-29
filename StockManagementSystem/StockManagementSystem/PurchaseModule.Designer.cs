@@ -38,6 +38,8 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.dateTimePickerExpire = new System.Windows.Forms.DateTimePicker();
+            this.dateTimePickerManufactured = new System.Windows.Forms.DateTimePicker();
             this.textBoxMrp = new System.Windows.Forms.TextBox();
             this.textBoxPreviousMrp = new System.Windows.Forms.TextBox();
             this.ButtonAdd = new System.Windows.Forms.Button();
@@ -84,8 +86,6 @@
             this.label17 = new System.Windows.Forms.Label();
             this.textBoxSearch = new System.Windows.Forms.TextBox();
             this.SearchButton = new System.Windows.Forms.Button();
-            this.dateTimePickerManufactured = new System.Windows.Forms.DateTimePicker();
-            this.dateTimePickerExpire = new System.Windows.Forms.DateTimePicker();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.supplierBindingSource)).BeginInit();
             this.groupBox2.SuspendLayout();
@@ -205,6 +205,22 @@
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Products";
             // 
+            // dateTimePickerExpire
+            // 
+            this.dateTimePickerExpire.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dateTimePickerExpire.Location = new System.Drawing.Point(204, 226);
+            this.dateTimePickerExpire.Name = "dateTimePickerExpire";
+            this.dateTimePickerExpire.Size = new System.Drawing.Size(200, 26);
+            this.dateTimePickerExpire.TabIndex = 13;
+            // 
+            // dateTimePickerManufactured
+            // 
+            this.dateTimePickerManufactured.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dateTimePickerManufactured.Location = new System.Drawing.Point(204, 185);
+            this.dateTimePickerManufactured.Name = "dateTimePickerManufactured";
+            this.dateTimePickerManufactured.Size = new System.Drawing.Size(200, 26);
+            this.dateTimePickerManufactured.TabIndex = 13;
+            // 
             // textBoxMrp
             // 
             this.textBoxMrp.Location = new System.Drawing.Point(771, 231);
@@ -305,7 +321,7 @@
             this.comboBoxCategory.Size = new System.Drawing.Size(200, 28);
             this.comboBoxCategory.TabIndex = 1;
             this.comboBoxCategory.ValueMember = "Code";
-            this.comboBoxCategory.MouseClick += new System.Windows.Forms.MouseEventHandler(this.comboBoxCategory_MouseClick);
+            this.comboBoxCategory.SelectedIndexChanged += new System.EventHandler(this.comboBoxCategory_SelectedIndexChanged);
             // 
             // label16
             // 
@@ -566,22 +582,6 @@
             this.SearchButton.Text = "Search";
             this.SearchButton.UseVisualStyleBackColor = true;
             this.SearchButton.Click += new System.EventHandler(this.SearchButton_Click);
-            // 
-            // dateTimePickerManufactured
-            // 
-            this.dateTimePickerManufactured.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dateTimePickerManufactured.Location = new System.Drawing.Point(204, 185);
-            this.dateTimePickerManufactured.Name = "dateTimePickerManufactured";
-            this.dateTimePickerManufactured.Size = new System.Drawing.Size(200, 26);
-            this.dateTimePickerManufactured.TabIndex = 13;
-            // 
-            // dateTimePickerExpire
-            // 
-            this.dateTimePickerExpire.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dateTimePickerExpire.Location = new System.Drawing.Point(204, 226);
-            this.dateTimePickerExpire.Name = "dateTimePickerExpire";
-            this.dateTimePickerExpire.Size = new System.Drawing.Size(200, 26);
-            this.dateTimePickerExpire.TabIndex = 13;
             // 
             // PurchaseModule
             // 

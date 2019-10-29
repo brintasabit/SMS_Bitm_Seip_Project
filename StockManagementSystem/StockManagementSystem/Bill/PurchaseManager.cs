@@ -12,6 +12,10 @@ namespace StockManagementSystem.Bill
     {
         PurchaseRepository _purchaseRepository=new PurchaseRepository();
 
+        public List<Product> ComboBoxProductList2(Product _product)
+        {
+            return _purchaseRepository.ComboBoxProductList2(_product);
+        }
         public bool SearchProduct(Purchase _purchase)
         {
             return _purchaseRepository.SearchProduct(_purchase);
@@ -71,9 +75,24 @@ namespace StockManagementSystem.Bill
             return _purchaseRepository.SearchPurchasesManufacturedDate(_purchase);
         }
 
-        public List<Product> SearchProductCode2(Product _product)
+        public string SearchProductCode2(Product _product)
         {
             return _purchaseRepository.SearchProductCode2(_product);
+        }
+
+        public int SearchProductAvailableQty(Purchase _purchase)
+        {
+            return _purchaseRepository.SearchProductAvailableQty(_purchase);
+        }
+
+        public double SearchProductPreviousUnitPrice(Purchase _purchase)
+        {
+            return _purchaseRepository.SearchProductPreviousUnitPrice(_purchase);
+        }
+
+        public double SearchProductPreviousMRP(Purchase _purchase)
+        {
+            return _purchaseRepository.SearchProductPreviousMRP(_purchase);
         }
     }
 }

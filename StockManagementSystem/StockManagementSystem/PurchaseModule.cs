@@ -1,8 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
-
-
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -14,11 +12,12 @@ namespace StockManagementSystem
 {
     public partial class PurchaseModule : Form
     {
+        //Connection connection=new Connection();
         PurchaseManager _purchaseManager=new PurchaseManager();
         Purchase _purchase=new Purchase();
         Product _product=new Product();
-        SuppliersPurchase _suppliersPurchase=new SuppliersPurchase();
-        DateTime aDateTime=DateTime.UtcNow;
+        //SuppliersPurchase _suppliersPurchase=new SuppliersPurchase();
+        //DateTime aDateTime=DateTime.UtcNow;
         public PurchaseModule()
         {
             InitializeComponent();
@@ -32,12 +31,17 @@ namespace StockManagementSystem
            //_purchase.Category = comboBoxCategory.Text;
            comboBoxSupplier.DataSource = _purchaseManager.ComboBoxSupplierList();
            comboBoxCategory.DataSource = _purchaseManager.ComboBoxCategoryList();
-           comboBoxProducts.DataSource = _purchaseManager.ComboBoxProductList();
+           //comboBoxProducts.DataSource = _purchaseManager.ComboBoxProductList2(_product);
            dataGridViewPurchase.DataSource = _purchaseManager.ShowPurchases(_purchase);
+          // textBoxAvailableQuantity.Text = 0.ToString();
+           //textBoxPreviousUnitPrice.Text = 0.ToString();
+           //textBoxPreviousMrp.Text = 0.ToString();
            serialNo--;
            //textBoxCode.Text = serialNo.ToString();
            //textBoxDate.Text = aDateTime.ToString();
-           //textBoxCode.Text = Convert.ToString(_purchaseManager.SearchProductCode(_product));
+          // _product.Name = comboBoxProducts.Text;
+           
+           
         }
 
         private void dataGridViewPurchase_RowPostPaint(object sender, DataGridViewRowPostPaintEventArgs e)
@@ -65,9 +69,9 @@ namespace StockManagementSystem
                 _purchase.TotalPrice = Convert.ToDouble(textBoxTotalPrice.Text);
                 _purchase.PreviousUnitPrice = Convert.ToDouble(textBoxPreviousUnitPrice.Text);
                 _purchase.PreviousMRP=Convert.ToDouble(textBoxPreviousMrp.Text);
-                textBoxMrp.Text=Convert.ToString(_purchase.UnitPrice + ((25 * _purchase.UnitPrice) / 100));
+                textBoxMrp.Text=Convert.ToString((_purchase.UnitPrice + ((25 * _purchase.UnitPrice) / 100)));
                 _purchase.MRP = Convert.ToDouble(textBoxMrp.Text);
-                _purchase.Profit = _purchase.UnitPrice - _purchase.MRP;
+                _purchase.Profit = _purchase.MRP - _purchase.UnitPrice ;
                 List<Purchase> purchasesCode = _purchaseManager.SearchPurchasesCode(_purchase);
                 List<Purchase> purchasesBill = _purchaseManager.SearchSupplierBill(_purchase);
                 if (purchasesBill.Count>0)
@@ -179,30 +183,39 @@ namespace StockManagementSystem
             
         }
 
-        private void comboBoxProducts_MouseClick(object sender, MouseEventArgs e)
-        {
-
-        }
-
-        private void comboBoxCategory_MouseClick(object sender, MouseEventArgs e)
-        {
-            
-           // comboBoxProducts.DataSource=_purchaseManager.ComboBoxProductList();
-        }
-
         private void comboBoxProducts_SelectedIndexChanged(object sender, EventArgs e)
-        { 
-            //comboBoxProducts.Text=_product.Name;
-            //_product.Name = comboBoxProducts.Text;
-            //_purchase.Products = comboBoxProducts.Text;
-            
-            //textBoxCode.Text = Convert.ToString(_purchaseManager.SearchProductCode2(_product));
-            bool r = _purchaseManager.SearchProduct(_purchase);
-            if (r)
-            {
-                textBoxCode.Text = Convert.ToString(_purchaseManager.SearchProduct(_purchase));
-            }
-            
+        {
+            _product.Name = comboBoxProducts.Text;
+            _purchase.Products = comboBoxProducts.Text;
+            textBoxCode.Text = _purchaseManager.SearchProductCode2(_product);
+            textBoxAvailableQuantity.Text = _purchaseManager.SearchProductAvailableQty(_purchase).ToString();
+            textBoxPreviousUnitPrice.Text = _purchaseManager.SearchProductPreviousUnitPrice(_purchase).ToString();
+            textBoxPreviousMrp.Text = _purchaseManager.SearchProductPreviousMRP(_purchase).ToString();
         }
+
+        private void comboBoxCategory_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            _product.Category = comboBoxCategory.Text;
+            List<Product> products = _purchaseManager.ComboBoxProductList2(_product);
+            if (products.Count>0)
+            {
+                comboBoxProducts.DataSource = _purchaseManager.ComboBoxProductList2(_product);
+            }
+        }
+
+        //private void comboBoxProducts_SelectedIndexChanged(object sender, EventArgs e)
+        //{ 
+        //    //comboBoxProducts.Text=_product.Name;
+        //    //_product.Name = comboBoxProducts.Text;
+        //    //_purchase.Products = comboBoxProducts.Text;
+
+        //    //textBoxCode.Text = Convert.ToString(_purchaseManager.SearchProductCode2(_product));
+        //    bool r = _purchaseManager.SearchProduct(_purchase);
+        //    if (r)
+        //    {
+        //        textBoxCode.Text = Convert.ToString(_purchaseManager.SearchProduct(_purchase));
+        //    }
+
+        //}
     }
 }

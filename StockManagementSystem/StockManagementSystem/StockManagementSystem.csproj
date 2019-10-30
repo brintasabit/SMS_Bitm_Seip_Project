@@ -52,6 +52,7 @@
       <DependentUpon>Appdata.xsd</DependentUpon>
     </Compile>
     <Compile Include="Bill\CategoryManager.cs" />
+    <Compile Include="Bill\CustomerManager.cs" />
     <Compile Include="Bill\ProductManager.cs" />
     <Compile Include="Bill\PurchaseManager.cs" />
     <Compile Include="Bill\ReportPurchaseManager.cs" />
@@ -113,6 +114,7 @@
       <DependentUpon>ReportModulePurchase.cs</DependentUpon>
     </Compile>
     <Compile Include="Repository\CategoryRepository.cs" />
+    <Compile Include="Repository\CustomerRepository.cs" />
     <Compile Include="Repository\ProductRepository.cs" />
     <Compile Include="Repository\PurchaseRepository.cs" />
     <Compile Include="Repository\ReportPurchaseRepository.cs" />
@@ -211,6 +213,7 @@
       <DependentUpon>Appdata.xsd</DependentUpon>
     </None>
     <None Include="Properties\DataSources\StockManagementSystem.Model.Category.datasource" />
+    <None Include="Properties\DataSources\StockManagementSystem.Model.Customer.datasource" />
     <None Include="Properties\DataSources\StockManagementSystem.Model.Product.datasource" />
     <None Include="Properties\DataSources\StockManagementSystem.Model.Purchase.datasource" />
     <None Include="Properties\DataSources\StockManagementSystem.Model.ReportPurchase.datasource" />

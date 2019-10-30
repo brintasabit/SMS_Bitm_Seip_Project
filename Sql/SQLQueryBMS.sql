@@ -46,7 +46,7 @@ insert into ProductsPurchase
 values ('Electronics','Mobile','0978',4,'20/10/19','12/12/19','Not Applicable',
 6,50,300,40,40,40)
 select * from ProductsPurchase
-select Quantity from ProductsPurchase where Products='Shirt'
+select pp.Quantity as AvailableQty  from ProductsPurchase as pp where Products='IPS'
 
 create table Sales(ID int identity (1,1),CustomerName varchar(50),Date varchar(50),
 LoyalityPoint int,Category varchar(50),Product varchar(50),AvailableQty int,
@@ -102,6 +102,12 @@ delete from Supplier where Name='Bob'
 select Name from Product as p where p.Category='Electronics'
 select Code,Products,Category,AvailableQty,UnitPrice as CurrentPrice,MRP from ProductsPurchase
 
+
+create table Customer(ID int identity (1,1),Code varchar(50),Name varchar(50),
+Address varchar(50),Email varchar(50),Contact varchar(50),LoyaltyPoint float)
+insert into Customer values ('4544','Alice','LA','alice@live.com','08345',10)
+insert into Customer values ('4545','Bob','CA','bob@live.com','08346',20)
+select * from Customer
 
 
 

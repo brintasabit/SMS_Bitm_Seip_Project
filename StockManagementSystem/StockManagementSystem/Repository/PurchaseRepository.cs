@@ -111,12 +111,20 @@ namespace StockManagementSystem.Repository
             while (sqlDataReader.Read())
             {
                 Purchase purchase=new Purchase();
-                purchase.Code=sqlDataReader["Code"].ToString();
-                //purchase.Products=sqlDataReader["Products"].ToString();
-                //suppliersPurchase.Date = sqlDataReader["Date"].ToString();
-                //suppliersPurchase.BillInvoice = sqlDataReader["BillInvoice"].ToString();
-                //suppliersPurchase.SupplierName = sqlDataReader["SupplierName"].ToString();
-
+                purchase.Category = sqlDataReader["Category"].ToString();
+                purchase.Products = sqlDataReader["Products"].ToString();
+                purchase.Code = sqlDataReader["Code"].ToString();
+                purchase.AvailableQuantity = Convert.ToInt32(sqlDataReader["AvailableQty"].ToString());
+                purchase.ManufacturedDate = sqlDataReader["ManufacturedDate"].ToString();
+                purchase.ExpireDate = sqlDataReader["ExpireDate"].ToString();
+                purchase.Remarks = sqlDataReader["Remarks"].ToString();
+                purchase.Quantity = Convert.ToInt32(sqlDataReader["Quantity"].ToString());
+                purchase.UnitPrice = Convert.ToDouble(sqlDataReader["UnitPrice"].ToString());
+                purchase.TotalPrice = Convert.ToDouble(sqlDataReader["TotalPrice"].ToString());
+               // purchase.PreviousUnitPrice = Convert.ToDouble(sqlDataReader["PreviousUnitPrice"].ToString());
+               // purchase.PreviousMRP = Convert.ToDouble(sqlDataReader["PreviousMRP"].ToString());
+                purchase.MRP = Convert.ToDouble(sqlDataReader["MRP"].ToString());
+                //purchase.Profit = Convert.ToDouble(sqlDataReader["Profit"].ToString());
                 purchases.Add(purchase);
             }
             sqlConnection.Close();

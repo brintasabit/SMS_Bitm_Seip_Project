@@ -70,12 +70,6 @@
             this.purchaseBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.categoryBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.dataGridViewPurchase = new System.Windows.Forms.DataGridView();
-            this.productsPurchaseBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.stockManagementSystemDataSet1 = new StockManagementSystem.StockManagementSystemDataSet1();
-            this.productsPurchaseTableAdapter = new StockManagementSystem.StockManagementSystemDataSet1TableAdapters.ProductsPurchaseTableAdapter();
-            this.label17 = new System.Windows.Forms.Label();
-            this.textBoxSearch = new System.Windows.Forms.TextBox();
-            this.SearchButton = new System.Windows.Forms.Button();
             this.SL = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Code = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.manufacturedDateDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -86,6 +80,12 @@
             this.mRPDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Remarks = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Action = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.productsPurchaseBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.stockManagementSystemDataSet1 = new StockManagementSystem.StockManagementSystemDataSet1();
+            this.productsPurchaseTableAdapter = new StockManagementSystem.StockManagementSystemDataSet1TableAdapters.ProductsPurchaseTableAdapter();
+            this.label17 = new System.Windows.Forms.Label();
+            this.textBoxSearch = new System.Windows.Forms.TextBox();
+            this.SearchButton = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.supplierBindingSource)).BeginInit();
             this.groupBox2.SuspendLayout();
@@ -477,53 +477,13 @@
             this.dataGridViewPurchase.Location = new System.Drawing.Point(42, 572);
             this.dataGridViewPurchase.Name = "dataGridViewPurchase";
             this.dataGridViewPurchase.RowTemplate.Height = 28;
+            this.dataGridViewPurchase.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridViewPurchase.Size = new System.Drawing.Size(1161, 102);
             this.dataGridViewPurchase.TabIndex = 2;
             this.dataGridViewPurchase.RowPostPaint += new System.Windows.Forms.DataGridViewRowPostPaintEventHandler(this.dataGridViewPurchase_RowPostPaint);
             // 
-            // productsPurchaseBindingSource
-            // 
-            this.productsPurchaseBindingSource.DataMember = "ProductsPurchase";
-            this.productsPurchaseBindingSource.DataSource = this.stockManagementSystemDataSet1;
-            // 
-            // stockManagementSystemDataSet1
-            // 
-            this.stockManagementSystemDataSet1.DataSetName = "StockManagementSystemDataSet1";
-            this.stockManagementSystemDataSet1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // productsPurchaseTableAdapter
-            // 
-            this.productsPurchaseTableAdapter.ClearBeforeFill = true;
-            // 
-            // label17
-            // 
-            this.label17.AutoSize = true;
-            this.label17.Location = new System.Drawing.Point(897, 12);
-            this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(163, 20);
-            this.label17.TabIndex = 3;
-            this.label17.Text = "Search By Code/Date";
-            // 
-            // textBoxSearch
-            // 
-            this.textBoxSearch.Location = new System.Drawing.Point(901, 46);
-            this.textBoxSearch.Name = "textBoxSearch";
-            this.textBoxSearch.Size = new System.Drawing.Size(169, 26);
-            this.textBoxSearch.TabIndex = 4;
-            // 
-            // SearchButton
-            // 
-            this.SearchButton.Location = new System.Drawing.Point(1093, 44);
-            this.SearchButton.Name = "SearchButton";
-            this.SearchButton.Size = new System.Drawing.Size(100, 31);
-            this.SearchButton.TabIndex = 5;
-            this.SearchButton.Text = "Search";
-            this.SearchButton.UseVisualStyleBackColor = true;
-            this.SearchButton.Click += new System.EventHandler(this.SearchButton_Click);
-            // 
             // SL
             // 
-            this.SL.DataPropertyName = "Code";
             this.SL.HeaderText = "SL";
             this.SL.Name = "SL";
             // 
@@ -582,6 +542,46 @@
             this.Action.HeaderText = "Action";
             this.Action.Name = "Action";
             this.Action.Width = 124;
+            // 
+            // productsPurchaseBindingSource
+            // 
+            this.productsPurchaseBindingSource.DataMember = "ProductsPurchase";
+            this.productsPurchaseBindingSource.DataSource = this.stockManagementSystemDataSet1;
+            // 
+            // stockManagementSystemDataSet1
+            // 
+            this.stockManagementSystemDataSet1.DataSetName = "StockManagementSystemDataSet1";
+            this.stockManagementSystemDataSet1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // productsPurchaseTableAdapter
+            // 
+            this.productsPurchaseTableAdapter.ClearBeforeFill = true;
+            // 
+            // label17
+            // 
+            this.label17.AutoSize = true;
+            this.label17.Location = new System.Drawing.Point(897, 12);
+            this.label17.Name = "label17";
+            this.label17.Size = new System.Drawing.Size(163, 20);
+            this.label17.TabIndex = 3;
+            this.label17.Text = "Search By Code/Date";
+            // 
+            // textBoxSearch
+            // 
+            this.textBoxSearch.Location = new System.Drawing.Point(901, 46);
+            this.textBoxSearch.Name = "textBoxSearch";
+            this.textBoxSearch.Size = new System.Drawing.Size(169, 26);
+            this.textBoxSearch.TabIndex = 4;
+            // 
+            // SearchButton
+            // 
+            this.SearchButton.Location = new System.Drawing.Point(1093, 44);
+            this.SearchButton.Name = "SearchButton";
+            this.SearchButton.Size = new System.Drawing.Size(100, 31);
+            this.SearchButton.TabIndex = 5;
+            this.SearchButton.Text = "Search";
+            this.SearchButton.UseVisualStyleBackColor = true;
+            this.SearchButton.Click += new System.EventHandler(this.SearchButton_Click);
             // 
             // PurchaseModule
             // 

@@ -36,7 +36,7 @@ namespace StockManagementSystem
           // textBoxAvailableQuantity.Text = 0.ToString();
            //textBoxPreviousUnitPrice.Text = 0.ToString();
            //textBoxPreviousMrp.Text = 0.ToString();
-           serialNo--;
+          // serialNo--;
            //textBoxCode.Text = serialNo.ToString();
            //textBoxDate.Text = aDateTime.ToString();
           // _product.Name = comboBoxProducts.Text;
@@ -59,6 +59,13 @@ namespace StockManagementSystem
                 _purchase.Category = comboBoxCategory.Text;
                 _purchase.Products = comboBoxProducts.Text;
                 _purchase.Code = textBoxCode.Text;
+                int availableQty = _purchaseManager.SearchProductAvailableQty(_purchase);
+                if (availableQty >= 0)
+                {
+                    int availableQty2 = _purchase.Quantity + availableQty;
+                    textBoxAvailableQuantity.Text = availableQty2.ToString();
+                }
+                
                 _purchase.AvailableQuantity = Convert.ToInt32(textBoxAvailableQuantity.Text);
                 _purchase.ManufacturedDate = dateTimePickerManufactured.Text;
                 _purchase.ExpireDate = dateTimePickerExpire.Text;
@@ -74,16 +81,17 @@ namespace StockManagementSystem
                 _purchase.Profit = _purchase.MRP - _purchase.UnitPrice ;
                 List<Purchase> purchasesCode = _purchaseManager.SearchPurchasesCode(_purchase);
                 List<Purchase> purchasesBill = _purchaseManager.SearchSupplierBill(_purchase);
+                //List<int> purchasesAvailableQty = _purchaseManager.SearchProductAvailableQty(_purchase);
                 if (purchasesBill.Count>0)
                 {
                     MessageBox.Show("Bill-Invoice No. Exists!");
                 }
-                else if (purchasesCode.Count>0)
-                {
-                    MessageBox.Show("Purchase Code Exists!");
-                    serialNo--;
-                    textBoxCode.Text = serialNo.ToString();
-                }
+                //else if (purchasesCode.Count>0)
+                //{
+                //    MessageBox.Show("Purchase Code Exists!");
+                //    serialNo--;
+                //    textBoxCode.Text = serialNo.ToString();
+                //}
                 else
                 {
                     
@@ -110,7 +118,13 @@ namespace StockManagementSystem
                 _purchase.Category = comboBoxCategory.Text;
                 _purchase.Products = comboBoxProducts.Text;
                 _purchase.Code = textBoxCode.Text;
-                _purchase.AvailableQuantity = Convert.ToInt32(textBoxAvailableQuantity.Text);
+                //int availableQty = _purchaseManager.SearchProductAvailableQty(_purchase);
+                //if (availableQty >= 0)
+                //{
+                //    int availableQty2 = _purchase.Quantity + availableQty;
+                //    textBoxAvailableQuantity.Text = availableQty2.ToString();
+                //}
+                 _purchase.AvailableQuantity = Convert.ToInt32(textBoxAvailableQuantity.Text);
                 _purchase.ManufacturedDate = dateTimePickerManufactured.Text;
                 _purchase.ExpireDate = dateTimePickerExpire.Text;
                 _purchase.Remarks = textBoxRemarks.Text;
@@ -124,16 +138,19 @@ namespace StockManagementSystem
                 _purchase.MRP = Convert.ToDouble(textBoxMrp.Text);
                 List<Purchase> purchasesCode = _purchaseManager.SearchPurchasesCode(_purchase);
                 List<Purchase> purchasesBill = _purchaseManager.SearchSupplierBill(_purchase);
+                
                 if (purchasesBill.Count>0)
                 {
                     MessageBox.Show("Bill-Invoice No. Exists!");
                 }
-                else if (purchasesCode.Count>0)
-                {
-                    MessageBox.Show("Purchase Code Exists!");
-                    serialNo--;
-                    textBoxCode.Text = serialNo.ToString();
-                }
+
+
+                //else if (purchasesCode.Count>0)
+                //{
+                //    MessageBox.Show("Purchase Code Exists!");
+                //    serialNo--;
+                //    textBoxCode.Text = serialNo.ToString();
+                //}
                 else
                 {
                     
@@ -159,6 +176,7 @@ namespace StockManagementSystem
             {
                 _purchase.Search = textBoxSearch.Text;
                 List<Purchase> purchasesDate = _purchaseManager.SearchPurchasesDate(_purchase);
+                List<Purchase> purchasesCode = _purchaseManager.SearchProductCode(_purchase);
                 if (_purchase.Search.Length==0)
                 {
                     MessageBox.Show("Enter data!");
@@ -169,6 +187,12 @@ namespace StockManagementSystem
                     MessageBox.Show("Data found!");
                     textBoxSearch.Clear();
                     dataGridViewPurchase.DataSource=_purchaseManager.SearchPurchasesDate(_purchase);
+                }
+                else if (purchasesCode.Count>0)
+                {
+                    MessageBox.Show("Data found!");
+                    textBoxSearch.Clear();
+                    dataGridViewPurchase.DataSource=_purchaseManager.SearchProductCode(_purchase);
                 }
                 else
                 {
@@ -188,9 +212,13 @@ namespace StockManagementSystem
             _product.Name = comboBoxProducts.Text;
             _purchase.Products = comboBoxProducts.Text;
             textBoxCode.Text = _purchaseManager.SearchProductCode2(_product);
-            textBoxAvailableQuantity.Text = _purchaseManager.SearchProductAvailableQty(_purchase).ToString();
+            //int availableQty=_purchaseManager.SearchProductAvailableQty(_purchase);
+
+            textBoxAvailableQuantity.Text =
+                _purchaseManager.SearchProductAvailableQty(_purchase).ToString(); 
             textBoxPreviousUnitPrice.Text = _purchaseManager.SearchProductPreviousUnitPrice(_purchase).ToString();
             textBoxPreviousMrp.Text = _purchaseManager.SearchProductPreviousMRP(_purchase).ToString();
+            //textBoxAvailableQuantity.Text=
         }
 
         private void comboBoxCategory_SelectedIndexChanged(object sender, EventArgs e)

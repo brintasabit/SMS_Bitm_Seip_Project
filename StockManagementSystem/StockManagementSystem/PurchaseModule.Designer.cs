@@ -70,8 +70,14 @@
             this.purchaseBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.categoryBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.dataGridViewPurchase = new System.Windows.Forms.DataGridView();
+            this.productsPurchaseBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.stockManagementSystemDataSet1 = new StockManagementSystem.StockManagementSystemDataSet1();
+            this.productsPurchaseTableAdapter = new StockManagementSystem.StockManagementSystemDataSet1TableAdapters.ProductsPurchaseTableAdapter();
+            this.label17 = new System.Windows.Forms.Label();
+            this.textBoxSearch = new System.Windows.Forms.TextBox();
+            this.SearchButton = new System.Windows.Forms.Button();
             this.SL = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.codeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Code = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.manufacturedDateDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.expireDateDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.quantityDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -80,12 +86,6 @@
             this.mRPDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Remarks = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Action = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.productsPurchaseBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.stockManagementSystemDataSet1 = new StockManagementSystem.StockManagementSystemDataSet1();
-            this.productsPurchaseTableAdapter = new StockManagementSystem.StockManagementSystemDataSet1TableAdapters.ProductsPurchaseTableAdapter();
-            this.label17 = new System.Windows.Forms.Label();
-            this.textBoxSearch = new System.Windows.Forms.TextBox();
-            this.SearchButton = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.supplierBindingSource)).BeginInit();
             this.groupBox2.SuspendLayout();
@@ -464,7 +464,7 @@
             this.dataGridViewPurchase.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridViewPurchase.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.SL,
-            this.codeDataGridViewTextBoxColumn,
+            this.Code,
             this.manufacturedDateDataGridViewTextBoxColumn,
             this.expireDateDataGridViewTextBoxColumn,
             this.quantityDataGridViewTextBoxColumn,
@@ -481,17 +481,57 @@
             this.dataGridViewPurchase.TabIndex = 2;
             this.dataGridViewPurchase.RowPostPaint += new System.Windows.Forms.DataGridViewRowPostPaintEventHandler(this.dataGridViewPurchase_RowPostPaint);
             // 
+            // productsPurchaseBindingSource
+            // 
+            this.productsPurchaseBindingSource.DataMember = "ProductsPurchase";
+            this.productsPurchaseBindingSource.DataSource = this.stockManagementSystemDataSet1;
+            // 
+            // stockManagementSystemDataSet1
+            // 
+            this.stockManagementSystemDataSet1.DataSetName = "StockManagementSystemDataSet1";
+            this.stockManagementSystemDataSet1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // productsPurchaseTableAdapter
+            // 
+            this.productsPurchaseTableAdapter.ClearBeforeFill = true;
+            // 
+            // label17
+            // 
+            this.label17.AutoSize = true;
+            this.label17.Location = new System.Drawing.Point(897, 12);
+            this.label17.Name = "label17";
+            this.label17.Size = new System.Drawing.Size(163, 20);
+            this.label17.TabIndex = 3;
+            this.label17.Text = "Search By Code/Date";
+            // 
+            // textBoxSearch
+            // 
+            this.textBoxSearch.Location = new System.Drawing.Point(901, 46);
+            this.textBoxSearch.Name = "textBoxSearch";
+            this.textBoxSearch.Size = new System.Drawing.Size(169, 26);
+            this.textBoxSearch.TabIndex = 4;
+            // 
+            // SearchButton
+            // 
+            this.SearchButton.Location = new System.Drawing.Point(1093, 44);
+            this.SearchButton.Name = "SearchButton";
+            this.SearchButton.Size = new System.Drawing.Size(100, 31);
+            this.SearchButton.TabIndex = 5;
+            this.SearchButton.Text = "Search";
+            this.SearchButton.UseVisualStyleBackColor = true;
+            this.SearchButton.Click += new System.EventHandler(this.SearchButton_Click);
+            // 
             // SL
             // 
             this.SL.DataPropertyName = "Code";
             this.SL.HeaderText = "SL";
             this.SL.Name = "SL";
             // 
-            // codeDataGridViewTextBoxColumn
+            // Code
             // 
-            this.codeDataGridViewTextBoxColumn.DataPropertyName = "Code";
-            this.codeDataGridViewTextBoxColumn.HeaderText = "Code";
-            this.codeDataGridViewTextBoxColumn.Name = "codeDataGridViewTextBoxColumn";
+            this.Code.DataPropertyName = "Code";
+            this.Code.HeaderText = "Code";
+            this.Code.Name = "Code";
             // 
             // manufacturedDateDataGridViewTextBoxColumn
             // 
@@ -542,46 +582,6 @@
             this.Action.HeaderText = "Action";
             this.Action.Name = "Action";
             this.Action.Width = 124;
-            // 
-            // productsPurchaseBindingSource
-            // 
-            this.productsPurchaseBindingSource.DataMember = "ProductsPurchase";
-            this.productsPurchaseBindingSource.DataSource = this.stockManagementSystemDataSet1;
-            // 
-            // stockManagementSystemDataSet1
-            // 
-            this.stockManagementSystemDataSet1.DataSetName = "StockManagementSystemDataSet1";
-            this.stockManagementSystemDataSet1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // productsPurchaseTableAdapter
-            // 
-            this.productsPurchaseTableAdapter.ClearBeforeFill = true;
-            // 
-            // label17
-            // 
-            this.label17.AutoSize = true;
-            this.label17.Location = new System.Drawing.Point(897, 12);
-            this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(163, 20);
-            this.label17.TabIndex = 3;
-            this.label17.Text = "Search By Code/Date";
-            // 
-            // textBoxSearch
-            // 
-            this.textBoxSearch.Location = new System.Drawing.Point(901, 46);
-            this.textBoxSearch.Name = "textBoxSearch";
-            this.textBoxSearch.Size = new System.Drawing.Size(169, 26);
-            this.textBoxSearch.TabIndex = 4;
-            // 
-            // SearchButton
-            // 
-            this.SearchButton.Location = new System.Drawing.Point(1093, 44);
-            this.SearchButton.Name = "SearchButton";
-            this.SearchButton.Size = new System.Drawing.Size(100, 31);
-            this.SearchButton.TabIndex = 5;
-            this.SearchButton.Text = "Search";
-            this.SearchButton.UseVisualStyleBackColor = true;
-            this.SearchButton.Click += new System.EventHandler(this.SearchButton_Click);
             // 
             // PurchaseModule
             // 
@@ -657,8 +657,14 @@
         private System.Windows.Forms.BindingSource supplierBindingSource;
         private System.Windows.Forms.BindingSource productBindingSource;
         private System.Windows.Forms.BindingSource purchaseBindingSource;
+        private System.Windows.Forms.Label label17;
+        private System.Windows.Forms.TextBox textBoxSearch;
+        private System.Windows.Forms.Button SearchButton;
+        private System.Windows.Forms.DateTimePicker dateTimePickerSupplier;
+        private System.Windows.Forms.DateTimePicker dateTimePickerExpire;
+        private System.Windows.Forms.DateTimePicker dateTimePickerManufactured;
         private System.Windows.Forms.DataGridViewTextBoxColumn SL;
-        private System.Windows.Forms.DataGridViewTextBoxColumn codeDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Code;
         private System.Windows.Forms.DataGridViewTextBoxColumn manufacturedDateDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn expireDateDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn quantityDataGridViewTextBoxColumn;
@@ -667,11 +673,5 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn mRPDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn Remarks;
         private System.Windows.Forms.DataGridViewTextBoxColumn Action;
-        private System.Windows.Forms.Label label17;
-        private System.Windows.Forms.TextBox textBoxSearch;
-        private System.Windows.Forms.Button SearchButton;
-        private System.Windows.Forms.DateTimePicker dateTimePickerSupplier;
-        private System.Windows.Forms.DateTimePicker dateTimePickerExpire;
-        private System.Windows.Forms.DateTimePicker dateTimePickerManufactured;
     }
 }

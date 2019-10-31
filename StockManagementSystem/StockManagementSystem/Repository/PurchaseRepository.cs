@@ -100,11 +100,11 @@ namespace StockManagementSystem.Repository
             sqlConnection.Close();
             return purchases;
         }
-        public List<Purchase> SearchProductCode(Product _product)
+        public List<Purchase> SearchProductCode(Purchase _purchase)
         {
             List<Purchase> purchases=new List<Purchase>();
             SqlConnection sqlConnection = new SqlConnection(connection.connectionString);
-            string commandString = @"select Code from Product";
+            string commandString = @"select * from ProductsPurchase where Code='"+_purchase.Search+"'";
             SqlCommand sqlCommand = new SqlCommand(commandString, sqlConnection);
             sqlConnection.Open();
             SqlDataReader sqlDataReader = sqlCommand.ExecuteReader();
@@ -142,7 +142,7 @@ namespace StockManagementSystem.Repository
             //_purchase.MRP = _purchase.UnitPrice + ((25 * _purchase.UnitPrice) / 100);
             SqlConnection sqlConnection = new SqlConnection(connection.connectionString);
             string commandString = @"insert into ProductsPurchase 
-                                     values ('"+_purchase.Date+"','"+_purchase.BillInvoice+"','"+_purchase.SupplierName+"','"+_purchase.Category+"','"+_purchase.Products+"','"+_purchase.Code+"',"+_purchase.AvailableQuantity+",'"+_purchase.ManufacturedDate+"','"+_purchase.ExpireDate+"','"+_purchase.Remarks+"',"+_purchase.Quantity+","+_purchase.UnitPrice+","+_purchase.TotalPrice+","+_purchase.PreviousUnitPrice+","+_purchase.PreviousMRP+","+_purchase.MRP+","+_purchase.Profit+")";
+                                     values ('"+_purchase.Date+"','"+_purchase.BillInvoice+"','"+_purchase.SupplierName+"','"+_purchase.Category+"','"+_purchase.Products+"','"+_purchase.Code+"',"+_purchase.AvailableQuantity+",'"+_purchase.ManufacturedDate+"','"+_purchase.ExpireDate+"','"+_purchase.Remarks+"',"+_purchase.Quantity+","+_purchase.UnitPrice+","+_purchase.TotalPrice+","+_purchase.UnitPrice+","+_purchase.MRP+","+_purchase.MRP+","+_purchase.Profit+")";
             SqlCommand sqlCommand = new SqlCommand(commandString, sqlConnection);
             sqlConnection.Open();
             int isSaved = sqlCommand.ExecuteNonQuery();
@@ -352,6 +352,27 @@ namespace StockManagementSystem.Repository
             sqlConnection.Close();
             return _purchase.PreviousMRP;
         }
-
+        public int SearchProductQty(Purchase _purchase)
+        {
+            // List<Product> products=new List<Product>();
+            SqlConnection sqlConnection = new SqlConnection(connection.connectionString);
+            string commandString = @"select AvailableQty from ProductsPurchase where Products='"+_purchase.Products+"'";
+            SqlCommand sqlCommand = new SqlCommand(commandString, sqlConnection);
+            sqlConnection.Open();
+            SqlDataReader sqlDataReader = sqlCommand.ExecuteReader();
+            while (sqlDataReader.Read())
+            {
+                // Product product=new Product();
+                //suppliersPurchase.Date = sqlDataReader["Date"].ToString();
+                //product.Name=sqlDataReader["Name"].ToString();
+                _purchase.AvailableQuantity = Convert.ToInt32(sqlDataReader["AvailableQty"].ToString());
+                
+                
+                //suppliersPurchase.SupplierName = sqlDataReader["SupplierName"].ToString();
+                // products.Add(product);
+            }
+            sqlConnection.Close();
+            return _purchase.AvailableQuantity;
+        }
     }
 }

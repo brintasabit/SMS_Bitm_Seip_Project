@@ -45,9 +45,9 @@ namespace StockManagementSystem.Bill
         //    return _purchaseRepository.AddSuppliersPurchase(_suppliersPurchase);
         //}
 
-        public List<Purchase> SearchProductCode(Product _product)
+        public List<Purchase> SearchProductCode(Purchase _purchase)
         {
-            return _purchaseRepository.SearchProductCode(_product);
+            return _purchaseRepository.SearchProductCode(_purchase);
         }
 
         public bool SavePurchase(Purchase _purchase)
